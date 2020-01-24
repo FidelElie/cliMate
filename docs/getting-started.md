@@ -110,6 +110,6 @@ All of this will become easier to utilise as you go through the tutorials on off
 
 <div class="navigation-buttons">
     <div class="right-button">
-        <button class="nav-button right" type="button" onclick="location.href='./climate-targets.md';">Next Section - CliMate Targets</button>
+        <a href="./climate-targets.md">Next Section CliMate Targets</a>
     </div>
 </div>

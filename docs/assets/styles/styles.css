@@ -1,0 +1,77 @@
+.chapter-link {
+  /* color: red */
+}
+
+button {
+  padding: 15px 15px;
+  border: black 2px solid;
+  /* width: 40px;
+  height: 40px; */
+  color: rgba(0, 0, 0, 0);
+  background-color: #fff;
+  border-radius: 10px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 75%;
+  background-size: 40px auto;
+}
+
+button:hover {
+  color: #fff;
+  background-color: rgba(0, 0, 0, 75%);
+}
+
+.nav-button {
+  color: #000;
+}
+
+.toggled {
+  border: lightskyblue 2px solid;
+}
+
+.windows-button {
+  background-image: url("../images/windows-logo.png");
+}
+
+.unix-button {
+  background-image: url("../images/unix-logo.png");
+}
+
+.navigation-buttons {
+  width: 100%
+}
+
+.navigation-buttons a {
+  background-color: #fff;
+  border-radius: 10px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 75%;
+  background-size: 40px auto;
+  padding: 15px 15px;
+  border: black 2px solid;
+  color: rgba(0, 0, 0, 0);
+}
+
+.navigation-buttons a:hover {
+  color: #000;
+  border: lightskyblue 2px solid;
+}
+
+.right-button {
+  float: right;
+  width: 50%;
+}
+
+.left-button {
+  float: left;
+  width: 50%
+}
+
+.right-button a{
+  background-image: url("../images/right-arrow.png");
+}
+
+.left-button a{
+  background-image: url("../images/left-arrow.png");
+}

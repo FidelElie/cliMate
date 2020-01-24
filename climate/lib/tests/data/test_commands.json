@@ -1,0 +1,40 @@
+{
+    "commands": {
+        "test": {
+            "name": "Test Command",
+            "description": "Test command for testing",
+            "target": {},
+            "arguments": {
+                "test-arg-1": {
+                    "name": "Test Argument 1",
+                    "description": "A test argument for testing",
+                    "type": "int",
+                    "default": 22
+                },
+                "test-arg-2": {
+                    "name": "Test argument 2",
+                    "description": "A test argument for testing",
+                    "type": "bool",
+                    "default": true
+                },
+                "test-arg-3": {
+                    "name": "Test Arguments 3",
+                    "description": "A test argument for testing",
+                    "type": "list",
+                    "map": [
+                        "int",
+                        "float",
+                        "bool",
+                        "int"
+                    ],
+                    "default": [
+                        1,
+                        4.0,
+                        true,
+                        2
+                    ]
+                }
+            }
+        }
+    }
+}

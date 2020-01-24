@@ -1,0 +1,167 @@
+{
+    "general": {
+        "calls": [
+            "clm",
+            "climate"
+        ],
+        "arguments": {
+            "cli-path": {
+                "name": "Cli Path",
+                "type": "str",
+                "description": "Path to the cli.json file.",
+                "default": "cli.json"
+            },
+            "cli-dir": {
+                "name": "Cli Dir",
+                "description": "Directory Path To Where The Cli File Will Be Located",
+                "type": "str",
+                "default": ""
+            },
+            "command-name": {
+                "name": "Command Names",
+                "type": "choices",
+                "description": "Choice of command from cli.json file",
+                "map": "read {cli-path}, get keys {commands}"
+            },
+            "arg-amount": {
+                "name": "Argument Amounts",
+                "type": "int",
+                "description": "Number of arguments to add",
+                "default": 1
+            }
+        }
+    },
+    "commands": {
+        "new-app": {
+            "name": "New Command Line Application",
+            "description": "Starts The Command Line Application, Creates Cli File.",
+            "target": {
+                "type": "function",
+                "module-name": "climate.lib.actions",
+                "function-name": "new_application"
+            },
+            "arguments": {
+                "cli-dir": "cli-dir",
+                "path-commands": {
+                    "name": "Call Application Through Path Command",
+                    "description": "Determines If You Application Is Called Form A String In Path.",
+                    "type": "bool",
+                    "default": false
+                }
+            }
+        },
+        "new-command": {
+            "name": "New Command For Cli File",
+            "description": "Add new command to the cli file.",
+            "target": {
+                "type": "function",
+                "module-name": "climate.lib.actions",
+                "function-name": "new_command"
+            },
+            "arguments": {
+                "cli-path": "cli-path",
+                "arg-amount": "arg-amount",
+                "target-type": {
+                    "name": "Target Type",
+                    "type": "choices",
+                    "description": "Choice of targets.",
+                    "choices": {
+                        "--class": "Class Target Type",
+                        "--method": "Method Target Type",
+                        "--function": "Function Target Type"
+                    },
+                    "fallback": "Add Target Later"
+                }
+            }
+        },
+        "new-argument": {
+            "name": "New Argument For Existing Argument",
+            "description": "Add new argument to an existing command.",
+            "target": {
+                "type": "function",
+                "module-name": "climate.lib.actions",
+                "function-name": "new_argument"
+            },
+            "arguments": {
+                "cli-path": "cli-path",
+                "command-name": "command-name",
+                "arg-amount": "arg-amount"
+            }
+        },
+        "new-gen-argument": {
+            "name": "New General Argument",
+            "description": "Add new argument to general field in cli.json",
+            "target": {
+                "type": "function",
+                "module-name": "climate.lib.actions",
+                "function-name": "new_general_argument"
+            },
+            "arguments": {
+                "cli-path": "cli-path",
+                "arg-amount": "arg-amount"
+            }
+        },
+        "remove-command": {
+            "name": "Remove Command",
+            "description": "Remove An Existing Command",
+            "target": {
+                "type": "function",
+                "module-name": "climate.lib.actions",
+                "function-name": "remove_command"
+            },
+            "arguments": {
+                "cli-path": "cli-path",
+                "command-name": "command-name"
+            }
+        },
+        "remove-argument": {
+            "name": "Remove Command Argument",
+            "description": "Remove argument from existing command.",
+            "target": {
+                "type": "function",
+                "module-name": "climate.lib.actions",
+                "function-name": "remove_argument"
+            },
+            "arguments": {
+                "cli-path": "cli-path",
+                "command-name": "command-name",
+                "argument-name": {
+                    "name": "Argument Name",
+                    "type": "choices",
+                    "description": "Name (key) of desired argument.",
+                    "map": "read {cli-path}, get keys {commands}, return_value {cli-path}, get keys {commands|command-name|arguments}"
+                }
+            }
+        },
+        "add-menu": {
+            "name": "Add Menu To Application",
+            "description": "Add menu field to cli file to change menu layout.",
+            "target": {
+                "type": "function",
+                "module-name": "climate.lib.actions",
+                "function-name": "add_menu"
+            },
+            "arguments": {
+                "cli-path": "cli-path"
+            }
+        },
+        "add-path-command": {
+            "name": "Add Path Commands",
+            "description": "Add path commands to application by scanning setup file",
+            "target": {
+                "type": "function",
+                "module-name": "climate.lib.actions",
+                "function-name": "add_path_command"
+            },
+            "arguments": {
+                "cli-path": "cli-path",
+                "setup-path": {
+                    "name": "Setup Path",
+                    "type": "str",
+                    "description": "Path to setup.py file for python modules.",
+                    "default": "setup.py"
+                }
+            }
+        }
+    }
+}

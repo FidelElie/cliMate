@@ -1,0 +1,14 @@
+{
+    "general": {
+        "calls": [
+            "test"
+        ],
+        "arguments": {
+            "test-arg-4": {
+                "name": "Test Argument 4",
+                "description": "A fourth test argument for testing",
+                "type": "int"
+            }
+        }
+    }
+}

@@ -1,32 +1,314 @@
-.chapter-link {
-  /* color: red */
+body, html {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  opacity: 1;
+  transition: 1s opacity;
+}
+
+body.fade {
+    opacity: 0;
+    transition: none;
+}
+
+* {
+  font-family: "Fira Code";
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  display: inline;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+a:hover {
+  color: #007BA7;
+}
+
+h2 {
+  font-size: 3vh;
+}
+
+h1, h2, h3 {
+  font-family: "Roboto", sans-serif;
 }
 
 button {
-  padding: 15px 15px;
-  border: black 2px solid;
-  /* width: 40px;
-  height: 40px; */
-  color: rgba(0, 0, 0, 0);
+  border: none;
+  background: none;
+}
+
+/* ! Navbar Elements */
+
+.navbar {
+  color: black;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  transition: 0.5s;
+  z-index: 1;
+}
+
+.navbar-overlay {
+  width: 0;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  opacity: 0;
+  height: 100%;
+  position: fixed;
+  background-color: rgb(0,0,0);
+  background-color: rgba(0,0,0, 0.9);
+  overflow-x: hidden;
+  transition: 0.5s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.navbar-links {
+  text-align: center
+}
+
+.navbar-links a {
+  padding: 8px;
+  text-decoration: none;
+  font-size: 36px;
+  color: white;
+  display: block;
+  transition: 0.3s
+}
+
+.navbar-links a:hover {
+  color: #007BA7;
+}
+
+.navbar-close, .overlay-close {
+  position: absolute;
+  top: 15%;
+  right: 15%;
+  font-size: 60px;
+  color: white;
+}
+
+.navbar.background{
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
   background-color: #fff;
-  border-radius: 10px;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: 75%;
-  background-size: 40px auto;
 }
 
-button:hover {
+.navbar-container {
+  width: 60%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.navbar-logo {
+  width: 50%;
+}
+
+.navbar-logo h1 {
+  text-align: left;
+  font-size: 3vh;
+}
+
+.navbar-open {
+  width: 50%;
+  text-align: right;
+}
+
+.mdi-menu:hover {
+  color: #007BA7;
+  cursor: pointer;
+}
+
+/* ! Section Elements */
+
+.opening-section, .installation-section, .features-section, .example-section, .tutorials-section {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.footer {
+  width: 100%;
+  height: 30%;
+}
+
+/* ! Opening Section */
+
+.opening-content {
+  width: 80%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.opening-image, .opening-copy {
+  width: 50%;
+}
+
+.opening-copy {
+  padding: 0 50px;
+  margin-left: 20px;
+}
+
+.opening-copy h2 {
+  font-size: 3vh;
+  padding-bottom: 10px;
+}
+
+.opening-image {
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+}
+
+.opening-image:hover {
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.5);
+}
+
+.mdi-chevron-down {
+  font-size: 40px;
+}
+
+/* ! Features Section */
+
+.features-content {
+  height: 80%;
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.features-options {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.features-card {
+  width: 30%;
+  margin: 0 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: rgba(0, 0, 0, 0);
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  cursor: pointer;
+}
+
+.features-card:after {
+  content: "";
+  display: block;
+  padding-bottom: 100%;
+}
+
+.features-card:hover {
   color: #fff;
-  background-color: rgba(0, 0, 0, 75%);
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.5);
 }
 
-.nav-button {
-  color: #000;
+.features-text {
+  font-size: 1.5vh;
+  text-align: center;
+  position: absolute;
+  color: rgba(255, 255, 255, 90%);
 }
 
-.toggled {
-  border: lightskyblue 2px solid;
+.feature-gif {
+  width: 100%;
+  height: 100%;
+}
+
+/* ! Installation Section */
+.installation-section {
+  flex-direction: column;
+}
+
+.installation-content {
+  height: 100%;
+  width: 80%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.installation-instructions, .installation-copy {
+  width: 50%;
+}
+
+.installation-instructions {
+  margin-right: 50px;
+}
+
+.cp-code-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #21252B;
+  margin: 30px 0;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.5s;
+}
+
+.cp-code-block:hover {
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.8);
+}
+
+.code-block {
+  padding: 5px 0;
+  background-color: #282C34;
+  margin: 30px 0;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.5s;
+}
+
+.cp-code-block:hover {
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.5);
+}
+
+.platform-buttons {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.windows-button, .unix-button {
+  width: 50%;
+  padding: 15px 15px;
+  border: none;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  color: rgba(0, 0, 0, 0);
+  cursor: pointer;
 }
 
 .windows-button {
@@ -34,44 +316,369 @@ button:hover {
 }
 
 .unix-button {
-  background-image: url("../images/unix-logo.png");
+  background-image: url("../images/apple-logo.png");
 }
 
-.navigation-buttons {
-  width: 100%
+.code-container {
+  background-color:#282C34;
+  color: white;
+  width: 100%;
+  text-indent: 10%;
 }
 
-.navigation-buttons a {
-  background-color: #fff;
-  border-radius: 10px;
+/* ! Example Section */
+.example-content {
+  height: 80%;
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.example-contents {
+  height: 65%;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+  align-content: flex-start;
+}
+
+.example-card {
+  width: 30%;
+  margin: 1%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: #282C34;
+  margin-top: 0;
+  align-items: center;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+}
+
+.example-card:hover {
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.8);
+}
+
+.example-titles {
+  width: 100%;
+  height: 6%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.title-card {
+  width: 30%;
+  height: 100%;
+  margin: 1%;
+  background-color: #21252B;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.example-local {
+  width: 100%;
+  height: 100%;
+  color: #fff;
+  text-indent: 25px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-left: 50px;
+}
+
+.example-code {
+  height: 100%;
+  padding: 0 20px;
+  padding-top: 20px;
+  color: white;
+  line-height: 8px;
+}
+
+.example-code p {
+  font-size: 1.3vh;
+}
+
+/* * Indent Classes */
+
+.indent-1 {
+  text-indent: 10px;
+}
+
+.indent-2 {
+  text-indent: 20px;
+}
+
+.indent-3 {
+  text-indent: 30px;
+}
+
+.indent-4 {
+  text-indent: 40px;
+}
+
+.indent-5 {
+  text-indent: 50px;
+}
+
+/* * Code Colors */
+
+.ic {
+  color: #CEAE72;
+}
+
+.fc {
+  color: #4992DA;
+}
+
+.sc {
+  color: #8AC365;
+}
+
+.pc {
+  color: #B78C4C;
+}
+
+.cc {
+  color: #C272D9;
+}
+
+.dc {
+  color: #C26C60;
+}
+
+.mc {
+  color: #43B6A7;
+}
+
+/* * General Example Classes */
+.small-logo {
+  width: 30px;
+  height: 30px;
+  background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-  background-size: 75%;
-  background-size: 40px auto;
-  padding: 15px 15px;
-  border: black 2px solid;
-  color: rgba(0, 0, 0, 0);
 }
 
-.navigation-buttons a:hover {
-  color: #000;
-  border: lightskyblue 2px solid;
+.json-logo{
+  background-image: url("../images/index/json-logo.png");
 }
 
-.right-button {
-  float: right;
+.python-logo {
+  background-image: url("../images/index/python-logo.png");
+}
+
+.terminal-logo {
+  background-image: url("../images/index/terminal-logo.png")
+}
+
+/* ! Tutorials Section */
+
+.tutorials-content {
+  height: 80%;
+  width: 80%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.tutorials-slider, .tutorials-copy {
   width: 50%;
 }
 
-.left-button {
-  float: left;
-  width: 50%
+.tutorials-copy {
+  padding: 0 50px;
 }
 
-.right-button a{
-  background-image: url("../images/right-arrow.png");
+/* ! General */
+
+.title-sector {
+  height: 10%;
+  width: 100%;
+  margin-bottom: 5%;
 }
 
-.left-button a{
-  background-image: url("../images/left-arrow.png");
+.title-sector h2{
+  font-size: 3vh;
+  text-align: center;
+  margin: 0;
+}
+
+.title-sector p {
+  text-align: center;
+  font-size: 1.5vh;
+}
+
+.responsive {
+  width: 100%;
+  height: auto;
+}
+
+.hidden {
+  display: none;
+  opacity: 0;
+}
+
+.toggled {
+  background-color: #007BA7;
+}
+
+.navigation-arrow {
+  position: absolute;
+  bottom: 5%;
+}
+
+.navigation-arrow:hover {
+  color: #007BA7;
+}
+
+.generic-overlay {
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  opacity: 0;
+  height: 0;
+  position: fixed;
+  background-color: rgb(0, 0, 0);
+  overflow-x: hidden;
+  transition: 0.5s;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  background-size: cover;
+  /* background-position: center; */
+}
+
+#declarative-c-overlay {
+  background-image: url("../images/index/declarative-commands.jpg");
+}
+
+#structured-m-overlay {
+  background-image: url("../images/index/structured-menus.jpg");
+}
+
+#quick-p-overlay {
+  background-image: url("../images/index/quick-prototyping.jpg");
+  background-position: bottom;
+}
+
+/* ? Media Queries */
+
+@media only screen and (max-width: 500px) {
+  .navbar-links {
+    display: none;
+  }
+
+  .navbar {
+    height: 8%;
+  }
+
+  /* ! Opening Section */
+  .opening-content {
+    width: 90%;
+    flex-direction: column;
+  }
+  .opening-copy {
+    padding: 0;
+    margin: 0;
+    width: 100%;
+  }
+  .opening-image {
+    width: 100%;
+  }
+
+  /* ! Features Section */
+
+  .features-content {
+    width: 90%;
+  }
+
+  .features-options {
+    flex-direction: column;
+    height: 90%;
+  }
+
+  .features-card {
+    width: 100%;
+    height: 30%;
+    margin: 5%;
+    color: black;
+    overflow: hidden;
+  }
+
+  .features-text {
+    font-size: 2vh;
+  }
+
+  .features-card:after {
+    display: none;
+  }
+
+  .feature-gif {
+    height: 250%;
+  }
+
+  /* ! Installation Section */
+
+  .installation-content {
+    width: 90%;
+    flex-direction: column;
+  }
+
+  .installation-copy, .installation-instructions {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
+  /* ! Example Section */
+  .example-content {
+    width: 90%;
+  }
+
+  .example-titles {
+    flex-direction: column;
+    height: 20%;
+  }
+
+  .example-contents {
+    min-height: 80%;
+  }
+
+  .title-card {
+    width: 100%;
+    height: 30%;
+    margin: 0;
+    padding: 2px 0;
+  }
+
+  .example-card:not(.visible) {
+    display: none;
+  }
+
+  .example-card {
+    width: 100%;
+    margin: 0;
+  }
+
+  .example-code {
+    padding-top: 0;
+  }
+
+  .example-code p {
+    font-size: 1.7vh;
+  }
+
+  .selected {
+    background-color: #007BA7;
+  }
 }

@@ -1,0 +1,216 @@
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Fira+Code|Lato&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css"
+    href="https://cdn.materialdesignicons.com/5.0.45/css/materialdesignicons.min.css"/>
+    <link rel="stylesheet" href="docs/assets/styles/styles.css">
+
+    <title>CliMate - A Different Way To Make Command Line Applications</title>
+</head>
+
+<body class="fade">
+    <div class="navbar">
+        <div class="navbar-container">
+            <div class="navbar-logo">
+                <h1><a class="scroll-link" href="#opening-section"><h1>CliMate</h1></a></h1>
+            </div>
+            <div class="navbar-open">
+                <span class="mdi mdi-menu mdi-36px"></span>
+            </div>
+        </div>
+    </div>
+    <div class="navbar-overlay">
+        <a href="javascript:void(0)" class="navbar-close mdi mdi-close"></a>
+        <div class="navbar-links">
+            <a class="scroll-link" href="#opening-section">Introduction</a>
+            <a class="scroll-link" href="#features-section">Features</a>
+            <a class="scroll-link" href="#installation-section">Installation</a>
+            <a class="scroll-link" href="#example-section">Example</a>
+            <a class="scroll-link" href="#tutorials-section">Tutorial</a>
+        </div>
+    </div>
+    <div class="generic-overlay" id="declarative-c-overlay">
+        <a href="javascript:void(0)" class="overlay-close mdi mdi-close" id="declarative-c-close"></a>
+    </div>
+    <div class="generic-overlay" id="structured-m-overlay">
+        <a href="javascript:void(0)" class="overlay-close mdi mdi-close" id="structured-m-close"></a>
+    </div>
+    <div class="generic-overlay" id="quick-p-overlay">
+        <a href="javascript:void(0)" class="overlay-close mdi mdi-close" id="quick-p-close"></a>
+    </div>
+    <div class="opening-section">
+        <div class="opening-content">
+            <div class="opening-image">
+                <!-- ! Make this a gif of using the clm -->
+                <img src="docs/assets/images/index/gifs/climate-opening-sequence.gif" alt="Opening cmd" class="responsive">
+            </div>
+            <div class="opening-copy">
+                <h2>A Different Way To Create Command Line Applications</h2>
+                <p>CliMate is a utility for creating robust and easily extensible command line applications. It follows different procedures to the usual command line creations and offers its own unique features. Written in Python and utilising JSON the utility put user choice first.</p>
+            </div>
+        </div>
+        <div class="navigation-arrow">
+            <a href="#features-section" class="scroll-link"><span class="mdi mdi-chevron-down"></span></a>
+        </div>
+    </div>
+    <div class="features-section">
+        <div class="features-content">
+            <div class="title-sector">
+                <h2>Features</h2>
+            </div>
+            <div class="features-options">
+                <div class="features-card" id="declarative-c">
+                    <img src="docs/assets/images/index/gifs/dc-sequence-short.gif" class="feature-gif">
+                    <div class="features-text">Declarative Commands</div>
+                </div>
+                <div class="features-card" id="structured-m">
+                    <img src="docs/assets/images/index/gifs/sm-sequence-short.gif" class="feature-gif">
+                    <div class="features-text">Structured Menus</div>
+                </div>
+                <div class="features-card" id="quick-p">
+                    <img src="docs/assets/images/index/gifs/qp-sequence-short.gif" class="feature-gif">
+                    <div class="features-text">Quick Prototyping</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="installation-section">
+        <div class="installation-content">
+            <div class="installation-instructions">
+                <div class="cp-code-block" id="installation-instructions">
+                    <div class="platform-buttons">
+                        <button type="button" class="platform-button windows-button toggled">
+                            Windows
+                        </button>
+                        <button type="button" class="platform-button unix-button">
+                            Unix
+                        </button>
+                    </div>
+                    <div class="code-container">
+                        <div class="windows-option">
+                            <p>> pip install climate</p>
+                        </div>
+                        <div class="unix-option hidden">
+                            <p>> pip3 install climate</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="code-block">
+                    <div class="code-container">
+                        <p>> clm</p>
+                    </div>
+                </div>
+            </div>
+            <div class="installation-copy">
+                <h2>Installation</h2>
+                <p>CliMate can be installed as easily as any other package using the python package manager <i>pip</i>. Drop the first command into your terminal and let pip do the rest. After the installation is finished, drop the second command in to get started.</p>
+            </div>
+        </div>
+    </div>
+    <div class="example-section">
+        <div class="example-content">
+            <div class="title-sector">
+                <h2>Minimal Example</h2>
+                <p>Click the code blocks to copy them to your clipboard.</p>
+            </div>
+            <div class="example-titles">
+                <div class="title-card selected">
+                    <div class="example-local">
+                        <span class="small-logo json-logo"></span><p>cli.json</p>
+                    </div>
+                </div>
+                <div class="title-card">
+                    <div class="example-local">
+                        <span class="small-logo python-logo"></span><p>cli.py</p>
+                    </div>
+                </div>
+                <div class="title-card">
+                    <div class="example-local">
+                        <span class="small-logo terminal-logo"></span><p>terminal</p>
+                    </div>
+                </div>
+            </div>
+            <div class="example-contents">
+                <div class="example-card visible">
+                    <div class="example-code">
+                        <p>{</p>
+                        <p class="indent-1"><span class="dc">"general"</span>: {},</p>
+                        <p class="indent-1"><span class="dc">"commands"</span>: {</p>
+                        <p class="indent-2"><span class="dc">"say-hello"</span>: {</p>
+                        <p class="indent-3"><span class="dc">"name"</span>: <span class="sc">"Say Hello"</span>,</p>
+                        <p class="indent-3"><span class="dc">"description"</span>: <span class="sc">"Say Hello To Someone"</span>,</p>
+                        <p class="indent-3"><span class="dc">"target"</span>: {</p>
+                        <p class="indent-4"><span class="dc">"type"</span>: <span class="sc">"function"</span></p>
+                        <p class="indent-3">},</p>
+                        <p class="indent-3"><span class="dc">"arguments"</span>: {</p>
+                        <p class="indent-4"><span class="dc">"someone"</span>: {</p>
+                        <p class="indent-5"><span class="dc">"name"</span>: <span class="sc">"Desired Name"</span>,</p>
+                        <p class="indent-5"><span class="dc">"description"</span>: <span class="sc">"Name You Desire"</span>,</p>
+                        <p class="indent-5"><span class="dc">"type"</span>:<span class="sc">"str"</span>,</p>
+                        <p class="indent-5"><span class="dc">"default"</span>: <span class="sc">"World"</span></p>
+                        <p class="indent-4">}</p>
+                        <p class="indent-3">}</p>
+                        <p class="indent-2">}</p>
+                        <p class="indent-1">}</p>
+                        <p>}</p>
+                    </div>
+                </div>
+                <div class="example-card">
+                    <div class="example-code">
+                        <p><span class="cc">from</span> climate <span class="cc"><i>import</i></span> CliMate</p>
+                        <br>
+                        <p><span class="cc">def</span> <span class="fc">say_hello</span>(<span  class="pc"><i>someone</i></span>):</p>
+                        <p class="indent-2"><span class="mc">print</span>(<span class=sc>"Hello, <span class="pc">{}</span>!"</span>.<span class="fc">format</span>(someone))</p>
+                        <br>
+                        <p><span class="cc">if</span> <span class="dc">__name__</span> == <span class="sc">"__main__"</span>:</p>
+                            <p class="indent-2">climate = <span class="fc">CliMate</span>(<span class="sc">"cli.json"</span>)</p>
+                            <p class="indent-2">climate.<span class="fc">parse_args</span>()</p>
+                    </div>
+                </div>
+                <div class="example-card">
+                    <div class="example-code">
+                        <p>> <span class="ic">python</span> cli.py say-hello</p>
+                        <p>Hello, World!</p>
+                        <br>
+                        <p>> <span class="ic">python</span> cli.py say-hello Henry</p>
+                        <p>Hello, Henry!</p>
+                        <br>
+                        <p>> <span class="ic">python</span> cli.py</p>
+                        <p>? Main Menu <span class="ic">Say Hello To Someone</span></p>
+                        <p>? Desired Name (World) <span class="ic">Fabian</span></p>
+                        <p>Hello, Fabian!</p>
+                        <br>
+                        <p>> <span class="ic">python</span> cli.py help --commands</p>
+                        <p>-Entry-</p>
+                        <p>-cli.py- [command] {argument}</p>
+                        <p>[Commands]</p>
+                        <p>say-hello {name}: Say Hello To Someone</p>
+                        <p>help {optional-help}: Get Help</p>
+                        <p>{Arguments(s)}</p>
+                        <p>name (str): Name You Desire</p>
+                        <p>optional-help (choices) --docs|--commands</p>
+                        <br>
+                        <p>></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="tutorials-section">
+        <div class="tutorials-content">
+            <div class="tutorials-copy">
+                <h2>Tutorial</h2>
+                <p>This tutorial will run through the procedure for making cli applications with CliMate. What better way to learn how to use it then looking at itself. </p>
+            </div>
+            <div class="tutorials-slider">
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8=" crossorigin="anonymous"></script>
+
+    <script src="docs/assets/js/index.js"></script>
+</body>

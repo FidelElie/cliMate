@@ -57,7 +57,7 @@ class Menu(object):
         menu_message = app_name if app_name is not None else "Main Menu"
 
         command_menu_name = inquirers.inquirer_list(
-            menu_names, menu_message, self.settings["style_data"])
+            menu_names, menu_message)
 
         if command_menu_name in command_names:
             command_name_index = command_names.index(command_menu_name)
@@ -87,7 +87,7 @@ class Menu(object):
 
             if isinstance(local, dict):
                 local_func, local_args = inquirers.get_inquirer("list")
-                local_args["list"] = local
+                local_args["choices"] = local
                 if self.current_local:
                     local["Back"] = "navigate_back"
                     local_args["message"] = self.current_local[-1]
@@ -100,14 +100,13 @@ class Menu(object):
                     app_name = self.settings["app_name"]
                     local_args["message"] = \
                         app_name if app_name is not None else "Main Menu"
-
                 nav_point = local_func(**local_args)
                 self.current_local += [nav_point]
             elif isinstance(local, str):
                 try:
                     self.navigate_back()
                     if local not in [*self.cli_data["commands"]]:
-                        command_found = True
+                        command_found = False
                         getattr(self, local)()
                     else:
                         command_found = True
@@ -116,9 +115,9 @@ class Menu(object):
 
                         args = chosen_comamnd["arguments"]
                         resolved_arguments = \
-                            ParsingHandler.resolve_command_arguments(args)
+                            Parsing.resolve_command_arguments(args, self.cli_data)
                         arguments = self.menu_arguments(resolved_arguments)
-                        ParsingHandler.call_target(command_target, arguments)
+                        Parsing.call_target(command_target, arguments)
                 except KeyError:
                     TypeError("Error in chosen command.")
             else:
@@ -126,7 +125,7 @@ class Menu(object):
 
             if command_found:
                 if self.settings["exit_upon_command"]:
-                    self.exit_applicaiton()
+                    sys.exit()
 
     def open_help_menu(self):
         help_func, help_args = inquirers.get_inquirer("choices")
@@ -141,7 +140,7 @@ class Menu(object):
         help_method_string = self.help_mapper[help_choice]
         getattr(help_handler, help_method_string)()
 
-    def exit_applicaiton(self):
+    def exit_application(self):
         print("Exiting Application")
         sys.exit(0)
 
@@ -182,8 +181,10 @@ class Menu(object):
             for arg in command_args:
                 inquirer_function, inquirer_args = \
                     inquirers.get_inquirer(command_args[arg]["type"])
-
                 inquirer_args["message"] = command_args[arg]["name"]
+
+                if "default" in command_args[arg]:
+                    inquirer_args["message"] = "{} ({})".format(inquirer_args["message"], command_args[arg]["default"])
 
                 if command_args[arg]["type"] == "choices":
                     if "map" in command_args[arg]:
@@ -204,10 +205,31 @@ class Menu(object):
                                     return None
                                 else:
                                     return command_args[arg]["default"]
+                            else:
+                                choices = command_args[arg]["choices"]
+                                return list(choices.keys())[
+                                    list(choices.values()).index(x)]
 
                         inquirer_args["lambda_filter"] = fallback
+                else:
+                    if "default" in command_args[arg]:
+                        if "lambda_filter" in inquirer_args:
+
+                            def full_conversion(x):
+                                x = command_args[arg]["default"] if x.strip() is "" else x
+                                if command_args[arg]["type"] == "float":
+                                    return float(x)
+                                elif command_args[arg]["type"] == "int":
+                                    return int(x)
+                                else:
+                                    return x
+
+                            inquirer_args["lambda_filter"] = full_conversion
+                        else:
+                            inquirer_args["lambda_filter"] = lambda x: command_args[arg]["default"] if x.strip() is "" else x
 
                 arguments[arg] = inquirer_function(**inquirer_args)
+
         except KeyError:
             raise KeyError(f"Invalid Command argument '{arg}'")
 

@@ -37,6 +37,8 @@ TARGETS = {
     }
 }
 
+# TODO fix and check over all the actions
+
 def new_application(cli_dir: str, path_commands: bool):
     """Creates new cli applicaiton, creates the cli.json file.
 
@@ -105,7 +107,7 @@ def new_command(cli_path: str, arg_amount: int, target_type: str):
 
     cli_commands[f"new-command-{command_amount + 1}"] = command_contents
 
-    cli_present.update(cli_commands)
+    cli_present["commands"] = cli_commands
 
     utilities.write_json(cli_path, cli_present)
 
@@ -131,8 +133,14 @@ def new_argument(cli_path: str, command_name: str, arg_amount: int):
 
     if arg_amount != 0:
         arguments_to_add = {}
+        if "arguments" in chosen_command:
+            current_arg_amount = len(chosen_command["arguments"])
+        else:
+            current_arg_amount = 0
+
         for i in range(arg_amount):
-            arguments_to_add[f"new-argument-{i}"] = ARGUMENT_CONTENT.copy()
+            arguments_to_add[
+                f"new-argument-{i + current_arg_amount}"] = ARGUMENT_CONTENT.copy()
     else:
         raise ValueError("No number of arguments were added.")
 
@@ -144,7 +152,7 @@ def new_argument(cli_path: str, command_name: str, arg_amount: int):
         chosen_command["arguments"] = arguments_to_add
 
     cli_commands[command_name] = chosen_command
-    cli_present.update(cli_commands)
+    cli_present["commands"] = cli_commands
 
     utilities.write_json(cli_path, cli_present)
 

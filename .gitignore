@@ -1,4 +1,4 @@
 scripts/
 environment/
-
 .vscode/
+__pycache__/

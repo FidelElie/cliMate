@@ -113,7 +113,7 @@ def inquirer_list(choices = None, message = None, lambda_filter = None):
 
     return prompt(inq_list)["value"]
 
-def inquirer_input(message = None, validator = None, lambda_filter = None,                          default = None):
+def inquirer_input(message = None, validator = None, lambda_filter = None,default = None):
     """Creates input value from Pyinquirer input prompt.
 
     Parameters
@@ -152,10 +152,7 @@ def inquirer_input(message = None, validator = None, lambda_filter = None,      
         inq_input["filter"] = lambda_filter
 
     if default is not None:
-        if isinstance(default, bool):
-            inq_input["default"] = default
-        else:
-            raise TypeError("Inquirer Input Default Argument Expected Boolean")
+        inq_input["default"] = default
 
     return prompt(inq_input)["value"]
 
@@ -316,19 +313,17 @@ INQUIRER_TABLE = {
     },
     "list": {
         "name": "List",
-        "function": list_creation
+        "function": inquirer_list
     },
     "choices": {
         "name": "Choices",
         "function": inquirer_list
-        # choices
-        # lambda_filter
     },
     "int": {
         "name": "Integer",
         "function": inquirer_input,
         "validator": IntValidator,
-        "lambda_filter": lambda x: int(x)
+        "lambda_filter": lambda x: float(x)
     },
     "float": {
         "name": "Float",

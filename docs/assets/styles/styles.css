@@ -489,12 +489,20 @@ button {
   justify-content: center;
 }
 
-.tutorials-slider, .tutorials-copy {
+.tutorials-image, .tutorials-copy {
   width: 50%;
 }
 
 .tutorials-copy {
   padding: 0 50px;
+}
+
+.tutorials-image {
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+}
+
+.tutorial-link {
+  color: #007bff;
 }
 
 /* ! General */
@@ -555,7 +563,7 @@ button {
   align-items: center;
   justify-content: center;
   background-size: cover;
-  /* background-position: center; */
+  background-position: center;
 }
 
 #declarative-c-overlay {

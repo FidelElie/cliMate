@@ -1,5 +1,7 @@
 <link rel="stylesheet" src="docs/styles/styles.css">
 
+[Website]("https://https://fidelelie.github.io/cliMate/")
+
 # CliMate
 A different way of creating command line applications.
 

@@ -21,8 +21,13 @@ $(document).ready(function() {
   })
 
   $(window).scroll(function () {
-    if ($(this).scrollTop() > 25) {
+    footer = document.getElementsByClassName("footer")[0];
+    if ($(this).scrollTop() > 25 && $(this).scrollTop() < footer.offsetTop) {
       $(".navbar").addClass("background");
+      $(".navbar").removeClass("dark");
+    } else if ($(this).scrollTop() == footer.offsetTop) {
+      $(".navbar").removeClass("background")
+      $(".navbar").addClass("dark")
     } else {
       $(".navbar").removeClass("background");
     }
@@ -49,6 +54,8 @@ $(document).ready(function() {
     e.preventDefault();
     closeOverlay(this);
   })
+
+  setInterval(flipTutorialsCard , 4000);
 })
 
 function scrollToSection(link) {
@@ -122,4 +129,13 @@ function closeOverlay(close_button) {
   let overlay = document.getElementById(`${truncated_id}-overlay`);
   overlay.style.height = "0%";
   overlay.style.opacity = "0";
+}
+
+function flipTutorialsCard() {
+  let card_inner = document.getElementsByClassName("flip-card-inner")[0];
+  if (card_inner.style.transform == "") {
+    card_inner.style.transform = "rotateY(180deg)";
+  } else {
+    card_inner.style.transform = ""
+  }
 }

@@ -63,6 +63,14 @@ button {
   z-index: 1;
 }
 
+.navbar.dark {
+  color: white;
+}
+
+.navbar.dark h1 {
+  color: white;
+}
+
 .navbar-overlay {
   width: 0;
   top: 0;
@@ -121,11 +129,31 @@ button {
 
 .navbar-logo {
   width: 50%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
 
 .navbar-logo h1 {
   text-align: left;
   font-size: 3vh;
+}
+
+.logo {
+  width: 25%;
+}
+
+.pronunciation {
+  width: 75%;
+  position: relative;
+  opacity: 0;
+  transition: 0.5s;
+  left: -50px;
+}
+
+.navbar-logo:hover .pronunciation {
+  opacity: 1;
+  left: 0;
 }
 
 .navbar-open {
@@ -136,6 +164,10 @@ button {
 .mdi-menu:hover {
   color: #007BA7;
   cursor: pointer;
+}
+
+.pronunciation {
+  display: inline-block;
 }
 
 /* ! Section Elements */
@@ -151,7 +183,8 @@ button {
 
 .footer {
   width: 100%;
-  height: 30%;
+  height: 100%;
+  background-color: #282C34;
 }
 
 /* ! Opening Section */
@@ -489,20 +522,46 @@ button {
   justify-content: center;
 }
 
-.tutorials-image, .tutorials-copy {
+.tutorials-copy {
+  padding: 0 75px;
   width: 50%;
 }
 
-.tutorials-copy {
-  padding: 0 50px;
-}
-
-.tutorials-image {
+.tutorials-flip {
+  background-color: #282C34;
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  width: 400px;
+  height: 400px;
+  padding: 20px
 }
 
 .tutorial-link {
   color: #007bff;
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+.flip-card-front, .flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  background-color: #282C34;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.flip-card-back {
+  transform: rotateY(180deg);
 }
 
 /* ! General */
@@ -690,3 +749,18 @@ button {
     background-color: #007BA7;
   }
 }
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {}

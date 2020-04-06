@@ -49,7 +49,7 @@ def new_application(cli_dir: str, path_commands: bool):
     path_commands: bool
         Whether the calls field should be added to the cli.json file.
     """
-    if cli_dir != "":
+    if cli_dir is not "":
         if not os.path.isdir(cli_dir):
             os.makedirs(cli_dir)
 
@@ -59,14 +59,14 @@ def new_application(cli_dir: str, path_commands: bool):
 
     if path_commands:
         path_command = {"calls": []}
-        cli_contents["general"] = path_command
+        cli_contents["general"].update(path_command)
 
-    cli_contents["general"] = {"arguments": { }}
+    cli_contents["general"].update({"arguments": {}})
 
     utilities.write_json(path, cli_contents)
 
-    print(
-        "New CliMate application created at {}".format("root" if cli_dir == "" else cli_dir))
+    print("CliMate App Created In {}".format(
+        "Root" if cli_dir is "" else cli_dir))
 
 def new_command(cli_path: str, arg_amount: int, target_type: str):
     """Add a new command to the cli.json file.

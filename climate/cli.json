@@ -13,7 +13,7 @@
             },
             "cli-dir": {
                 "name": "Cli Dir",
-                "description": "Directory Path To Where The Cli File Will Be Located",
+                "description": "Directory Path To Where The Cli File",
                 "type": "str",
                 "default": ""
             },
@@ -34,7 +34,7 @@
     "commands": {
         "new-app": {
             "name": "New Command Line Application",
-            "description": "Starts The Command Line Application, Creates Cli File.",
+            "description": "Starts The Command Line Application, Creating Cli File",
             "target": {
                 "type": "function",
                 "module-name": "climate.lib.actions",

@@ -1,6 +1,6 @@
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <link href="https://fonts.googleapis.com/css?family=Fira+Code|Lato&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css"
@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="docs/assets/styles/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
 
-    <title>CliMate - A Different Way To Make Command Line Applications</title>
+    <title>CliMate</title>
 </head>
 
 <body class="fade">
@@ -43,15 +43,51 @@
     </div>
     <div class="generic-overlay" id="declarative-c-overlay">
         <a href="javascript:void(0)" class="overlay-close mdi mdi-close" id="declarative-c-close"></a>
+        <div class="overlay-container">
+            <div class="gif-container">
+                <img src="docs/assets/images/index/gifs/dc-sequence-short.gif" class="responsive" alt="Overlay Declarative Commands">
+            </div>
+            <div class="copy-container">
+                <div class="overlay-copy">
+                    <h1>Declarative Commands</h1>
+                    <p><i>Create New Commands Intuitively and With Ease</i></p>
+                    <p>CliMate introduces its own JSON&trade; system, to create commands for your cli applications. Each key allows you to keep track of your progress. Easily scale your application when more commands are needed and keep everything readable in your development all through the content delivery system that powers the web.</p>
+                </div>
+            </div>
+        </div>
     </div>
     <div class="generic-overlay" id="structured-m-overlay">
         <a href="javascript:void(0)" class="overlay-close mdi mdi-close" id="structured-m-close"></a>
+        <div class="overlay-container">
+            <div class="gif-container">
+                <img src="docs/assets/images/index/gifs/sm-sequence-short.gif" class="responsive" alt="Overlay Structured Menus">
+            </div>
+            <div class="copy-container">
+                <div class="overlay-copy">
+                    <h1>Structured Menus</h1>
+                    <p><i>Keep Your User Experience World Class With CliMate Menus</i></p>
+                    <p>One of the premier features of the library. Dynamically create menus based on the commands you have written. As your application gets more complex organise your commands into groups. Keep your users spoilt for choice and happy interacting with your applications.</p>
+                </div>
+            </div>
+        </div>
     </div>
     <div class="generic-overlay" id="quick-p-overlay">
         <a href="javascript:void(0)" class="overlay-close mdi mdi-close" id="quick-p-close"></a>
+        <div class="overlay-container">
+            <div class="gif-container">
+                <img src="docs/assets/images/index/gifs/qp-sequence-short.gif" class="responsive" alt="Overlay Quick Prototyping">
+            </div>
+            <div class="copy-container">
+                <div class="overlay-copy">
+                    <h1>Quick Prototyping</h1>
+                    <p><i>Meet And Exceed Deadlines With CliMate Convenience</i></p>
+                    <p>We know you're busy writing your latest masterpieces and CliMate should help and not hinder this workflow. Use CliMate's built in convenience commands to structure your CLI files quickly and focus on creating the commands for your applications.</p>
+                </div>
+            </div>
+        </div>
     </div>
     <div class="opening-section">
-        <div class="opening-content">
+        <div class="opening-content animated" data-anim="slideInLeft">
             <div class="opening-image">
                 <!-- ! Make this a gif of using the clm -->
                 <img src="docs/assets/images/index/gifs/climate-opening-sequence.gif" alt="Opening cmd" class="responsive">
@@ -66,7 +102,7 @@
         </div>
     </div>
     <div class="features-section">
-        <div class="features-content">
+        <div class="features-content animated" data-anim="slideInUp">
             <div class="title-sector">
                 <h2>Features</h2>
             </div>
@@ -87,7 +123,7 @@
         </div>
     </div>
     <div class="installation-section">
-        <div class="installation-content">
+        <div class="installation-content animated" data-anim="slideInRight">
             <div class="installation-instructions">
                 <div class="cp-code-block" id="installation-instructions">
                     <div class="platform-buttons">
@@ -120,11 +156,11 @@
         </div>
     </div>
     <div class="example-section">
-        <div class="example-content">
+        <div class="example-content animated" data-anim="slideInUp">
             <div class="title-sector">
                 <h2>Minimal Example</h2>
-                <p>Click the code blocks to copy them to your clipboard.</p>
             </div>
+            <p>Click the code blocks to copy them to your clipboard.</p>
             <div class="example-titles">
                 <div class="title-card selected">
                     <div class="example-local">
@@ -201,15 +237,13 @@
                         <p>{Arguments(s)}</p>
                         <p>name (str): Name You Desire</p>
                         <p>optional-help (choices) --docs|--commands</p>
-                        <br>
-                        <p>></p>
                     </div>
                 </div>
             </div>
         </div>
     </div>
     <div class="tutorials-section">
-        <div class="tutorials-content">
+        <div class="tutorials-content animated" data-anim="slideInLeft">
             <div class="tutorials-copy">
                 <h2>Tutorial</h2>
                 <p>This tutorial will run through the procedure for making cli applications with CliMate. What better way to learn how to use it then looking at its guts. </p>
@@ -230,7 +264,6 @@
     <div class="footer">
 
     </div>
-
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
         integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8=" crossorigin="anonymous"></script>
 

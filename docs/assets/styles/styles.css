@@ -1,6 +1,7 @@
 body, html {
   margin: 0;
   padding: 0;
+  width: 100%;
 }
 
 body {
@@ -30,6 +31,7 @@ li {
 a {
   text-decoration: none;
   color: black;
+  transition: 0.3s
 }
 
 a:hover {
@@ -47,6 +49,10 @@ h1, h2, h3 {
 button {
   border: none;
   background: none;
+}
+
+img {
+  box-sizing: border-box;
 }
 
 /* ! Navbar Elements */
@@ -112,6 +118,7 @@ button {
   right: 15%;
   font-size: 60px;
   color: white;
+  z-index: 4;
 }
 
 .navbar.background{
@@ -154,6 +161,10 @@ button {
 .navbar-logo:hover .pronunciation {
   opacity: 1;
   left: 0;
+}
+
+.navbar-logo:hover h1 {
+  color: #007BA7;
 }
 
 .navbar-open {
@@ -234,6 +245,12 @@ button {
   justify-content: center;
 }
 
+.features-content > p {
+  text-align: center;
+  margin: 0;
+  font-size: 2vh;
+}
+
 .features-options {
   width: 100%;
   display: flex;
@@ -251,6 +268,7 @@ button {
   color: rgba(0, 0, 0, 0);
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
   cursor: pointer;
+  border: none;
 }
 
 .features-card:after {
@@ -261,6 +279,7 @@ button {
 
 .features-card:hover {
   color: #fff;
+  border: 1px #007BA7 solid;
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.5);
 }
 
@@ -282,7 +301,7 @@ button {
 }
 
 .installation-content {
-  height: 100%;
+  height: 80%;
   width: 80%;
   display: flex;
   flex-direction: row;
@@ -413,6 +432,7 @@ button {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  overflow: hidden;
 }
 
 .example-local {
@@ -432,6 +452,7 @@ button {
   padding-top: 20px;
   color: white;
   line-height: 8px;
+  white-space: nowrap;
 }
 
 .example-code p {
@@ -530,9 +551,13 @@ button {
 .tutorials-flip {
   background-color: #282C34;
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-  width: 400px;
-  height: 400px;
+  width: 40vh;
+  height: 40vh;
   padding: 20px
+}
+
+.tutorials-flip {
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.5);
 }
 
 .tutorial-link {
@@ -567,9 +592,9 @@ button {
 /* ! General */
 
 .title-sector {
-  height: 10%;
+  height: 5%;
   width: 100%;
-  margin-bottom: 5%;
+  margin-bottom: 2%;
 }
 
 .title-sector h2{
@@ -614,45 +639,78 @@ button {
   opacity: 0;
   height: 0;
   position: fixed;
-  background-color: rgb(0, 0, 0);
+  background-color: #282C34;
   overflow-x: hidden;
   transition: 0.5s;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  background-size: cover;
-  background-position: center;
 }
 
-#declarative-c-overlay {
-  background-image: url("../images/index/declarative-commands.jpg");
+.overlay-container {
+  width: 80%;
+  height: 80%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  z-index: 3
 }
 
-#structured-m-overlay {
-  background-image: url("../images/index/structured-menus.jpg");
+.gif-container, .copy-container {
+  width: 50%;
+  height: 100%;
+  margin: 0 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  opacity: 0;
+  transition: 2.5s;
 }
 
-#quick-p-overlay {
-  background-image: url("../images/index/quick-prototyping.jpg");
-  background-position: bottom;
+.gif-container {
+  justify-content: flex-start;
+}
+
+.copy-container {
+  justify-content: flex-end;
+}
+
+.overlay-copy {
+  width: 100%;
+  height: 50%;
+  color: #fff;
+  line-height: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.animated {
+  opacity: 0;
+  transition: 1s;
+}
+
+.animated.slideInLeft, .animated.slideInRight, .animated.slideInUp {
+  opacity: 1
 }
 
 /* ? Media Queries */
-
-@media only screen and (max-width: 500px) {
-  .navbar-links {
-    display: none;
-  }
-
+@media only screen and (max-width: 600px) {
   .navbar {
     height: 8%;
+  }
+
+  .pronunciation {
+    display: none;
   }
 
   /* ! Opening Section */
   .opening-content {
     width: 90%;
     flex-direction: column;
+    height: 100%;
   }
   .opening-copy {
     padding: 0;
@@ -663,10 +721,16 @@ button {
     width: 100%;
   }
 
+  .navigation-arrow {
+    bottom: 2.5%;
+  }
+
   /* ! Features Section */
 
   .features-content {
     width: 90%;
+    height: 80%;
+    justify-content: flex-end;
   }
 
   .features-options {
@@ -702,7 +766,7 @@ button {
   }
 
   .installation-copy, .installation-instructions {
-    width: 100%;
+    width: 90%;
     margin: 0;
     padding: 0;
   }
@@ -710,22 +774,23 @@ button {
   /* ! Example Section */
   .example-content {
     width: 90%;
+    height: 100%;
   }
 
   .example-titles {
     flex-direction: column;
-    height: 20%;
+    height: 16%;
   }
 
   .example-contents {
-    min-height: 80%;
+    min-height: 65%;
   }
 
   .title-card {
     width: 100%;
-    height: 30%;
+    height: auto;
     margin: 0;
-    padding: 2px 0;
+    /* padding: 2px 0; */
   }
 
   .example-card:not(.visible) {
@@ -745,13 +810,39 @@ button {
     font-size: 1.7vh;
   }
 
+  .example-content > p {
+    display: none;
+  }
+
+  /* ! Tutorial Section  */
+
+  .tutorials-content {
+    width: 90%;
+    height: 100%;
+    flex-direction: column;
+  }
+
+  .tutorials-copy {
+    padding: 0;
+    width: 90%;
+  }
+
+  /* ! General Elements */
+
   .selected {
     background-color: #007BA7;
   }
-}
 
-/* Extra small devices (phones, 600px and down) */
-@media only screen and (max-width: 600px) {}
+  .title-sector {
+    height: 5%;
+    margin: 1%;
+  }
+
+  .small-logo {
+    width: 25px;
+    height: 25px;
+  }
+}
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
 @media only screen and (min-width: 600px) {}

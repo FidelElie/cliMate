@@ -1,4 +1,9 @@
+// ! Cached Selectors
+footer = document.getElementsByClassName("footer")[0];
+sections = document.getElementsByClassName("animated");
 
+
+// ! Functions
 $(document).ready(function() {
 
   document.body.className = ""
@@ -20,17 +25,23 @@ $(document).ready(function() {
     copyToClipboard(this);
   })
 
-  $(window).scroll(function () {
-    footer = document.getElementsByClassName("footer")[0];
-    if ($(this).scrollTop() > 25 && $(this).scrollTop() < footer.offsetTop) {
+  $(window).scroll(function() {
+    let scroll_location = Math.ceil($(this).scrollTop());
+    if (scroll_location > 25 && scroll_location < footer.offsetTop) {
       $(".navbar").addClass("background");
       $(".navbar").removeClass("dark");
-    } else if ($(this).scrollTop() == footer.offsetTop) {
+    } else if (scroll_location == footer.offsetTop) {
       $(".navbar").removeClass("background")
       $(".navbar").addClass("dark")
     } else {
       $(".navbar").removeClass("background");
     }
+
+    $(".animated").each(function() {
+      if (elemInView(scroll_location, this) === true) {
+        $(this).addClass($(this).attr("data-anim"));
+      }
+    })
   })
 
   $(".navbar-open").click(function() {
@@ -56,7 +67,40 @@ $(document).ready(function() {
   })
 
   setInterval(flipTutorialsCard , 4000);
+
+  $(window).trigger("scroll");
 })
+
+//  ! Utility Functions
+
+function elemInView(window_top, element, tolerance = 5) {
+  let window_mid = window_top + window.innerHeight / 2
+  // console.log(window_mid)
+
+  let element_top = element.offsetTop;
+  let element_bottom = element_top + element.offsetHeight
+
+  // console.log(element_top);
+  // console.log(element_bottom);
+
+  // if (tolerance < 0 || tolerance > 100) {
+  //   throw Error("Tolerance Is A Percentage Integer");
+  // } else {
+  //   p_tolerance = (tolerance / 100) + 1
+  // }
+
+  // console.log(element_bottom >= window_mid)
+  // console.log(window_mid >= element_top)
+
+  let in_view = element_bottom >= window_mid && window_mid >= element_top;
+
+
+  // let in_view = element_bottom <= window_bottom * p_tolerance && element_top >= window_top * p_tolerance;
+
+  return in_view
+}
+
+// ! View Functions
 
 function scrollToSection(link) {
   let link_href = link.getAttribute("href");
@@ -120,6 +164,8 @@ function openOverlay(features_button) {
   let overlay = document.getElementById(`${button_id}-overlay`);
   overlay.style.height = "100%";
   overlay.style.opacity = "1";
+  $(`#${button_id}-overlay .overlay-container .gif-container`).css("opacity", "1");
+  $(`#${button_id}-overlay .overlay-container .copy-container`).css("opacity", "1");
 }
 
 function closeOverlay(close_button) {
@@ -127,6 +173,8 @@ function closeOverlay(close_button) {
   let split_id = button_id.split("-");
   let truncated_id = (split_id.slice(0, 2)).join("-");
   let overlay = document.getElementById(`${truncated_id}-overlay`);
+  $(`#${truncated_id}-overlay .overlay-container .gif-container`).css("opacity", "0");
+  $(`#${truncated_id}-overlay .overlay-container .copy-container`).css("opacity", "0");
   overlay.style.height = "0%";
   overlay.style.opacity = "0";
 }

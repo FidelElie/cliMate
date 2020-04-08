@@ -1015,3 +1015,23 @@ img {
     font-size: 3vh;
   }
 }
+
+@media only screen and (min-width: 2560px) {
+  body, html {
+    background-color: #21252B;
+    width: 80%;
+    margin: auto
+  }
+
+  .section {
+    background-color: #fff;
+  }
+
+  .footer-section {
+    background-color: #282C34;
+  }
+
+  .navbar {
+    width: 64%
+  }
+}

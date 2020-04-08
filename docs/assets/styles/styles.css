@@ -899,6 +899,11 @@ img {
     margin: 0;
   }
 
+  .example-code {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
   .example-code p {
     font-size: 3vw;
   }

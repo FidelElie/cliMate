@@ -1,18 +1,16 @@
 // ! Cached Selectors
-footer = document.getElementsByClassName("footer")[0];
-sections = document.getElementsByClassName("animated");
-
+navbar = document.getElementsByClassName("navbar")[0];
+navbar_overlay = document.getElementsByClassName("navbar-overlay")[0];
+footer = document.getElementsByClassName("footer-section")[0];
+sections = Array.from(document.getElementsByClassName("section"));
 
 // ! Functions
 $(document).ready(function() {
-
-  document.body.className = ""
-
   $(".windows-button, .unix-button").click(function() {
     showPlatformCode(this)
   })
 
-  $("#nav-arrow-opener, .scroll-link").click(function(e) {
+  $(".scroll-link").click(function(e) {
     e.preventDefault();
     scrollToSection(this);
   })
@@ -38,22 +36,22 @@ $(document).ready(function() {
     }
 
     $(".animated").each(function() {
-      if (elemInView(scroll_location, this) === true) {
+      if (elemInView(scroll_location, this)) {
         $(this).addClass($(this).attr("data-anim"));
       }
     })
   })
 
   $(".navbar-open").click(function() {
-    document.getElementsByClassName("navbar-overlay")[0].style.width = "100%";
-    document.getElementsByClassName("navbar-overlay")[0].style.opacity = "1";
-    document.getElementsByClassName("navbar")[0].style.opacity = "0";
+    navbar_overlay.style.width = "100%";
+    navbar_overlay.style.opacity = "1";
+    navbar.style.opacity = "0";
   })
 
   $(".navbar-close").click(function() {
-    document.getElementsByClassName("navbar-overlay")[0].style.width = "0%";
-    document.getElementsByClassName("navbar-overlay")[0].style.opacity = "0";
-    document.getElementsByClassName("navbar")[0].style.opacity = "1";
+    navbar_overlay.style.width = "0%";
+    navbar_overlay.style.opacity = "0";
+    navbar.style.opacity = "1";
   })
 
   $(".features-card").click(function(e) {
@@ -69,34 +67,18 @@ $(document).ready(function() {
   setInterval(flipTutorialsCard , 4000);
 
   $(window).trigger("scroll");
+
+  // Reaveal website contents upon document ready.
+  document.body.className = ""
 })
 
 //  ! Utility Functions
 
-function elemInView(window_top, element, tolerance = 5) {
+function elemInView(window_top, element) {
   let window_mid = window_top + window.innerHeight / 2
-  // console.log(window_mid)
-
   let element_top = element.offsetTop;
   let element_bottom = element_top + element.offsetHeight
-
-  // console.log(element_top);
-  // console.log(element_bottom);
-
-  // if (tolerance < 0 || tolerance > 100) {
-  //   throw Error("Tolerance Is A Percentage Integer");
-  // } else {
-  //   p_tolerance = (tolerance / 100) + 1
-  // }
-
-  // console.log(element_bottom >= window_mid)
-  // console.log(window_mid >= element_top)
-
   let in_view = element_bottom >= window_mid && window_mid >= element_top;
-
-
-  // let in_view = element_bottom <= window_bottom * p_tolerance && element_top >= window_top * p_tolerance;
-
   return in_view
 }
 
@@ -113,9 +95,9 @@ function scrollToSection(link) {
     left: 0,
     behavior: "smooth"
   });
-  document.getElementsByClassName("navbar-overlay")[0].style.width = "0%";
-  document.getElementsByClassName("navbar-overlay")[0].style.opacity = "0";
-  document.getElementsByClassName("navbar")[0].style.opacity = "1";
+  navbar_overlay.style.width = "0%";
+  navbar_overlay.style.opacity = "0";
+  navbar.style.opacity = "1";
 }
 
 function showPlatformCode(pressed_toggler) {
@@ -164,8 +146,11 @@ function openOverlay(features_button) {
   let overlay = document.getElementById(`${button_id}-overlay`);
   overlay.style.height = "100%";
   overlay.style.opacity = "1";
-  $(`#${button_id}-overlay .overlay-container .gif-container`).css("opacity", "1");
-  $(`#${button_id}-overlay .overlay-container .copy-container`).css("opacity", "1");
+  setTimeout(function() {
+    $(`#${button_id}-overlay .overlay-container .gif-container`).css("opacity", "1");
+    $(`#${button_id}-overlay .overlay-container .copy-container`).css("opacity", "1");
+  },500)
+
 }
 
 function closeOverlay(close_button) {

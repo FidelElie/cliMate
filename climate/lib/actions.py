@@ -111,6 +111,8 @@ def new_command(cli_path: str, arg_amount: int, target_type: str):
 
     utilities.write_json(cli_path, cli_present)
 
+    print("New command added to Cli file {}".format(cli_path))
+
 def new_argument(cli_path: str, command_name: str, arg_amount: int):
     """Add new argument(s) to existing command in cli.json file.
 
@@ -155,6 +157,8 @@ def new_argument(cli_path: str, command_name: str, arg_amount: int):
     cli_present["commands"] = cli_commands
 
     utilities.write_json(cli_path, cli_present)
+
+    print("New Argument added to command {} in Cli File {}".format(command_name, cli_path))
 
 def new_general_argument(self, cli_path, arg_amount):
     """Add new general arguments to the cli.json file.

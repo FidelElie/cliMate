@@ -8,9 +8,8 @@
     <link rel="stylesheet" href="docs/assets/styles/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
 
-    <title>CliMate</title>
+    <title>CliMate - Write Command Line Application With An Edge</title>
 </head>
-
 <body class="fade">
     <div class="navbar">
         <div class="navbar-container">
@@ -23,35 +22,43 @@
                     </h1>
                 </div>
                 <div class="pronunciation">
-                    <p><i>pronounced klai-mate</i></p>
+                    <p>Pronounced Klai-Mate</p>
                 </div>
             </div>
             <div class="navbar-open">
-                <span class="mdi mdi-menu mdi-36px"></span>
+                <span class="mdi mdi-menu"></span>
             </div>
         </div>
     </div>
     <div class="navbar-overlay">
         <a href="javascript:void(0)" class="navbar-close mdi mdi-close"></a>
-        <div class="navbar-links">
-            <a class="scroll-link" href="#opening-section">Introduction</a>
-            <a class="scroll-link" href="#features-section">Features</a>
-            <a class="scroll-link" href="#installation-section">Installation</a>
-            <a class="scroll-link" href="#example-section">Example</a>
-            <a class="scroll-link" href="#tutorials-section">Tutorial</a>
+        <a href="https://github.com/FidelElie/cliMate" class="navbar-github mdi mdi-github"></a>
+        <div class="navbar-overlay-container">
+            <div class="navbar-title">
+                <a class="scroll-link" href="#opening-section">
+                    <h2>CliMate</h2>
+                </a>
+                <p><i>Pronounced Klai-Mate</i></p>
+            </div>
+            <div class="navbar-links">
+                <a class="scroll-link" href="#features-section">Features</a>
+                <a class="scroll-link" href="#installation-section">Installation</a>
+                <a class="scroll-link" href="#example-section">Example</a>
+                <a class="scroll-link" href="#tutorials-section">Tutorial</a>
+            </div>
         </div>
     </div>
     <div class="generic-overlay" id="declarative-c-overlay">
         <a href="javascript:void(0)" class="overlay-close mdi mdi-close" id="declarative-c-close"></a>
         <div class="overlay-container">
             <div class="gif-container">
-                <img src="docs/assets/images/index/gifs/dc-sequence-short.gif" class="responsive" alt="Overlay Declarative Commands">
+                <img src="docs/assets/images/index/gifs/dc-long.gif" class="responsive" alt="Overlay Declarative Commands">
             </div>
             <div class="copy-container">
                 <div class="overlay-copy">
-                    <h1>Declarative Commands</h1>
-                    <p><i>Create New Commands Intuitively and With Ease</i></p>
-                    <p>CliMate introduces its own JSON&trade; system, to create commands for your cli applications. Each key allows you to keep track of your progress. Easily scale your application when more commands are needed and keep everything readable in your development all through the content delivery system that powers the web.</p>
+                    <h1 class="overlay-header">Declarative Commands</h1>
+                    <p class="overlay-tagline"><i>Create New Commands Intuitively and With Ease</i></p>
+                    <p class="overlay-contents">CliMate introduces its own JSON&trade; system, to create commands for your cli applications. Each key allows you to keep track of your progress. Easily scale your application when more commands are needed and keep everything readable in your development all through the content delivery system that powers the web.</p>
                 </div>
             </div>
         </div>
@@ -60,13 +67,13 @@
         <a href="javascript:void(0)" class="overlay-close mdi mdi-close" id="structured-m-close"></a>
         <div class="overlay-container">
             <div class="gif-container">
-                <img src="docs/assets/images/index/gifs/sm-sequence-short.gif" class="responsive" alt="Overlay Structured Menus">
+                <img src="docs/assets/images/index/gifs/sm-long.gif" class="responsive" alt="Overlay Structured Menus">
             </div>
             <div class="copy-container">
                 <div class="overlay-copy">
-                    <h1>Structured Menus</h1>
-                    <p><i>Keep Your User Experience World Class With CliMate Menus</i></p>
-                    <p>One of the premier features of the library. Dynamically create menus based on the commands you have written. As your application gets more complex organise your commands into groups. Keep your users spoilt for choice and happy interacting with your applications.</p>
+                    <h1 class="overlay-header">Structured Menus</h1>
+                    <p class="overlay-tagline"><i>Keep Your User Experience World Class With CliMate Menus</i></p>
+                    <p class="overlay-contents">One of the premier features of the library. Dynamically create menus based on the commands you have written. As your application gets more complex organise your commands into groups. Keep your users spoilt for choice and happy interacting with your applications.</p>
                 </div>
             </div>
         </div>
@@ -75,54 +82,54 @@
         <a href="javascript:void(0)" class="overlay-close mdi mdi-close" id="quick-p-close"></a>
         <div class="overlay-container">
             <div class="gif-container">
-                <img src="docs/assets/images/index/gifs/qp-sequence-short.gif" class="responsive" alt="Overlay Quick Prototyping">
+                <img src="docs/assets/images/index/gifs/qp-long.gif" class="responsive" alt="Overlay Quick Prototyping">
             </div>
             <div class="copy-container">
                 <div class="overlay-copy">
-                    <h1>Quick Prototyping</h1>
-                    <p><i>Meet And Exceed Deadlines With CliMate Convenience</i></p>
-                    <p>We know you're busy writing your latest masterpieces and CliMate should help and not hinder this workflow. Use CliMate's built in convenience commands to structure your CLI files quickly and focus on creating the commands for your applications.</p>
+                    <h1 class="overlay-header">Quick Prototyping</h1>
+                    <p class="overlay-tagline"><i>Meet And Exceed Deadlines With CliMate Convenience</i></p>
+                    <p class="overlay-contents">We know you're busy writing your latest masterpieces and CliMate should help and not hinder this workflow. Use CliMate's built in convenience commands to structure your CLI files quickly and focus on creating the commands for your applications.</p>
                 </div>
             </div>
         </div>
     </div>
-    <div class="opening-section">
+    <div class="opening-section section">
         <div class="opening-content animated" data-anim="slideInLeft">
             <div class="opening-image">
                 <!-- ! Make this a gif of using the clm -->
-                <img src="docs/assets/images/index/gifs/climate-opening-sequence.gif" alt="Opening cmd" class="responsive">
+                <img src="docs/assets/images/index/gifs/opening-sequence.gif" alt="Opening cmd" class="responsive">
             </div>
             <div class="opening-copy">
-                <h2>A Different Way To Create Command Line Applications</h2>
-                <p>CliMate is a utility for creating robust and easily extensible command line applications. It follows different procedures to the usual command line creations and offers its own unique features. Written in Python and utilising JSON the utility put user choice first.</p>
+                <h2 class="copy-header">Write Command Line Application With An Edge</h2>
+                <p class="copy-contents">CliMate is a utility for creating robust and easily extensible command line applications. It follows different procedures to the usual command line creations and offers its own unique features. Written in Python and utilising JSON the utility put user choice first.</p>
             </div>
         </div>
         <div class="navigation-arrow">
             <a href="#features-section" class="scroll-link"><span class="mdi mdi-chevron-down"></span></a>
         </div>
     </div>
-    <div class="features-section">
+    <div class="features-section section">
         <div class="features-content animated" data-anim="slideInUp">
             <div class="title-sector">
-                <h2>Features</h2>
+                <h2 class="copy-header">Features</h2>
             </div>
             <div class="features-options">
                 <div class="features-card" id="declarative-c">
-                    <img src="docs/assets/images/index/gifs/dc-sequence-short.gif" class="feature-gif">
+                    <img src="docs/assets/images/index/gifs/dc-short.gif" class="feature-gif">
                     <div class="features-text">Declarative Commands</div>
                 </div>
                 <div class="features-card" id="structured-m">
-                    <img src="docs/assets/images/index/gifs/sm-sequence-short.gif" class="feature-gif">
+                    <img src="docs/assets/images/index/gifs/sm-short.gif" class="feature-gif">
                     <div class="features-text">Structured Menus</div>
                 </div>
                 <div class="features-card" id="quick-p">
-                    <img src="docs/assets/images/index/gifs/qp-sequence-short.gif" class="feature-gif">
+                    <img src="docs/assets/images/index/gifs/qp-short.gif" class="feature-gif">
                     <div class="features-text">Quick Prototyping</div>
                 </div>
             </div>
         </div>
     </div>
-    <div class="installation-section">
+    <div class="installation-section section">
         <div class="installation-content animated" data-anim="slideInRight">
             <div class="installation-instructions">
                 <div class="cp-code-block" id="installation-instructions">
@@ -150,17 +157,16 @@
                 </div>
             </div>
             <div class="installation-copy">
-                <h2>Installation</h2>
-                <p>CliMate can be installed as easily as any other package using the python package manager <i>pip</i>. Drop the first command into your terminal and let pip do the rest. After the installation is finished, drop the second command in to get started.</p>
+                <h2 class="copy-header">Installation</h2>
+                <p class="copy-contents">CliMate can be installed as easily as any other package using the python package manager <i>pip</i>. Drop the first command into your terminal and let pip do the rest. After the installation is finished, drop the second command in to get started.</p>
             </div>
         </div>
     </div>
-    <div class="example-section">
+    <div class="example-section section">
         <div class="example-content animated" data-anim="slideInUp">
             <div class="title-sector">
-                <h2>Minimal Example</h2>
+                <h2 class="copy-header">Minimal Example</h2>
             </div>
-            <p>Click the code blocks to copy them to your clipboard.</p>
             <div class="example-titles">
                 <div class="title-card selected">
                     <div class="example-local">
@@ -242,11 +248,11 @@
             </div>
         </div>
     </div>
-    <div class="tutorials-section">
+    <div class="tutorials-section section">
         <div class="tutorials-content animated" data-anim="slideInLeft">
             <div class="tutorials-copy">
-                <h2>Tutorial</h2>
-                <p>This tutorial will run through the procedure for making cli applications with CliMate. What better way to learn how to use it then looking at its guts. </p>
+                <h2 class="copy-header">Tutorial</h2>
+                <p class="copy-contents">This tutorial will run through the procedure for making cli applications with CliMate. What better way to learn how to use it then looking at its guts. </p>
                 <p class="indent-2"><a href="/docs/tutorials.html" class="tutorial-link">Find Them Here</a></p>
             </div>
             <div class="tutorials-flip">
@@ -261,8 +267,35 @@
             </div>
         </div>
     </div>
-    <div class="footer">
-
+    <div class="footer-section section">
+        <div class="footer-contents animated" data-anim="zoomIn">
+            <div class="footer-links">
+                <a href="#opening-section" class="scroll-link">Introduction</a>
+                <a href="#features-section" class="scroll-link">Features</a>
+                <a href="#installation-section" class="scroll-link">Installation</a>
+                <a href="#example-section" class="scroll-link">Example</a>
+                <a href="#tutorials-section" class="scroll-link">Tutorial</a>
+            </div>
+            <div class="footer-author">
+                <div class="footer-author-mark">
+                    <p>Created By Fidel Elie</p>
+                    <p>Fidel.Elie2@gmail.com</p>
+                    <p><i>"I hope someone will find this useful its been one hell of a ride for me and I am just happy that I get to get this out there."</i></p>
+                </div>
+                <div class="footer-author-links">
+                    <a href="mailto:fidel.elie2@gmail.com"><span class="mdi mdi-email-outline"></span></a>
+                    <a href="https://www.github.com/fidelElie/"><span class="mdi mdi-github"></span></a>
+                    <a href="https://www.instagram.com/fidelpe"><span class="mdi mdi-instagram"></span></a>
+                    <a href="https://www.twitter.com/bookofpe"><span class="mdi mdi-twitter"></span></a>
+                </div>
+            </div>
+            <div class="footer-copyright">
+                <i><p>&copy; Copyright Australa 2020. All Right Reserved</p></i>
+            </div>
+            <div class="footer-to-top">
+                <a href="#opening-section" class="scroll-link"><span class="mdi mdi-chevron-down mdi-flip-v"></span></a>
+            </div>
+        </div>
     </div>
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
         integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8=" crossorigin="anonymous"></script>

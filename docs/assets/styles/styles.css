@@ -450,8 +450,7 @@ img {
 
 .example-code {
   height: 100%;
-  padding: 0 20px;
-  padding-top: 20px;
+  padding: 20px 20px;
   color: white;
   line-height: 8px;
   white-space: nowrap;

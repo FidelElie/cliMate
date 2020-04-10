@@ -35,7 +35,7 @@ hue-6-2: #e6c07b
 .hljs-doctag,
 .hljs-keyword,
 .hljs-formula {
-  color: #c678dd;
+  color: #C272D9;
 }
 
 .hljs-section,
@@ -55,7 +55,7 @@ hue-6-2: #e6c07b
 .hljs-addition,
 .hljs-attribute,
 .hljs-meta-string {
-  color: #98c379;
+  color: #8AC365;
 }
 
 .hljs-built_in,
@@ -71,7 +71,7 @@ hue-6-2: #e6c07b
 .hljs-selector-attr,
 .hljs-selector-pseudo,
 .hljs-number {
-  color: #d19a66;
+  color: #C26C60;
 }
 
 .hljs-symbol,
@@ -80,7 +80,7 @@ hue-6-2: #e6c07b
 .hljs-meta,
 .hljs-selector-id,
 .hljs-title {
-  color: #61aeee;
+  color: #4992DA;
 }
 
 .hljs-emphasis {

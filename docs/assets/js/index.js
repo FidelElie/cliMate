@@ -23,6 +23,13 @@ $(document).ready(function() {
     copyToClipboard(this);
   })
 
+  $("#tutorial-button").click(function() {
+    document.body.className = "fade";
+    setTimeout(function() {
+      window.location.href = "tutorials";
+    }, 500)
+  })
+
   $(window).scroll(function() {
     let scroll_location = Math.ceil($(this).scrollTop());
     if (scroll_location > 25 && scroll_location < footer.offsetTop) {

@@ -5,9 +5,156 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0 maximum-scale=1.0, user-scalable=no">
     <link href="https://fonts.googleapis.com/css?family=Fira+Code|Lato&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css"
+        href="https://cdn.materialdesignicons.com/5.0.45/css/materialdesignicons.min.css"/>
+        <link rel="stylesheet" href="assets/lib/highlight/styles/atom-one-dark.css">
+    <link rel="stylesheet" href="assets/styles/tutorials.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
     <title>CliMate Tutorial</title>
 </head>
-<body>
-    <h1>Tutorials Page</h1>
+<body class="fade">
+    <div class="container">
+            <div class="navbar">
+                <div class="navbar-container">
+                    <div class="contents-button">
+                        <span class="mdi mdi-chevron-left" id="tutorial-nav-toggle"></span>
+                    </div>
+                    <div class="navbar-logo">
+                        <div class="logo">
+                            <a href="#"><h1>CliMate Tutorials</h1></a>
+                        </div>
+                    </div>
+                    <div class="navbar-home">
+                        <span class="mdi mdi-home-outline" id="tutorial-nav-back"></span>
+                    </div>
+                </div>
+            </div>
+        <!-- <div class="tutorial-spacer"></div> -->
+        <div class="tutorial-container">
+            <div class="tutorial-nav-container animated" data-anim="slideInLeft">
+                <div class="tutorial-nav">
+                    <p>Getting Started</p>
+                </div>
+            </div>
+            <div class="tutorial-content-container animated" data-anim="slideInRight">
+                <div class="tutorial-section" id="installation">
+                    <h2 class="section-header">Installation</h2>
+                    <div class="tutorial-subsection" id="installation-pip">
+                        <h3 class="section-header">Pip</h3>
+                        <p>CliMate can be installed like any other python package using the package manager pip. Just enter the command below into your terminal:</p>
+                        <div class="cross-platform-code">
+
+
+                        </div>
+                    </div>
+                    <div class="tutorial-subsection" id="installation-other">
+                        <h3 class="section-header">Other</h3>
+                        <p></p>
+                    </div>
+                </div>
+                <div class="tutorial-section" id="getting-started">
+                    <h2 class="section-header">Getting Started</h2>
+                    <div class="tutorial-subsection" id="hello-world">
+                        <h3 class="section-header">Hello World With Some More Flavour</h3>
+                        <p>The minimal example on the homepage is the application without the explanation. So firstly, lets start by creating this application taking care with the steps. Lets start by making a python file. Name it whatever you like and open a terminal in your desired project space. Then enter the command:</p>
+                        <pre><code class="powershell">
+clm new-app
+                        </code></pre>
+                        <p>After this you will get a confirmation message in your terminal saying that the cli.json file has been created in the target location:</p>
+                        <div class="terminal-block">
+                            <p>CliMate App Created In Root</p>
+                        </div>
+                        <p>This is the heart of your new command line application and has its own syntaxes and structures for defining your commands.
+                        The anatomy of this file will be discussed throughout the tutorial series, but for now lets add our first command. I
+                        would suggest for the first few examples, declarations should be made manually so you can familiarise yourself with the structure of the cli file and writing it. Below shows our first command, copy this into the <i>"commands"</i> object in the cli.json file we created previously. </p>
+                        <pre><code class="json">
+"say-hello": {
+    "name": "Say Hello",
+    "description": "Say Hello To Someone Or Something",
+    "target": {
+        "type": "function"
+    },
+    "arguments": {
+        "someone": {
+            "name": "Someone",
+            "description": "Someone's name or a generic word",
+            "type": "str",
+            "default": "World"
+        }
+    }
+}
+                        </code></pre>
+                        <p>The command <i>"say-hello"</i> is now registered for your command line application. Now we can hook everything up in python. Open your python file that we created previously and add the snippet below:</p>
+                        <pre><code class="python">
+from climate import CliMate
+
+def say_hello (name):
+    <span class="mc">print</span>("Hello, {}!"<span class="fc">.format</span>(name))
+
+if <span class="dc">__name__</span> == "__main__":
+    climate = CliMate("cli.json")
+    climate.<span class="fc">parse_args</span>()
+                        </code></pre>
+                        <p>Your command Line application is now ready to go so now you can run the command:</p>
+                        <div class="cross-platform-code">
+
+                        </div>
+                        <p>This command will print <span class="sc">"Hello World"</span> to your terminal but we also defined an extra argument for the name. So you can add any name you wish after the command and it will print it. This is the basics of how to set up your command line application but lets look more into it. Now we can also check the help function by typing.</p>
+                        <div class="cross-platform-code">
+
+                        </div>
+                        <p>Additionally, we can also access this command by opening the command line application's Main Menu. This is achieved by inputting no commands or arguments into the cmd.</p>
+                        <div class="cross-platform-code">
+
+                        </div>
+                        <p>This is the basics of how to start your own CliMate application but lets look at what we have written so far with close scrutiny.</p>
+                    </div>
+                    <div class="tutorial-subsection" id="closer-look">
+                        <h3 class="section-header">A Closer Look</h3>
+                        <p>As you have seen already CliMate revolves around commands. Each of which holds a name, description, target and optional arguments. Instead of just passing your desired data directly to the file object everything is organised by these commands. The command call is defined by its key in the case of the example above this is <i>say-hello</i>. The "name" and "description" keys are used in creating the Menu and Help structures and should be brief but concise.</p>
+                        <p>The target key is where the magic happens and deserves its own section entirely to see what it is capable of ["Add Scroll Link"]. However, for now its purpose is to tell the application where it should send the arguments too. This can be in a function as in the example above or other first class object like methods and classes. Above we define the target type as a function. Usually we can explicitly state the name of the function that we want to pass the arguments to. However, in this example this key being omitted means that CliMate will search for a function that is the same as your command with any hyphens being replaced with underscores (say-hello becomes say_hello).
+                        </p>
+                        <p>Arguments are defined in a similar matter to the command itself. They possess a name and a description for the same purposes. As well as keys for defining the desired data type of the input and default values if desired.</p>
+                    </div>
+                    <div class="tutorial-subsection" id="summary">
+                        <h3 class="section-header">Summarising</h3>
+                        <p>To summarise what we have gone through so far, the general structure of our cli file is:</p>
+                        <pre><code class="jsonc">
+{
+    "general": {
+        // general application information is defined here.
+    },
+    "command": {
+        "command-1": {
+            "name": "Command Name",
+            "description": "Command Description",
+            "target": {
+                "type": "Target Type"
+            },
+            "arguments": {
+                "argument-1": {
+                    "name": "Argument Name",
+                    "description": "Argument Description",
+                    "type": "Argument Data Type"
+                }
+            }
+        }
+    }
+}
+                        </code></pre>
+                        <p>All of this will become easier to utilise as you go through the tutorials on offer her. The example above is a good way to show the basics of what can be done but noe lets look more into creating commands.</p>
+                    </div>
+                </div>
+                <div class="tutorial-section" id="climate-targets">
+                    <h2 class="section-header">CliMate Targets</h2>
+                    <p>Now that we have learned the basics of how CliMate applications are started we can now look closer at the inner workings. </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8=" crossorigin="anonymous"></script>
+    <script src="assets/lib/highlight/highlight.pack.js"></script>
+    <script src="./assets/js/tutorial.js"></script>
 </body>
 </html>

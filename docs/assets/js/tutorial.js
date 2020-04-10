@@ -15,7 +15,7 @@ $(document).ready(function() {
   $("#tutorial-nav-back").click(function() {
     document.body.className = "fade"
     setTimeout(function() {
-      window.location.href = "index.html";
+      window.location.href = "index";
     }, 500)
   })
 

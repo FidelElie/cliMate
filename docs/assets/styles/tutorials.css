@@ -1,0 +1,240 @@
+/* ! Global Styles */
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  overflow: hidden
+}
+
+body {
+  opacity: 1;
+  transition: 1s opacity;
+}
+
+body.fade {
+  opacity: 0;
+  transition: 0.5s opacity;
+}
+
+* {
+  font-family: "Fira Code";
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  display: inline;
+}
+
+a {
+  text-decoration: none;
+  transition: 0.3s;
+  color: black
+}
+
+a:hover {
+  color: #007BA7;
+}
+
+h1, h2, h3 {
+  font-family: "Roboto", sans-serif;
+}
+
+button {
+  border: none;
+  background: none;
+}
+
+img {
+  box-sizing: border-box;
+}
+
+pre {
+  height: auto;
+}
+
+/* ! Navbar Contents */
+.navbar {
+  width: 100%;
+  height: 7%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #fff;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+}
+
+.navbar-container {
+  width: 60%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.contents-button {
+  width: 10%;
+  text-align: left
+}
+
+.navbar-home {
+  width: 10%;
+  text-align: right;
+}
+
+.navbar-logo {
+  width: 80%;
+  /* text-align: center; */
+  text-indent: 35px;
+}
+
+.navbar-logo div {
+  margin: 0 10px;
+}
+
+.navbar-logo a h1 {
+  font-size: 3vh;
+}
+
+
+/* ! Tutorial Contents */
+.container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.tutorial-container {
+  width: 100%;
+  height: 93%;
+  display: flex;
+}
+
+.tutorial-nav-container, .tutorial-content-container {
+  height: 100%;
+  box-sizing: border-box;
+  overflow-y: auto;
+  transition: 1s;
+}
+
+.tutorial-nav-container {
+  width: 20%;
+  display: flex;
+  opacity: 0;
+  flex-direction: column;
+  overflow-x: hidden
+}
+
+.tutorial-nav-container.closed {
+  width: 0;
+}
+
+.tutorial-nav {
+  height: 100%;
+  width: 100%;
+  padding-left: 5%;
+}
+
+.tutorial-content-container {
+  width: 80%;
+  padding: 0 3%;
+  opacity: 0;
+}
+
+.animated.slideInRight, .animated.slideInLeft {
+  opacity: 1;
+}
+
+#tutorial-redirect {
+  width: 100%;
+  height: 100%;
+  padding: 15px;
+}
+
+/* ! Section Elements */
+
+.tutorial-section {
+  line-height: 30px;
+  box-sizing: border-box;
+}
+
+.tutorial-subsection {
+  line-height: 30px;
+  box-sizing: border-box;
+  height: auto;
+}
+
+.tutorial-section p, .tutorial-subsection p {
+  font-size: 0.9vw;
+}
+
+.tutorial-section .section-header {
+  font-size: 3vw;
+}
+
+.tutorial-subsection .section-header {
+  font-size: 1.5vw;
+}
+
+/* ! General */
+.mdi {
+  font-size: 40px;
+  cursor: pointer;
+}
+
+.mdi:hover {
+  color: #007BA7;
+}
+
+.terminal-block {
+  background-color: #282C34;
+  padding: 10px;
+  margin: 15px 0;
+  width: auto;
+  padding-left: 5%;
+}
+
+.terminal-block p {
+  color: white;
+}
+
+.hljs {
+  font-size: 0.9vw;
+  line-height: 20px;
+  padding-left: 5%;
+}
+
+.ic {
+  color: #CEAE72;
+}
+
+.fc {
+  color: #4992DA;
+}
+
+.sc {
+  color: #8AC365;
+}
+
+.pc {
+  color: #B78C4C;
+}
+
+.cc {
+  color: #C272D9;
+}
+
+.dc {
+  color: #C26C60;
+}
+
+.mc {
+  color: #43B6A7;
+}

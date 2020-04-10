@@ -10,8 +10,8 @@ body {
 }
 
 body.fade {
-    opacity: 0;
-    transition: none;
+  opacity: 0;
+  transition: 0.5s opacity;
 }
 
 * {
@@ -562,9 +562,17 @@ img {
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.5);
 }
 
-.tutorial-link {
-  color: #007bff;
+#tutorial-button {
+  color: white;
   font-size: 1.2vw;
+  background-color: #282C34;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#tutorial-button:hover {
+  color: #007bff;
 }
 
 .flip-card-inner {

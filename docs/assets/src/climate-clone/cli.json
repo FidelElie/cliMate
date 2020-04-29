@@ -37,16 +37,15 @@
             "description": "Starts The Command Line Application, Creating Cli File",
             "target": {
                 "type": "function",
-                "module-name": "climate.lib.actions",
+                "module-name": "core.actions",
                 "function-name": "new_application"
             },
             "arguments": {
-                "cli-dir": "cli-dir",
-                "path-commands": {
-                    "name": "Call Application Through Path Command",
-                    "description": "Determines If Your Application Is Called Form A String In Path.",
-                    "type": "bool",
-                    "default": false
+                "cli-dir": {
+                    "name": "Cli Directory",
+                    "description": "Directory For Cli File",
+                    "type": "str",
+                    "default": ""
                 }
             }
         },
@@ -55,7 +54,7 @@
             "description": "Add new command to the cli file.",
             "target": {
                 "type": "function",
-                "module-name": "climate.lib.actions",
+                "module-name": "core.actions",
                 "function-name": "new_command"
             },
             "arguments": {
@@ -79,7 +78,7 @@
             "description": "Add new argument to an existing command.",
             "target": {
                 "type": "function",
-                "module-name": "climate.lib.actions",
+                "module-name": "core.actions",
                 "function-name": "new_argument"
             },
             "arguments": {
@@ -87,26 +86,12 @@
                 "command-name": "command-name",
                 "arg-amount": "arg-amount"
             }
-        },
-        "new-gen-argument": {
-            "name": "New General Argument",
-            "description": "Add new argument to general field in cli.json",
-            "target": {
-                "type": "function",
-                "module-name": "climate.lib.actions",
-                "function-name": "new_general_argument"
-            },
-            "arguments": {
-                "cli-path": "cli-path",
-                "arg-amount": "arg-amount"
-            }
-        },
-        "remove-command": {
+        },"remove-command": {
             "name": "Remove Command",
             "description": "Remove An Existing Command",
             "target": {
                 "type": "function",
-                "module-name": "climate.lib.actions",
+                "module-name": "core.actions",
                 "function-name": "remove_command"
             },
             "arguments": {
@@ -119,7 +104,7 @@
             "description": "Remove argument from existing command.",
             "target": {
                 "type": "function",
-                "module-name": "climate.lib.actions",
+                "module-name": "core.actions",
                 "function-name": "remove_argument"
             },
             "arguments": {
@@ -132,36 +117,7 @@
                     "map": "read {cli-path}, get keys {commands|command-name|arguments}"
                 }
             }
-        },
-        "add-menu": {
-            "name": "Add Menu To Application",
-            "description": "Add menu field to cli file to change menu layout.",
-            "target": {
-                "type": "function",
-                "module-name": "climate.lib.actions",
-                "function-name": "add_menu"
-            },
-            "arguments": {
-                "cli-path": "cli-path"
-            }
-        },
-        "add-path-command": {
-            "name": "Add Path Commands",
-            "description": "Add path commands to application by scanning setup file",
-            "target": {
-                "type": "function",
-                "module-name": "climate.lib.actions",
-                "function-name": "add_path_command"
-            },
-            "arguments": {
-                "cli-path": "cli-path",
-                "setup-path": {
-                    "name": "Setup Path",
-                    "type": "str",
-                    "description": "Path to setup.py file for python modules.",
-                    "default": "setup.py"
-                }
-            }
         }
     }
+
 }

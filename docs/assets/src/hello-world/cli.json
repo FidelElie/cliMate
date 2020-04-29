@@ -1,0 +1,22 @@
+{
+    "general": {
+
+    },
+    "commands": {
+        "say-hello": {
+            "name": "Say Hello",
+            "description": "Say Hello To Someone Or Something",
+            "target": {
+                "type": "function"
+            },
+            "arguments": {
+                "someone": {
+                    "name": "Someone",
+                    "description": "Someone's Name Or Generic Word",
+                    "type": "str",
+                    "default": "World"
+                }
+            }
+        }
+    }
+}

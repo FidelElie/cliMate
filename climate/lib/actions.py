@@ -4,38 +4,10 @@ import os
 import json
 
 from . import utilities
+from . import data
 
-CLI_CONTENT = {
-    "general": {},
-    "commands": {}
-}
-COMMAND_CONTENT = {
-    "name": "",
-    "description": ""
-}
-ARGUMENT_CONTENT = {
-    "name": "",
-    "type": "",
-    "description": ""
-}
-TARGETS = {
-    "--function": {
-        "type": "function",
-        "module-name": "",
-        "function-name": ""
-    },
-    "--class": {
-        "type": "class",
-        "module-name": "",
-        "class-name": ""
-    },
-    "--method": {
-        "type": "method",
-        "module-name": "",
-        "class-name": "",
-        "function-name": ""
-    }
-}
+
+
 
 # TODO fix and check over all the actions
 
@@ -53,9 +25,8 @@ def new_application(cli_dir: str, path_commands: bool):
         if not os.path.isdir(cli_dir):
             os.makedirs(cli_dir)
 
-    path = os.path.join(cli_dir, "cli.json")
-
-    cli_contents = CLI_CONTENT.copy()
+    json_path = os.path.join(cli_dir, "cli.json")
+    python_path = os.path.join(cli_dir, "cli.py")
 
     if path_commands:
         path_command = {"calls": []}
@@ -63,7 +34,8 @@ def new_application(cli_dir: str, path_commands: bool):
 
     cli_contents["general"].update({"arguments": {}})
 
-    utilities.write_json(path, cli_contents)
+    utilities.write_json(json_path, data.CLI_CONTENT.copy())
+    utilities.write_data(python_path, data.PYTHON_CONTENT)
 
     print("CliMate App Created In {}".format(
         "Root" if cli_dir is "" else cli_dir))
@@ -83,7 +55,7 @@ def new_command(cli_path: str, arg_amount: int, target_type: str):
     if not os.path.isfile(cli_path):
         raise FileNotFoundError("Could not find file: {}".format(cli_path))
 
-    command_contents = COMMAND_CONTENT.copy()
+    command_contents = data.COMMAND_CONTENT.copy()
 
     if target_type is not None:
         target = TARGETS[target_type]
@@ -95,7 +67,7 @@ def new_command(cli_path: str, arg_amount: int, target_type: str):
     if arg_amount != 0:
         arguments = {}
         for i in range(arg_amount):
-            arguments[f"new-argument-{i}"] = ARGUMENT_CONTENT.copy()
+            arguments[f"new-argument-{i}"] = data.ARGUMENT_CONTENT.copy()
 
         command_contents["arguments"] = arguments
 
@@ -142,7 +114,7 @@ def new_argument(cli_path: str, command_name: str, arg_amount: int):
 
         for i in range(arg_amount):
             arguments_to_add[
-                f"new-argument-{i + current_arg_amount}"] = ARGUMENT_CONTENT.copy()
+                f"new-argument-{i + current_arg_amount}"] = data.ARGUMENT_CONTENT.copy()
     else:
         raise ValueError("No number of arguments were added.")
 
@@ -158,7 +130,7 @@ def new_argument(cli_path: str, command_name: str, arg_amount: int):
 
     utilities.write_json(cli_path, cli_present)
 
-    print("New Argument added to command {} in Cli File {}".format(command_name, cli_path))
+    print("New Argument added to command {}".format(command_name))
 
 def new_general_argument(self, cli_path, arg_amount):
     """Add new general arguments to the cli.json file.
@@ -168,7 +140,14 @@ def new_general_argument(self, cli_path, arg_amount):
     arg_amount: int
         Number of arguments to add to the general arguments.
     """
-    pass
+    if not os.path.isfile(cli_path):
+        raise FileNotFoundError("Could not find Cli File: {}".format(cli_path))
+
+    cli_present = utilities.read_json(cli_path)
+    cli_general = cli_present["general"]
+
+    new_general_argument = data.ARGUMENT_CONTENT.copy()
+    # TODO finish this function
 
 def remove_command(cli_path: str, command_name: str):
     """Remove existing command from the cli.json file.
@@ -181,20 +160,21 @@ def remove_command(cli_path: str, command_name: str):
         Name of existing command in the cli.json file.
     """
     if not os.path.isfile(cli_path):
-        raise FileNotFoundError("Could not find file: {}".format(cli_path))
+        raise FileNotFoundError("Could not find Cli file: {}".format(cli_path))
 
     cli_present = utilities.read_json(cli_path)
     cli_commands = cli_present["commands"]
 
     if command_name in cli_commands:
-        del cli_commands[commands_name]
+        del cli_commands[command_name]
     else:
-        raise KeyError(
-    f"Could not find command '{command_name}' in cli.json file")
+        raise KeyError(f"Could not find command '{command_name}'")
 
     cli_present.update(cli_commands)
 
     utilities.write_json(cli_path, cli_present)
+
+    print("Command '{}' removed from Cli File".format(command_name))
 
 def remove_argument(cli_path: str, command_name: str, argument_name: str):
     """Remove existing argument from existing command in cli.json file.
@@ -209,7 +189,7 @@ def remove_argument(cli_path: str, command_name: str, argument_name: str):
         Name of existing argument in a command in the cli.json file.
     """
     if not os.path.isfile(cli_path):
-        raise FileNotFoundError("Could not find file: {}".format(cli_path))
+        raise FileNotFoundError("Could not find Cli File: {}".format(cli_path))
 
     cli_present = utilities.read_json(cli_path)
     cli_commands = cli_present["commands"]
@@ -221,13 +201,15 @@ def remove_argument(cli_path: str, command_name: str, argument_name: str):
         del command_arguments[argument_name]
     else:
         raise KeyError(
-    f"Could not find argument '{argument_name}' in cli.json file")
+    f"Could not find argument '{argument_name}' in Cli File")
 
     chosen_command["arguments"] = command_arguments
     cli_commands[command_name] = chosen_command
     cli_present.update(cli_commands)
 
     utilities.write_json(cli_path, cli_present)
+
+    print("Argument '{}' removed from Command '{}' in Cli File".format(argument_name, command_name))
 
 def add_menu(cli_path: str):
     """Add menu field to the cli.json file.
@@ -245,6 +227,8 @@ def add_menu(cli_path: str):
 
     utilities.write_json(cli_path, cli_present)
 
+    print("Menu filed added to cli file")
+
 def add_path_command(cli_path: str, setup_path: str):
     """Add path commands from module setup files.
 
@@ -256,10 +240,10 @@ def add_path_command(cli_path: str, setup_path: str):
         Path to the setup.py file.
     """
     if not os.path.isfile(cli_path):
-        raise FileNotFoundError("Could not find file: {}".format(cli_path))
+        raise FileNotFoundError("Could not find Cli File: {}".format(cli_path))
 
     if not os.path.isfile(setup_path):
-        raise FileNotFoundError("Could not find file: {}".format(setup_path))
+        raise FileNotFoundError("Could not find Setup File: {}".format(setup_path))
 
     try:
         setup_contents = utilities.read_data(setup_path, "list")
@@ -288,3 +272,4 @@ def add_path_command(cli_path: str, setup_path: str):
         cli_data["general"] = general_dict_contents
 
         utilities.write_json(cli_path, cli_data)
+        print("Path commands added to Cli File")

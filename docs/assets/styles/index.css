@@ -2,6 +2,7 @@
 body, html {
   margin: 0;
   padding: 0;
+  overflow-x: hidden
 }
 
 body {
@@ -200,7 +201,7 @@ img {
 }
 
 .navbar.background{
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   background-color: #fff;
 }
 
@@ -532,6 +533,11 @@ img {
 
 .terminal-logo {
   background-image: url("../images/index/terminal-logo.png")
+}
+
+.copied-message {
+  opacity: 0;
+  transition: 0.5s;
 }
 
 /* ! Tutorials Section */

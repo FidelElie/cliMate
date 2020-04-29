@@ -87,7 +87,7 @@ def main():
     cli_file = os.path.join(MODULEPATH, "cli.json")
     cli_settings = {
         "app_name": "CliMate",
-        "docs_path": "www.github/fiddycodes/cliMate/README.md"
+        "docs_path": "https://fidelelie.github.io/cliMate/tutorials"
     }
     climate = CliMate(cli_file, cli_settings)
     climate.parse_args()

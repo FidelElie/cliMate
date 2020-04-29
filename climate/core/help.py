@@ -1,6 +1,8 @@
 """
 """
 import webbrowser
+from colorama import init
+from termcolor import colored
 
 from climate.lib import mapper
 from climate.lib import utilities
@@ -71,10 +73,11 @@ class Help(object):
         calls = general["calls"] if "calls" in general else []
 
         entry_filter = lambda x: "|".join(x) if x else utilities.get_entry()
+        entries = colored(entry_filter(calls), "yellow")
 
-        call_string = f"-{entry_filter(calls)}- [command] {{argument}}"
+        call_string = f"-{entries}- [command] {{argument}}"
 
-        print(f"{utilities.add_space(4)}{call_string}")
+        print(f"{call_string}")
 
         # Print The Command Data
         print("[Command(s)]")
@@ -84,7 +87,7 @@ class Help(object):
         commands.update(self.help_command)
 
         for command in commands:
-            com_iden = command
+            com_iden = colored(command, "yellow")
             com_name = commands[command]["name"]
             com_desc = commands[command]["description"]
             com_arguments = commands[command]["arguments"]
@@ -97,13 +100,13 @@ class Help(object):
             arguments.update(resolved_args)
 
             command_str = "{} {}".format(com_iden, " ".join(com_args))
-            command_desc = "{}{}".format(utilities.add_space(8), com_desc)
+            command_desc = "{}".format(com_desc)
 
-            print(f"{utilities.add_space(4)}{command_str}\n{command_desc}")
+            print(f"{command_str}: {command_desc}")
 
         print("{Argument(s)}")
         for arg in arguments:
-            arg_iden = arg
+            arg_iden = colored(arg, "yellow")
             arg_cont = arguments[arg]
             arg_name = arguments[arg]["name"]
             arg_desc = arguments[arg]["description"]
@@ -123,11 +126,11 @@ class Help(object):
                     map_target = \
                         split_commands[-2] if len(split_commands) > 1 else split_commands[0]
 
-                    argument_str = "{} ({}) --value taken from key '{}'.".format(arg_iden, arg_type, map_target)
+                    argument_str = "{} ({}) value taken from '{}'".format(arg_iden, arg_type, map_target)
                 else:
                     raise Exception("No corresponding value key in choices")
             else:
                 argument_str = "{} ({})".format(arg_iden, arg_type)
 
-            argument_desc = "{}{}".format(utilities.add_space(8), arg_desc)
-            print(f"{utilities.add_space(4)}{argument_str}\n{argument_desc}")
+            argument_desc = "{}".format(arg_desc)
+            print(f"{argument_str}: {argument_desc}")

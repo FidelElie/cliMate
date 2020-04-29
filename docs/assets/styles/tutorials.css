@@ -2,14 +2,12 @@
 body, html {
   margin: 0;
   padding: 0;
-  height: 100%;
-  width: 100%;
-  overflow: hidden
+  overflow-x: hidden
 }
 
 body {
   opacity: 1;
-  transition: 1s opacity;
+  transition: 1.5s opacity;
 }
 
 body.fade {
@@ -37,10 +35,6 @@ a {
   color: black
 }
 
-a:hover {
-  color: #007BA7;
-}
-
 h1, h2, h3 {
   font-family: "Roboto", sans-serif;
 }
@@ -61,12 +55,14 @@ pre {
 /* ! Navbar Contents */
 .navbar {
   width: 100%;
-  height: 7%;
+  height: 75px;
+  position: fixed;
   display: flex;
   align-items: center;
   justify-content: center;
   background-color: #fff;
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  z-index: 2;
 }
 
 .navbar-container {
@@ -88,7 +84,6 @@ pre {
 
 .navbar-logo {
   width: 80%;
-  /* text-align: center; */
   text-indent: 35px;
 }
 
@@ -112,40 +107,43 @@ pre {
 }
 
 .tutorial-container {
-  width: 100%;
-  height: 93%;
+  margin-top: 75px;
   display: flex;
-}
-
-.tutorial-nav-container, .tutorial-content-container {
-  height: 100%;
-  box-sizing: border-box;
-  overflow-y: auto;
-  transition: 1s;
+  flex-direction: column;
+  padding: 0 5%;
+  transition: 0.5s;
 }
 
 .tutorial-nav-container {
-  width: 20%;
+  background-color: #fff;
+  width: 0;
+  max-width: 30%;
+  position: fixed;
+  top: 75px;
+  left: 0;
+  height: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+  max-width: 20%;
   display: flex;
   opacity: 0;
   flex-direction: column;
-  overflow-x: hidden
-}
-
-.tutorial-nav-container.closed {
-  width: 0;
+  overflow-x: hidden;
+  border-right: 1px solid rgba(0, 0, 0, 0.1);
+  opacity: 1;
+  z-index: 1;
+  transition: 0.5s
 }
 
 .tutorial-nav {
   height: 100%;
   width: 100%;
-  padding-left: 5%;
-}
-
-.tutorial-content-container {
-  width: 80%;
-  padding: 0 3%;
+  padding-top: 15%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   opacity: 0;
+  transition: 0.5s
 }
 
 .animated.slideInRight, .animated.slideInLeft {
@@ -158,39 +156,53 @@ pre {
   padding: 15px;
 }
 
-/* ! Section Elements */
-
-.tutorial-section {
-  line-height: 30px;
-  box-sizing: border-box;
+.tutorial-nav-section {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
 }
 
-.tutorial-subsection {
+.tutorial-nav-header {
+  display: flex;
+  align-items: center;
+  min-height: 55px;
+}
+
+.tutorial-nav-header a {
+  font-size: 1.3vw;
+  font-family: "Roboto", sans-serif;
+}
+
+.tutorial-nav-subsections {
+  display: none;
+  flex-direction:  column;
+}
+
+.tutorial-section, .tutorial-subsection {
   line-height: 30px;
   box-sizing: border-box;
-  height: auto;
 }
 
 .tutorial-section p, .tutorial-subsection p {
   font-size: 0.9vw;
 }
 
-.tutorial-section .section-header {
+.tutorial-section > .section-header {
   font-size: 3vw;
 }
 
-.tutorial-subsection .section-header {
-  font-size: 1.5vw;
+.tutorial-subsection > .section-header {
+  font-size: 2vw;
+}
+
+.tutorial-section a {
+  color: #007bff;
 }
 
 /* ! General */
 .mdi {
   font-size: 40px;
   cursor: pointer;
-}
-
-.mdi:hover {
-  color: #007BA7;
 }
 
 .terminal-block {
@@ -223,7 +235,7 @@ pre {
   color: #8AC365;
 }
 
-.pc {
+.pc, .pc > span{
   color: #B78C4C;
 }
 
@@ -231,10 +243,556 @@ pre {
   color: #C272D9;
 }
 
-.dc {
+.dc, .dc > span {
   color: #C26C60;
 }
 
-.mc {
+.mc, .mc > span {
   color: #43B6A7;
+}
+
+/* * Cross Platform Code Blocks */
+
+.cross-platform-code {
+  width: 100%;
+  height: 100px;
+  display: flex;
+  flex-direction: column;
+  margin: 30px 0;
+}
+
+.platforms {
+  width: 35%;
+  height: 40%;
+  display: flex;
+  background-color: #21252B;
+}
+
+.platforms button {
+  width: 50%;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  cursor: pointer;
+}
+
+.platforms button:nth-child(1) {
+  background-image: url("../images/windows-logo.png");
+}
+
+.platforms button:nth-child(2) {
+  background-image: url("../images/apple-logo.png");
+}
+
+.terminal {
+  width: 100%;
+  height: 60%;
+  background-color: #282C34;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.output {
+  color: white;
+  margin-left: 50px;
+  transition: 0.1s;
+  opacity: 1;
+}
+
+/* * File Structure Elements */
+
+.file-explorer {
+  display: flex;
+  flex-direction: column;
+  background-color: #282C34;
+}
+.explorer-bar {
+  background: #007BA7;
+  display: flex;
+  align-items: center;
+  height: 50px;
+  padding-left: 25px;
+  color: #fff
+}
+
+.file, .folder {
+  display: flex;
+  align-items: center;
+  padding-left: 25px;
+}
+
+.file span, .directory span {
+  font-size: 25px;
+  color: white;
+}
+.file p, .directory p{
+  text-indent: 20px;
+  color: white;
+}
+
+.directory {
+  color: white;
+  display: flex;
+  flex-direction: column;
+}
+
+.folder {
+  cursor: pointer;
+}
+
+.directory .contents {
+  padding-left: 2.5%;
+  display: none;
+  flex-direction: column;
+  background-color: #282C34;
+}
+
+/* * Code Progression Block */
+
+.code-progression {
+  display: flex;
+  flex-direction: column;
+  margin: 25px 0;
+}
+
+.code-buttons {
+  width: 50%;
+  background-color: #21252B;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.code-buttons button {
+  width: auto;
+  color: white;
+  padding: 15px 15px;
+  font-size: 0.9vw;
+  font-family: "Roboto", sans-serif;
+  cursor: pointer;
+  flex-basis: auto;
+  flex-grow: 1;
+}
+
+.before-code, .after-code, .snippet-code {
+  background-color: #282C34;
+}
+
+.code-file-name {
+  display: flex;
+  background-color: #21252B;
+  align-items: center;
+  color: #fff;
+  padding-left: 2.5%;
+}
+
+.code-file-name p {
+  text-indent: 20px;
+  font-size: 0.8vw;
+}
+
+.code-file-name span {
+  font-size: 20px
+}
+
+/* * Accordion Elements */
+
+.tutorial-accordion{
+  display: flex;
+  flex-direction: column;
+  margin: 25px 0;
+  background-color: #282C34;
+  overflow: hidden;
+  font-size: 0.9vw
+}
+
+.accordion-header {
+  font-family: "Roboto", sans-serif;
+  background-color: #007BA7;
+  color: white;
+  padding-left: 25px;
+  cursor: pointer;
+  display: flex;
+}
+.accordion-title {
+  width: 90%;
+}
+
+.accordion-indicator {
+  width: 10%;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.accordion-contents {
+  margin: 25px auto;
+  width: 80%;
+  color: white;
+}
+
+.accordion-contents p, .accordion-contents code {
+  margin: 0;
+  padding: 0
+}
+
+/* * Banner Separator */
+
+.banner-separator {
+  width: 100%;
+  background-color: rgb(0, 90, 122);
+  margin: 25px 0;
+  color: white;
+  text-indent: 25px;
+  overflow: hidden;
+}
+
+/* * Utilities */
+
+.hidden {
+  display: none;
+  opacity: 0;
+}
+
+.selected {
+  background-color:#007BA7;
+}
+
+.shown {
+  display: flex;
+}
+
+.responsive {
+  width: 100%;
+  height: auto;
+}
+
+.no-padding {
+  padding: 0;
+}
+
+.no-margin {
+  margin: 0;
+}
+
+.button-group {
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  margin: 25px 0;
+}
+
+.button-group a {
+  color: white;
+  font-size: 1.2vw;
+  background-color: #282C34;
+  padding: 5px;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+  display: flex;
+  width: 200px;
+}
+
+.button-group a span {
+  font-size: 30px;
+  margin: 10px;
+}
+/* ! Overwriting highlighting.js colors */
+.hljs-doctag,
+.hljs-keyword,
+.hljs-formula {
+  color: #C272D9;
+}
+
+.hljs-section,
+.hljs-name,
+.hljs-selector-tag,
+.hljs-deletion,
+.hljs-subst {
+  color: #e06c75;
+}
+
+.hljs-literal {
+  color: #56b6c2;
+}
+
+.hljs-string,
+.hljs-regexp,
+.hljs-addition,
+.hljs-attribute,
+.hljs-meta-string {
+  color: #8AC365;
+}
+
+.hljs-built_in,
+.hljs-class .hljs-title {
+  color: #e6c07b;
+}
+
+.hljs-attr,
+.hljs-variable,
+.hljs-template-variable,
+.hljs-type,
+.hljs-selector-class,
+.hljs-selector-attr,
+.hljs-selector-pseudo,
+.hljs-number {
+  color: #C26C60;
+}
+
+.hljs-symbol,
+.hljs-bullet,
+.hljs-link,
+.hljs-meta,
+.hljs-selector-id,
+.hljs-title {
+  color: #4992DA;
+}
+/* ? Media Queries */
+
+@media (hover: hover) {
+  a:hover {
+    color: #007BA7;
+    cursor: pointer;
+  }
+
+  .mdi:hover {
+    color: #007BA7;
+  }
+
+  .file span:hover {
+    color: #fff;
+    cursor: default;
+  }
+
+  .folder:hover {
+    background-color: #21252B;
+  }
+
+  .folder:hover span, .folder:hover p {
+    color: #007BA7;
+  }
+
+  .code-file-name span:hover {
+    color: #fff;
+    cursor: default;
+  }
+
+  .accordion-header:hover {
+    background-color: rgb(0, 101, 138);
+  }
+
+  .accordion-indicator span:hover {
+    color: #fff
+  }
+
+  .button-group button:hover {
+    color: #007bff;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  /* ! Navbar Elements */
+  .navbar-container {
+    width: 90%;
+  }
+
+  .navbar-home, .contents-button {
+    width: 15%;
+  }
+
+  .navbar-logo {
+    text-indent: 0;
+    text-align: center;
+    width: 70%;
+  }
+
+  /* ! Tutorial Nav */
+  .tutorial-nav {
+    padding-top: 10%;
+  }
+
+  .tutorial-nav-header {
+    justify-content: center;
+  }
+
+  .tutorial-nav-header a {
+    font-size: 2.5vw;
+  }
+
+  /* ! Tutorial Elements */
+  .tutorial-nav {
+    width: 90%;
+    margin: auto;
+    overflow-y: auto;
+
+  }
+
+  .tutorial-nav-container {
+    height: 90%;
+    width: 0%;
+    max-width: 100%;
+  }
+
+  .tutorial-nav-header a {
+    font-size: 5vw;
+  }
+
+  .tutorial-link {
+    text-align: center;
+  }
+
+  .tutorial-section, .tutorial-subsection {
+    box-sizing: border-box;
+  }
+
+  .tutorial-section p, .tutorial-subsection p {
+    font-size: 2.5vw;
+  }
+
+  .tutorial-section > .section-header {
+    font-size: 8vw;
+  }
+
+  .tutorial-subsection > .section-header {
+    font-size: 6vw;
+  }
+
+  .platforms {
+    width: 100%;
+  }
+
+  .output {
+    margin-left: 15px;
+  }
+
+  /* * File Structure  */
+
+  .directory .contents {
+    padding-left: 7.5%;
+  }
+
+  /* * Code Progressions */
+  .code-buttons {
+    width: 100%;
+  }
+
+  .code-buttons button {
+    font-size: 2.5vw;
+  }
+
+  .code-file-name {
+    padding-left: 5%;
+  }
+
+  .code-file-name p {
+    font-size: 2.5vw;
+  }
+
+  .code-file-name span {
+    font-size: 20px;
+  }
+
+  /* * Accordion Contents */
+
+  .accordion-contents {
+    width: 90%;
+    margin: 20px auto;
+  }
+
+  .accordion-contents p {
+    font-size: 2vw;
+  }
+
+  .accordion-title {
+    width: 85%;
+  }
+
+  .hljs {
+    font-size: 2.2vw;
+    line-height: 15px;
+  }
+  /* * General */
+  .button-group {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .button-group a {
+    margin: 5px 0;
+    width: 100%;
+    font-size: 1vw;
+    padding: 2.5px
+  }
+}
+
+@media only screen and (min-width: 600px) and (max-width: 1024px) {
+   .navbar-container {
+    width: 70%;
+  }
+
+  .navbar-home, .contents-button {
+    width: 15%;
+  }
+
+  .navbar-logo {
+    text-indent: 0;
+    text-align: center;
+    width: 70%;
+  }
+
+  .tutorial-nav-container {
+    max-width: 35%;
+  }
+
+  .tutorial-section p, .tutorial-subsection p {
+    font-size: 2vw;
+  }
+
+  .tutorial-section > .section-header {
+    font-size: 4.5vw;
+  }
+
+  .tutorial-subsection > .section-header {
+    font-size: 3vw;
+  }
+
+  .tutorial-nav-header a {
+    font-size: 2vw;
+  }
+
+   .platforms {
+    width: 50%;
+  }
+
+    .hljs {
+    font-size: 2vw;
+    line-height: 20px;
+  }
+
+   /* * Code Progressions */
+  .code-buttons {
+    width: 75%;
+  }
+
+  .code-buttons button {
+    font-size: 2vw;
+  }
+
+  .code-file-name {
+    padding-left: 5%;
+  }
+
+  .code-file-name p {
+    font-size: 2vw;
+  }
+
+  .code-file-name span {
+    font-size: 20px;
+  }
+
 }

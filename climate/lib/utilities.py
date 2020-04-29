@@ -63,6 +63,11 @@ def write_json(path, contents, indent_amount = 4):
     with open(path, "w") as json_file:
         json.dump(contents, json_file, indent=indent_amount)
 
+def write_data(path, contents):
+    # TODO add extra logic to this
+    with open(path, "w") as data_file:
+        data_file.write(contents)
+
 def read_json(path):
     """Read JSON data from file with corresponding custom exceptions.
 
@@ -123,25 +128,13 @@ def get_entry():
 
     return base_entry
 
-def add_space(number):
-    """Return a specified number of spaces to a string.
+def check_cli_dir(cli_dir):
+    if cli_dir is not "":
+        if not os.path.isdir(cli_dir):
+            os.makedirs(cli_dir)
 
-    Parameters
-    ----------
-    number: int
-        The number of space to be returned.
+def join_path(path1, path2):
+    return os.path.join(path1, path2)
 
-    Returns
-    ------
-    space: str
-        The amount of space in a given sting.
-    """
-    try:
-        string_list = [" "] * number
-        space = "".join(string_list)
-    except ValueError:
-        raise ValueError(f"Integer required got type {type(number).__name__}")
-
-    return space
 
 

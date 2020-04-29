@@ -1,8 +1,11 @@
+// utilities.js used
 // ! Cached Selectors
 navbar = document.getElementsByClassName("navbar")[0];
 navbar_overlay = document.getElementsByClassName("navbar-overlay")[0];
 footer = document.getElementsByClassName("footer-section")[0];
 sections = Array.from(document.getElementsByClassName("section"));
+example_titles = document.getElementsByClassName("example-local");
+example_cards = document.getElementsByClassName("example-card");
 
 // ! Functions
 $(document).ready(function() {
@@ -19,7 +22,7 @@ $(document).ready(function() {
     showExample(this);
   })
 
-  $(".example-card").click(function() {
+  $(".example-card.enabled").click(function() {
     copyToClipboard(this);
   })
 
@@ -146,6 +149,13 @@ function copyToClipboard(display) {
   window.getSelection().selectAllChildren(display);
   document.execCommand("copy");
   window.getSelection().removeAllRanges();
+  let example_index = Array.from(example_cards).indexOf(display);
+  let corresponding_title = example_titles[example_index];
+  let copied_message = $(corresponding_title).children(".copied-message");
+  $(copied_message).css("opacity", "1");
+  setTimeout(
+    () => {$(copied_message).css("opacity", "0");}, 2000
+  )
 }
 
 function openOverlay(features_button) {
@@ -156,7 +166,7 @@ function openOverlay(features_button) {
   setTimeout(function() {
     $(`#${button_id}-overlay .overlay-container .gif-container`).css("opacity", "1");
     $(`#${button_id}-overlay .overlay-container .copy-container`).css("opacity", "1");
-  },500)
+  }, 500)
 
 }
 

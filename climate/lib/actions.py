@@ -6,11 +6,6 @@ import json
 from . import utilities
 from . import data
 
-
-
-
-# TODO fix and check over all the actions
-
 def new_application(cli_dir: str, path_commands: bool):
     """Creates new cli applicaiton, creates the cli.json file.
 
@@ -147,7 +142,19 @@ def new_general_argument(self, cli_path, arg_amount):
     cli_general = cli_present["general"]
 
     new_general_argument = data.ARGUMENT_CONTENT.copy()
-    # TODO finish this function
+    if "arguments" not in cli_general:
+        cli_general["arguments"] = {}
+
+    current_arguments_numb = len(cli_general["arguments"].keys())
+
+    for i in range(arg_amount):
+        cli_general["arguments"][f"new-gen-arg-{current_arguments_numb + i + 1}"]
+
+    cli_present["general"] = cli_general
+
+    utilities.write_json(cli_path, cli_present)
+
+    print("General Arguments added to Cli File.")
 
 def remove_command(cli_path: str, command_name: str):
     """Remove existing command from the cli.json file.

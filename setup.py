@@ -1,11 +1,11 @@
 import setuptools
 
 def readme():
-    with open('README.md') as f:
+    with open('README.rst') as f:
         return f.read()
 
-setuptools.setup(name='CliMate',
-      version='0.1',
+setuptools.setup(name='py-CliMate',
+      version='0.1.0',
       description='Creating Cli Application With An Edge',
       long_description=readme(),
       classifiers=[
@@ -20,7 +20,9 @@ setuptools.setup(name='CliMate',
       license='MIT',
       packages=setuptools.find_packages(),
       install_requires=[
-          'Pyinquirer'
+          'Pyinquirer',
+          'Colorama',
+          'Termcolor'
       ],
       entry_points={
           'console_scripts': [
@@ -29,4 +31,4 @@ setuptools.setup(name='CliMate',
       },
       zip_safe=False,
       include_package_data=True,
-      python_requires='>=3.6',)
+      python_requires='>=3.7',)

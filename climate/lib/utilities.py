@@ -64,7 +64,6 @@ def write_json(path, contents, indent_amount = 4):
         json.dump(contents, json_file, indent=indent_amount)
 
 def write_data(path, contents):
-    # TODO add extra logic to this
     """Write data to a file object
 
     Parameters

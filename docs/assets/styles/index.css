@@ -304,7 +304,7 @@ img {
 .installation-instructions {
   margin-right: 50px;
 }
-
+/*
 .cp-code-block {
   display: flex;
   flex-direction: column;
@@ -314,7 +314,7 @@ img {
   margin: 30px 0;
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
   transition: 0.5s;
-}
+} */
 
 .code-block {
   padding: 5px 0;
@@ -322,32 +322,6 @@ img {
   margin: 30px 0;
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
   transition: 0.5s;
-}
-
-.platform-buttons {
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.windows-button, .unix-button {
-  width: 50%;
-  padding: 15px 15px;
-  border: none;
-  background-repeat: no-repeat;
-  background-size: contain;
-  background-position: center;
-  color: rgba(0, 0, 0, 0);
-  cursor: pointer;
-}
-
-.windows-button {
-  background-image: url("../images/windows-logo.png");
-}
-
-.unix-button {
-  background-image: url("../images/apple-logo.png");
 }
 
 .code-container {
@@ -662,8 +636,6 @@ img {
   color: black;
 }
 
-
-
 .title-sector {
   width: 100%;
   margin-bottom: 3%;
@@ -692,8 +664,6 @@ img {
   position: absolute;
   bottom: 5%;
 }
-
-
 
 .generic-overlay {
   width: 100%;
@@ -766,6 +736,60 @@ img {
 
 .copy-contents {
   font-size: 1.2vw
+}
+
+
+/* * Cross Platform Code Blocks */
+
+.cross-platform-code {
+  width: 100%;
+  height: 100px;
+  display: flex;
+  flex-direction: column;
+  margin: 30px 0;
+}
+
+.platforms {
+  width: 50%;
+  height: 40%;
+  display: flex;
+  background-color: #21252B;
+}
+
+.platforms button {
+  width: 50%;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  cursor: pointer;
+}
+
+.platforms button:nth-child(1) {
+  background-image: url("../images/windows-logo.png");
+}
+
+.platforms button:nth-child(2) {
+  background-image: url("../images/apple-logo.png");
+}
+
+.terminal {
+  width: 100%;
+  height: 60%;
+  background-color: #282C34;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.output {
+  color: white;
+  margin-left: 50px;
+  transition: 0.1s;
+  opacity: 1;
+}
+
+.selected {
+  background-color:#007BA7;
 }
 
 @media (hover: hover) {
@@ -1046,6 +1070,21 @@ img {
   .navbar-links .scroll-link {
     font-size: 3vh;
   }
+
+  .platforms {
+    width: 100%;
+    height: 40%;
+    display: flex;
+    background-color: #21252B;
+  }
+
+  .output {
+    color: white;
+    margin-left: 20px;
+    transition: 0.1s;
+    opacity: 1;
+  }
+
 }
 
 @media only screen and (min-width: 2560px) {

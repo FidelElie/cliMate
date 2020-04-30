@@ -1,11 +1,10 @@
 // utilities.js used
 // ! Cached Selectors
-navbar = document.getElementsByClassName("navbar")[0];
-navbar_overlay = document.getElementsByClassName("navbar-overlay")[0];
-footer = document.getElementsByClassName("footer-section")[0];
-sections = Array.from(document.getElementsByClassName("section"));
-example_titles = document.getElementsByClassName("example-local");
-example_cards = document.getElementsByClassName("example-card");
+navbar = $(".navbar")
+navbar_overlay = $(".navbar-overlay");
+footer = $(".footer-section");
+example_titles = $(".example-local");
+example_cards = $(".example-card");
 
 // ! Functions
 $(document).ready(function() {
@@ -35,14 +34,14 @@ $(document).ready(function() {
 
   $(window).scroll(function() {
     let scroll_location = Math.ceil($(this).scrollTop());
-    if (scroll_location > 25 && scroll_location < footer.offsetTop) {
-      $(".navbar").addClass("background");
-      $(".navbar").removeClass("dark");
-    } else if (scroll_location == footer.offsetTop) {
-      $(".navbar").removeClass("background")
-      $(".navbar").addClass("dark")
+    if (scroll_location > 25 && scroll_location < footer.offset().top) {
+      $(navbar).addClass("background");
+      $(navbar).removeClass("dark");
+    } else if (scroll_location == footer.offset().top) {
+      $(navbar).removeClass("background")
+      $(navbar).addClass("dark")
     } else {
-      $(".navbar").removeClass("background");
+      $(navbar).removeClass("background");
     }
 
     $(".animated").each(function() {
@@ -53,15 +52,15 @@ $(document).ready(function() {
   })
 
   $(".navbar-open").click(function() {
-    navbar_overlay.style.width = "100%";
-    navbar_overlay.style.opacity = "1";
-    navbar.style.opacity = "0";
+    $(navbar_overlay).css("width", "100%");
+    $(navbar_overlay).css("opacity", "1");
+    $(navbar).css("opacity", "0");
   })
 
   $(".navbar-close").click(function() {
-    navbar_overlay.style.width = "0%";
-    navbar_overlay.style.opacity = "0";
-    navbar.style.opacity = "1";
+    $(navbar_overlay).css("width", "0%");
+    $(navbar_overlay).css("opacity", "0");
+    $(navbar).css("opacity", "1")
   })
 
   $(".features-card").click(function(e) {
@@ -76,21 +75,11 @@ $(document).ready(function() {
 
   setInterval(flipTutorialsCard , 4000);
 
-  $(window).trigger("scroll");
-
   // Reaveal website contents upon document ready.
   document.body.className = ""
+
+  $(window).trigger("scroll");
 })
-
-//  ! Utility Functions
-
-function elemInView(window_top, element) {
-  let window_mid = window_top + window.innerHeight / 2
-  let element_top = element.offsetTop;
-  let element_bottom = element_top + element.offsetHeight
-  let in_view = element_bottom >= window_mid && window_mid >= element_top;
-  return in_view
-}
 
 // ! View Functions
 

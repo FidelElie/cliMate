@@ -2,3 +2,6 @@ scripts/
 environment/
 .vscode/
 __pycache__/
+
+*.gz
+*.whl

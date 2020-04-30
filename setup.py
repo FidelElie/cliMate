@@ -4,9 +4,9 @@ def readme():
     with open('README.md') as f:
         return f.read()
 
-setuptools.setup(name='climate',
+setuptools.setup(name='CliMate',
       version='0.1',
-      description='A different way to create cli applicaitons',
+      description='Creating Cli Application With An Edge',
       long_description=readme(),
       classifiers=[
            'Development Status :: 3 - Alpha',
@@ -14,9 +14,9 @@ setuptools.setup(name='climate',
            'Programming Language :: Python :: 3.7',
            'Topic :: Text Processing :: Linguistic',
       ],
-      url='http://github.com/fiddycodes/CliMate',
+      url='https://fidelelie.github.io/cliMate/',
       author='Fidel Elie',
-      author_email='fiddytypest@gmail.com',
+      author_email='Fidel.Elie2@gmail.com',
       license='MIT',
       packages=setuptools.find_packages(),
       install_requires=[
@@ -28,4 +28,5 @@ setuptools.setup(name='climate',
          ]
       },
       zip_safe=False,
-      include_package_data=True)
+      include_package_data=True,
+      python_requires='>=3.6',)

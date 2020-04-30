@@ -8,12 +8,10 @@ platform_code_blocks = $(".cross-platform-code");
 
 $(document).ready(function() {
   // * Creating Cross Platform Code Blocks
-  let platform = navigator.platform;
-  let toggled_index = platform == "Win32" ? 0 : 1;
-  let untoggled_index = toggled_index == 1 ? 0 : 1;
+  let platform_info = determinePlatform();
 
   $(".cross-platform-code").each(function() {
-    createCPCodeBlocks(this, toggled_index, untoggled_index)
+    createCPCodeBlocks(this, platform_info.t_index, platform_info.u_index);
   })
 
   // * Creating Code Progression Code Blocks
@@ -30,16 +28,14 @@ $(document).ready(function() {
   tutorial_nav.append(tutorial_navigation);
 
   // * Binding General Elements
-  $("#tutorial-nav-toggle").click(function() {
-    toggleTutorialNav(this);
-  });
+  $("#tutorial-nav-toggle").click(function() {toggleTutorialNav(this);});
 
   $(".logo a").click(function(e) {
     e.preventDefault();
     animateNavigation(tutorial_sections[0])
   })
 
-  $("#tutorial-nav-back").click(function() {hideContentAndNavigate("index");})
+  $("#tutorial-nav-back").click(() => {hideContentAndNavigate("index");})
 
   $(".tutorial-link").click(function(e) {
     e.preventDefault();
@@ -219,55 +215,6 @@ function hasSubSections(subsection_object) {
   return Object.entries(subsection_object).length > 0 ? true : false;
 }
 
-// ! Code Block Methods
-function createCPCodeBlocks(code_block, current_platform, other_platform) {
-  let platforms = $(code_block).find(".platforms").children();
-  let terminal = $(code_block).find(".terminal");
-  let outputs = $(terminal).children();
-
-  outputs[0].innerText = `...\\> ${outputs[0].innerText}`;
-  outputs[1].innerText = `$ ${outputs[1].innerText}`;
-
-  $(platforms[current_platform]).addClass("selected");
-  $(outputs[other_platform]).addClass("hidden");
-
-  $(platforms).click(function () {
-    let button_index = Array.from(platforms).indexOf(this);
-    let selected = $(code_block).find(".platforms").find(".selected");
-    let selected_index = Array.from(platforms).indexOf(selected[0]);
-    if (button_index != selected_index) {
-      $(platforms[selected_index]).removeClass("selected");
-      $(platforms[button_index]).addClass("selected");
-      $(outputs[selected_index]).addClass("hidden")
-      $(outputs[button_index]).removeClass("hidden");
-      toggleAllBlocks(code_block);
-    }
-  })
-}
-
-function toggleAllBlocks(code_block) {
-  Array.from(platform_code_blocks).forEach(block => {
-    if (code_block === block) {
-      null
-    } else {
-      toggleCodeBlock(block);
-    }
-  })
-}
-
-function toggleCodeBlock(block) {
-  let platforms = $(block).find(".platforms").children();
-  let terminal = $(block).find(".terminal");
-  let outputs = $(terminal).children();
-  let selected = $(block).find(".platforms").find(".selected")[0];
-  let selected_index = Array.from(platforms).indexOf(selected);
-  let changed_index = selected_index == 1 ? 0 : 1;
-
-  $(platforms[selected_index]).removeClass("selected");
-  $(platforms[changed_index]).addClass("selected");
-  $(outputs[selected_index]).addClass("hidden");
-  $(outputs[changed_index]).removeClass("hidden");
-}
 // ! View Display Methods
 function animateNavigation(section) {
   if (getNavigationToggleState("#tutorial-nav-toggle")) {

@@ -8,8 +8,10 @@ example_cards = $(".example-card");
 
 // ! Functions
 $(document).ready(function() {
-  $(".windows-button, .unix-button").click(function() {
-    showPlatformCode(this)
+  let platform_info = determinePlatform();
+
+  $(".cross-platform-code").each(function() {
+    createCPCodeBlocks(this, platform_info.t_index, platform_info.u_index)
   })
 
   $(".scroll-link").click(function(e) {
@@ -17,20 +19,11 @@ $(document).ready(function() {
     scrollToSection(this);
   })
 
-  $(".title-card").click(function() {
-    showExample(this);
-  })
+  $(".title-card").click(function() {showExample(this);})
 
-  $(".example-card.enabled").click(function() {
-    copyToClipboard(this);
-  })
+  $(".example-card.enabled").click(function() {copyToClipboard(this);})
 
-  $("#tutorial-button").click(function() {
-    document.body.className = "fade";
-    setTimeout(function() {
-      window.location.href = "tutorials";
-    }, 500)
-  })
+  $("#tutorial-button").click(() => {hideContentAndNavigate("tutorials")})
 
   $(window).scroll(function() {
     let scroll_location = Math.ceil($(this).scrollTop());
@@ -76,7 +69,7 @@ $(document).ready(function() {
   setInterval(flipTutorialsCard , 4000);
 
   // Reaveal website contents upon document ready.
-  document.body.className = ""
+  document.body.className = "";
 
   $(window).trigger("scroll");
 })
@@ -94,27 +87,9 @@ function scrollToSection(link) {
     left: 0,
     behavior: "smooth"
   });
-  navbar_overlay.style.width = "0%";
-  navbar_overlay.style.opacity = "0";
-  navbar.style.opacity = "1";
-}
-
-function showPlatformCode(pressed_toggler) {
-  let togglers = Array.from($(".windows-button, .unix-button"));
-  let displays = Array.from($(".windows-option, .unix-option"));
-
-  let selected_toggler = document.getElementsByClassName("platform-button toggled")[0];
-
-  if (selected_toggler != pressed_toggler) {
-    let selected_index = togglers.indexOf(selected_toggler);
-    let pressed_index = togglers.indexOf(pressed_toggler);
-
-    togglers[selected_index].classList.toggle("toggled");
-    togglers[pressed_index].classList.toggle("toggled");
-
-    displays[selected_index].classList.toggle("hidden");
-    displays[pressed_index].classList.toggle("hidden");
-  }
+  $(navbar_overlay).css("width", "0%");
+  $(navbar_overlay).css("opacity", "0");
+  $(navbar).css("opacity", "1");
 }
 
 function showExample(pressed_toggler) {
@@ -142,9 +117,7 @@ function copyToClipboard(display) {
   let corresponding_title = example_titles[example_index];
   let copied_message = $(corresponding_title).children(".copied-message");
   $(copied_message).css("opacity", "1");
-  setTimeout(
-    () => {$(copied_message).css("opacity", "0");}, 2000
-  )
+  setTimeout(() => {$(copied_message).css("opacity", "0");}, 2000);
 }
 
 function openOverlay(features_button) {
@@ -155,8 +128,7 @@ function openOverlay(features_button) {
   setTimeout(function() {
     $(`#${button_id}-overlay .overlay-container .gif-container`).css("opacity", "1");
     $(`#${button_id}-overlay .overlay-container .copy-container`).css("opacity", "1");
-  }, 500)
-
+  }, 500);
 }
 
 function closeOverlay(close_button) {
@@ -175,6 +147,6 @@ function flipTutorialsCard() {
   if (card_inner.style.transform == "") {
     card_inner.style.transform = "rotateY(180deg)";
   } else {
-    card_inner.style.transform = ""
+    card_inner.style.transform = "";
   }
 }

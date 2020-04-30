@@ -68,25 +68,9 @@ def read_file(path):
 
     return file_data
 
-def return_value(value):
-    """Fetch and return value.
-
-    Parameters
-    ----------
-    value: various
-        Value to be returned.
-
-    Returns
-    -------
-    value: various
-        Value that is returned.
-    """
-    return value
-
 MAPPER_TABLE = {
     "get": get,
-    "read": read_file,
-    "return_value": return_value
+    "read": read_file
 }
 
 def map_string(string_map, arguments):

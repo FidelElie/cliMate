@@ -223,11 +223,11 @@ def add_menu(cli_path: str):
         raise FileNotFoundError("Could not find file: {}".format(cli_path))
 
     cli_present = utilities.read_json(cli_path)
-    cli_present["menu"] = {}
+    cli_present["general"]["menu"] = {}
 
     utilities.write_json(cli_path, cli_present)
 
-    print("Menu filed added to cli file")
+    print("Menu field added to cli file")
 
 def add_path_command(cli_path: str, setup_path: str):
     """Add path commands from module setup files.

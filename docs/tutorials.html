@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/styles/atom-one-dark.min.css">
     <link rel="stylesheet" href="assets/styles/tutorials.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
-    <title>CliMate Tutorial</title>
+    <title>CliMate Documentation - Learn To Create Menu Cli Applications</title>
 </head>
 <body class="fade">
     <div class="navbar">
@@ -34,8 +34,7 @@
             <h2 class="section-header">Preparation</h2>
             <div class="tutorial-subsection" id="installation">
                 <h3 class="section-header">Installation</h3>
-                <p>CliMate can be installed like any other python package using the package manager pip. Just enter the
-                    command below into your terminal:</p>
+                <p>CliMate can be installed like any other python package using the package manager pip. Just enter the command below into your terminal:</p>
                 <div class="cross-platform-code">
                     <div class="platforms">
                         <button type="button"></button>
@@ -46,7 +45,7 @@
                         <p class="output">pip3 install climate</p>
                     </div>
                 </div>
-                <p>It can also be installed by downloading the source from Github and calling:</p>
+                <p>It can also be installed by downloading the source from Github and running:</p>
                 <div class="cross-platform-code">
                     <div class="platforms">
                         <button type="button"></button>
@@ -60,7 +59,7 @@
             </div>
             <div class="tutorial-subsection" id="following-along">
                 <h3 class="section-header">Following Along</h3>
-                <p>In this documentation we will look at two different climate projects to understand how to use the library in all its intricacies. You have two options when following along. The recommended option for individuals who are new to the CliMate is to write all the code out yourself. It will be the easiest method of learning the library, its structures and its conventions. The second is to download the finished files as reference for all the documentation. Please note these are the finished files from after the tutorials are finished. So a basic understanding of how CliMate works is necessary to understand this. Each file name is given with all snippets so look out for the line below: </p>
+                <p>In this documentation we will look at two different CliMate projects to understand how to use the library and all its intricacies. You have two options when following along. The recommended option for individuals who are new to the CliMate is to write all the code out yourself. It will be the easiest method of learning the library, its structures and its conventions. The second is to download the finished files as reference for all the documentation. Please note these are the finished files for when you reach the end of the tutorial. So a basic understanding of how CliMate works is necessary to understand this. Each file name is given with all snippets so look out for the line below: </p>
                 <div class="code-progression">
                     <code class="code-buttons"></code>
                     <div class="code-file-name">
@@ -101,9 +100,9 @@
             </div>
             <div class="tutorial-subsection" id="conventions">
                 <h3 class="section-header">Conventions</h3>
-                <p>CliMate's declarative nature leads to numerous code snippets and to make them more clear, this documentation also shows you the states of file before and after the changes you make. As a result, to minimise the size of each of the code block, two methods of condensing is used:</p>
+                <p>CliMate's declarative nature leads to numerous code snippets and to make them more clear, this documentation also shows you the states of files before and after the changes you make. Consequently, to minimise the size of each of the code blocks, two methods of condensing is used:</p>
                 <div class="banner-separator"><p>Condensing Code Structures</p></div>
-                <p>After a code block has been declared in a previous code block usually in subsequent code blocks it be condensed with ellipses unless it is the focus of our coding.</p>
+                <p>After a code block has been declared previously, usually in subsequent code blocks it will be condensed with ellipses unless it is the focus of our coding.</p>
 <pre><code class="json">
 {
     "general":{...},
@@ -129,7 +128,7 @@ def new_function(argument_1, argument_2):
             <!-- ! Getting Started - Hello World -->
             <div class="tutorial-subsection" id="hello-world">
                 <h3 class="section-header">Hello World Revisited</h3>
-                <p>The minimal example on the homepage is the application without the explanation. So firstly, lets start by creating this application taking care with the steps. Lets start by making a python file. Name it whatever you like and open a terminal in your desired project space. Then enter the command:
+                <p>The minimal example on the homepage is the application without the explanation. So firstly, lets start by creating this application taking care with the steps. Lets start by entering the command to start a new CliMate application:
                 </p>
                 <div class="terminal-block">
                     <p><span class="pc">clm</span> new-app</p>
@@ -138,7 +137,18 @@ def new_function(argument_1, argument_2):
                 <div class="terminal-block">
                     <p>CliMate App Created In Root</p>
                 </div>
-                <p>This is the heart of your new command line application and has its own syntaxes and structures for defining your commands. The anatomy of this file will be discussed throughout the tutorial series, but for now lets add our first command. I would suggest for the first few examples, declarations should be made manually so you can familiarise yourself with the structure of the cli file and writing it. Below shows our first command, copy this into the <span class="dc">"commands"</span> object in the cli.json file we created previously.</p>
+                <div class="tutorial-accordion">
+                    <div class="accordion-header">
+                        <div class="accordion-title">
+                            <p>Cli File Locations Tips</p>
+                        </div>
+                        <div class="accordion-indicator"></div>
+                    </div>
+                    <div class="accordion-contents">
+                        <p>The files that make up your CliMate applications will always be initially created and linked to each other in root. This does not have to remain the case if this goes against your current project structure. It is very easy to move the Cli file to anywhere you desire, just remember to change the path to where the file is loaded in the "cli.py" file and you will be good to go.</p>
+                    </div>
+                </div>
+                <p>This is the heart of your new command line application and has its own syntaxes and structures for defining your commands. The anatomy of this file will be discussed throughout the tutorial series, but for now lets add our first command. I would suggest for at least the first few examples, declarations should be made manually so you can familiarise yourself with the structure of the cli file and writing it. Below shows our first command, copy this into the <span class="dc">"commands"</span> object in the Cli file we created previously.</p>
                 <div class="code-progression">
                     <div class="code-buttons"></div>
                     <div class="code-file-name">
@@ -197,7 +207,7 @@ def new_function(argument_1, argument_2):
                                 </code></pre>
                     </div>
                 </div>
-                <p>The command <span class="dc">"say-hello"</span> is now registered for your command line application. Now we can hook everything up in python. Open your python file that we created previously and add the snippet below:</p>
+                <p>The command <span class="dc">"say-hello"</span> is now registered for your command line application. Now we can hook everything up in python. Open your python file that we created previously and add the snippet below after the package imports in the top of the python file:</p>
                 <div class="code-progression">
                     <div class="code-buttons"></div>
                     <div class="code-file-name">
@@ -232,7 +242,7 @@ def say_hello(<span class="pc">someone</span>):
                                 </code></pre>
                     </div>
                 </div>
-                <p>Your command Line application is now ready to go so now you can run the command:</p>
+                <p>We have now completed all the preparation required to run our first command so lets get to it. Run the command by entering the following into your terminal:</p>
                 <div class="cross-platform-code">
                     <div class="platforms">
                         <button type="button"></button>
@@ -254,7 +264,7 @@ def say_hello(<span class="pc">someone</span>):
                         <p class="output">python3 cli.py help --commands</p>
                     </div>
                 </div>
-                <p>Additionally, we can also access this command by opening the command line application's Main Menu. This is achieved by inputting no commands or arguments into the cmd.</p>
+                <p>Additionally, we can also access this command by opening the command line application's Main Menu. This is achieved by inputting no commands or arguments after the file name in your terminal:</p>
                 <div class="cross-platform-code">
                     <div class="platforms">
                         <button type="button"></button>
@@ -265,20 +275,23 @@ def say_hello(<span class="pc">someone</span>):
                         <p class="output">python3 cli.py</p>
                     </div>
                 </div>
-                <p>This is the basics of how to start your own CliMate application but lets look at what we have written so far with close scrutiny.</p>
+                <p>This is the basics of how to start your own CliMate application but lets look at what we have written so far with closer scrutiny.</p>
             </div>
             <!-- ! Getting Started - Closer Look -->
             <div class="tutorial-subsection" id="closer-look">
                 <h3 class="section-header">A Closer Look</h3>
-                <p>As you have seen already CliMate revolves around commands. Each of which holds a name, description, target and optional arguments. Instead of just passing your desired data directly to the file object everything is organised by these commands. The command call is defined by its key in the case of the example above this is <i>say-hello</i>. The <span class="dc">"name"</span> and <span class="dc">"description</span> keys are used in creating the Menu and Help structures and should be brief but concise.</p>
-                <p>The <span class="dc">"target"</span> key is where the magic happens and deserves its own section entirely to see what it is capable of <a class="tutorial-link" href="#targets">here</a>. However, for now its purpose is to tell the application where it should send the arguments too. This can be in a function as in the example above or other first class object like methods and classes. Above we define the target type as a function. Usually we can explicitly state the name of the function that we want to pass the arguments to. However, in this example this key being omitted means that CliMate will search for a function that is the same as your command with any hyphens being replaced with underscores (<span class="dc">"say-hello"</span> becomes <span class="fc">say_hello</span>).
-                </p>
-                <p>Arguments are defined in a similar matter to the command itself. They possess <span class="dc">"name"</span> and <span class="dc">"description"</span> keys for the same purposes. As well as keys for defining the desired data type of the input and default values if desired.</p>
+                <p>As you may have already noticed, CliMate revolves around commands. Each of which holds a name, description, target and optional arguments. Instead of just passing your desired data directly to the file object everything is organised by these commands. The command call is defined by its key; in the case of the example above this is <i>say-hello</i>. The <span class="dc">"name"</span> and <span class="dc">"description"</span> keys are used in creating the Menu and Help structures and should be brief but concise.</p>
+                <p>The <span class="dc">"target"</span> key is where the magic happens and deserves its own section entirely to see what it is capable of <a class="tutorial-link" href="#targets">here</a>. However, for now its purpose is to tell the application where it should send the arguments too and call the given object. This can be in a function as in the example above or other first class objects like methods and classes. Above we define the target type as a function. Arguments are defined in a similar matter to the command itself. They possess <span class="dc">"name"</span> and <span class="dc">"description"</span> keys for the same purposes. As well as keys for defining the desired data type of the input and default values if desired.</p>
+                <p>We define all this commands but to start CliMate running we use python to load the Cli File and start the parsing process. This is done with the line below in the cli.py file:</p>
+                <pre><code class="python">
+climate.<span class="fc">parse_args</span>()
+                </code></pre>
+                <p>After this is called CliMate takes in the commands, parses and converts arguments, resolves the target and calls it with all of its required arguments.</p>
             </div>
             <!-- ! Getting Started - Summary -->
             <div class="tutorial-subsection" id="summary">
                 <h3 class="section-header">Summarising</h3>
-                <p>To summarise what we have gone through so far, the general structure of our cli file is:</p>
+                <p>To summarise what we have gone through so far, the general structure of our Cli file is:</p>
                 <pre><code class="jsonc">
 {
     "general": {
@@ -302,27 +315,27 @@ def say_hello(<span class="pc">someone</span>):
     }
 }
                         </code></pre>
-                <p>All of this will become easier to utilise as you go through the tutorials on offer her. The example above is a good way to show the basics of what can be done but noe lets look more into creating commands.</p>
+                <p>All of this will become easier to utilise as you go through the tutorials on offer here. The example above is a good way to show the basics of what can be done but now lets look more into creating commands.</p>
             </div>
         </div>
         <!-- ! Targets -->
         <div class="tutorial-section" id="targets">
             <h2 class="section-header">Targets</h2>
-            <p>Now we have learned the basics of creating a cli application, lets dig deeper into creating the applications themselves.</p>
+            <p>Now we have learned the basics of creating a cli application, lets dig deeper into creating something more complex.</p>
             <!-- ! Targets - Command Centric -->
             <div class="tutorial-subsection" id="command-centric">
                 <h3 class="section-header">Command Centric</h3>
-                <p>As you have seen already from the first example, CliMate centres around the definition and use of commands. These command have various keys that define their behavior, the most important being the <span class="dc">'target'</span> key. This is where CliMate works its magic for each of the command so lets look at it more clearly.</p>
+                <p>As you have seen already from the first example, CliMate centres around the definition and use of commands. These command have various keys that define their behavior, the most important being the <span class="dc">"target"</span> key. This is where CliMate works its magic for each of the command so lets look at it more clearly.</p>
             </div>
             <!-- ! Targets - Starting Project -->
             <div class="tutorial-subsection" id="starting-project">
                 <h3 class="section-header">Starting A New Project</h3>
-                <p>The <span class="dc">'target'</span> key is mandatory for any command you want to register in your application. It holds the information that points CliMate to the desired object you would like to pass arguments and run upon calling the select command. So lets expand on our previous efforts and start a new CliMate application that we will go through and expand upon for the remainder of the tutorial.
-                <p>CloMate excels at creating larger application with multiple different commands for the user utilise for their goals. The application we are going to make using CliMate is... CliMate. By implementing variations and basic implementations of the package itself you will gain a great understanding of what it has to offer and how to use it effectively. So lets start our new project, we start with the same command we called in the previous section:</p>
+                <p>The <span class="dc">"target"</span> key is mandatory for any command you want to register in your application. It holds the information that points CliMate to the desired object that you would like to pass arguments and run upon calling the select command. So lets expand on our previous efforts and start a new CliMate application that we will go through and expand upon for the remainder of this documentation.
+                <p>CliMate excels at creating larger application with multiple different commands for the user to utilise for their goals. The application we are going to make using CliMate is... <i>CliMate</i>. By implementing variations and basic implementations of the package itself you will gain a greater understanding of what it has to offer and how to use it effectively. So lets start our new project, we start with the same command we called in the previous section:</p>
                 <div class="terminal-block">
                     <p><span class="pc">clm</span> new-app</p>
                 </div>
-                <p>This will drop the cli.json file into the chosen directory. Now we can drop a simple cli.py file next to it like before. To make the project more structured we will place the other python code in a subdirectory. So create a folder called 'core' and place an '__init__.py' file inside of it as well as a python file called 'actions.py'. By the end of this you're directory should look like this:</p>
+                <p>This will drop the cli.json file into the chosen directory. Now we can drop a simple cli.py file next to it like before. To make the project more structured we will place the other python code in a subdirectory. So create a folder called 'core' and place an '__init__.py' file inside of it as well as a python file called 'actions.py'. By the end of this you're directory should look like below:</p>
                 <div class="file-explorer">
                     <div class="explorer-bar">
                         <p>File Structure</p>
@@ -379,7 +392,7 @@ def say_hello(<span class="pc">someone</span>):
     "commands": {
         "new-app": {
             "name": "New Command Line Application",
-            "description": "Starts The Command Line Application, Creating Cli File",
+            "description": "Starts A New Command Line Application",
             "target": {
                 "type": "function"
             },
@@ -399,7 +412,7 @@ def say_hello(<span class="pc">someone</span>):
                         <pre><code class="json">
 <span class="dc">"new-app"</span>: {
     "name": "New Command Line Application",
-    "description": "Starts The Command Line Application, Creating Cli File",
+    "description": "Starts A New Command Line Application",
     "target": {
         "type": "function"
     },
@@ -414,10 +427,7 @@ def say_hello(<span class="pc">someone</span>):
                                 </code></pre>
                     </div>
                 </div>
-                <p>This registers a slightly cut down version of the <span class="dc">"new-app"</span> command that you
-                    already love minus one argument that alludes to a capability that we will discuss later on in the
-                    tutorial. It creates cli.json file adds some of the default key to it and notifies the user when
-                    this is completed. Let's add this logic to the "actions.py" file:</p>
+                <p>This registers a slightly cut down version of the <span class="dc">"new-app"</span> command that you already love minus one argument that eludes to a capability that we will discuss later on in the tutorial. It creates cli.py and cli.json files adds some of the default keys to it and notifies the user when this is completed. Let's add this logic to the "actions.py" file:</p>
                 <div class="code-progression">
                     <div class="code-buttons"></div>
                     <div class="code-file-name">
@@ -438,8 +448,10 @@ def new_application(cli_dir):
     utilities.<span class="fc">check_cli_dir</span>(cli_dir)
     json_path = utilities.<span class="fc">join_path</span>(cli_dir, "cli-test.json")
     python_path = utilities.<span class="fc">join_path</span>(cli_dir, "cli-test.py")
+
     utilities.<span class="fc">write_json</span>(json_path, data.<span class="pc">CLI_CONTENTS</span>.<span class="fc">copy</span>())
     utilities.<span class="fc">write_data</span>(python_path, data.<span class="pc">PYTHON_CONTENT</span>)
+
     local = "Root" if cli_dir is "" else cli_dir
     print(f"CliMate App Created In {local}")
                                 </code></pre>
@@ -447,14 +459,16 @@ def new_application(cli_dir):
                     <div class="snippet-code">
                         <pre><code class="python">
 from climate import utilities
-from . import data
+from climate import data
 
 def new_application(cli_dir):
     utilities.<span class="fc">check_cli_dir</span>(cli_dir)
     json_path = utilities.<span class="fc">join_path</span>(cli_dir, "cli-test.json")
     python_path = utilities.<span class="fc">join_path</span>(cli_dir, "cli-test.py")
+
     utilities.<span class="fc">write_json</span>(json_path, data.<span class="pc">CLI_CONTENTS</span>.<span class="fc">copy</span>())
     utilities.<span class="fc">write_data</span>(python_path, data.<span class="pc">PYTHON_CONTENT</span>)
+
     local = "Root" if cli_dir is "" else cli_dir
     print(f"CliMate App Created In {local}")
                                 </code></pre>
@@ -468,8 +482,7 @@ def new_application(cli_dir):
                         <div class="accordion-indicator"></div>
                     </div>
                     <div class="accordion-contents">
-                        <!-- TODO add the link to this accordion -->
-                        <p>This line imports general convenience functions that are used throughout CliMate into the "actions".py file. These are going to be used throughout this file to encapsulate some of the logic. They all have very descriptive names to tell you what each functions is doing but for more information on their uses see <a class="tutorial-link" href="#"></a>here.</p>
+                        <p>This line imports general convenience functions that are used throughout CliMate into the "actions".py file. These are going to be used throughout this file to encapsulate some of the logic. They all have very descriptive names to tell you what each function is doing but for more information on their uses see <a class="tutorial-link" href="#utilities-reference">here</a>.</p>
                     </div>
                 </div>
                 <div class="tutorial-accordion">
@@ -483,14 +496,14 @@ def new_application(cli_dir):
                         <p>This line imports data structures that are used in CliMate for its commands. It contains general template data for the
                         files used in the package such as the snippet below being the template for the base cli.json file. This was in an effort to not clog up our files with code structures.</p>
                         <pre><code class="python">
-<span class="dc">PYTHON_CONTENT</span> = {
+<span class="pc">PYTHON_CONTENT</span> = {
     "general": {},
     "commands": {}
 }
                         </code></pre>
                     </div>
                 </div>
-                <p>Now to the important but relatively easy bit when writing your next masterpiece. If we were to try and run this cli application as is we would get an error saying that the function "new_app" is not found. This is because we haven't told CliMate where our function is located or even imported it into our application. We initially situated our "actions.py" file inside the core package. So we have to import this into our main python file. Add this line to the top of your "cli.py" file:</p>
+                <p>Now to the important but relatively easy bit when writing your next masterpiece. If we were to try and run this Cli application as is; we would get an error saying that the function "new_app" is not found. This is because we haven't told CliMate where our function is located or even imported it into our application. We initially situated our "actions.py" file inside the "core" package. So we have to import this into our main python file. Add this line to the top of your "cli.py" file:</p>
                 <div class="code-progression">
                     <div class="code-buttons"></div>
                     <div class="code-file-name">
@@ -522,9 +535,7 @@ from core import actions
                                 </code></pre>
                     </div>
                 </div>
-                <p>This will expose all of our functions to the CliMate application and now we just have to hook this up
-                    in cli file so lets look at the <span class="dc">"target"</span> key. We have already defined the
-                    type now lets tell CliMate the module origins for the function replace the contents of target with:
+                <p>This will expose all of our functions to the CliMate application and now we just have to hook this up in the Cli file so lets look at the <span class="dc">"target"</span> key. We have already defined the type now lets tell CliMate the module origins for the function; add to the contents of target with:
                 </p>
                 <div class="code-progression">
                     <div class="code-buttons"></div>
@@ -587,7 +598,7 @@ from core import actions
                                 </code></pre>
                     </div>
                 </div>
-                <p>Now we can run our CliMate clone through calling the python file:</p>
+                <p>Now we can run our CliMate clone through calling the python file and giving it our newly added command:</p>
                 <div class="cross-platform-code">
                     <div class="platforms">
                         <button type="button"></button>
@@ -598,8 +609,7 @@ from core import actions
                         <p class="output">python3 cli.py new-app</p>
                     </div>
                 </div>
-                <p>This will do exactly what we did you start - start the creation of a new "CC" application ready to
-                    accept commands and other goodies.</p>
+                <p>This will do exactly what we did to start - start the creation of a new CliMate application ready to accept commands and other goodies.</p>
                 <div class="tutorial-accordion">
                     <div class="accordion-header">
                         <div class="accordion-title">
@@ -608,10 +618,10 @@ from core import actions
                         <div class="accordion-indicator"></div>
                     </div>
                     <div class="accordion-contents">
-                        <p>In CliMate, targets pass all argument information to the desired python object through the use of a sys.modules call. So any modules that are loaded in at runtime can be called upon. The chosen command is resolved from the Cli file, then the target is resolved from the dictionary returned from sys.modules. If the <span class="dc">"module-name"</span> for a target is omitted however, the object is searched for in the current running file (i.e sys.modules.<span class="fc">get</span>(<span class="sc">"__main__"</span>"))</p>
+                        <p>In CliMate, targets pass all argument information to the desired python object through the use of a sys.modules call. So any modules that are loaded in at runtime can be called upon. The chosen command is resolved from the Cli file, then the target is resolved from the dictionary returned from sys.modules. If the <span class="dc">"module-name"</span> for a target is omitted however, the object is searched for in the current running file (i.e sys.modules.<span class="fc">get</span>(<span class="sc">"__main__"</span>))</p>
                     </div>
                 </div>
-                <p>We have currently only explored one of the types of targets that we can point CliMate to. Luckily for us they all work the same way. CliMate command can also be pointed at python classes and methods and which one you use is based on the project you are attempting to write or the pre-existing structure of your project. All arguments are passed to each object accordingly. The display below shows the key required to utilise each of the target types and how they pass arguments to it.</p>
+                <p>We have currently only explored one of the types of targets that we can point CliMate to. Luckily for us they all work the same way. CliMate commands can also be pointed at python classes and methods and which one you use is based on the project you are attempting to write or the pre-existing structure of your project. All arguments are passed to each object accordingly. The display below shows the key required to utilise each of the target types and how CliMate passes arguments to it.</p>
                 <div class="tutorial-accordion">
                     <div class="accordion-header">
                         <div class="accordion-title">
@@ -620,12 +630,10 @@ from core import actions
                         <div class="accordion-indicator"></div>
                     </div>
                     <div class="accordion-contents">
-                        <p>The module name defines where Climate looks for a package but it doesn't tell it what object to call. If you leave out the name of your object for example the <span class="dc">"function-name"</span>, CLiMate will take the name of your command for example <span class="dc">"new-app"</span> in this case and convert the hyphen to an underscore (<span class="fc">new_app</span>) and then search for an object of this name. <i>Not that this will return an error if you are looking for methods. So as a rule of thumb always add the name of your target object to be consistent and less prone to error.</i></p>
+                        <p>The module name defines where Climate looks for a package but it doesn't tell it what object to call. If you leave out the name of your object for example the <span class="dc">"function-name"</span>, CliMate will take the name of your command for example <span class="dc">"new-app"</span> in this case and convert the hyphen to an underscore (<span class="fc">new_app</span>) and then search for an object of this name. <i>Note that this will return an error if you are looking for methods. So as a rule of thumb always add the name of your target object to be consistent and less prone to error.</i></p>
                     </div>
                 </div>
-                <p>Now you know how to point commands to different target. this is all of what is required to get
-                    commands and up and running. Now we can look in depth into parsing the data you need, lets look at
-                    how CliMate handles arguments</p>
+                <p>Now you know how to point commands to different targets. This is all of what is required to get commands up and running. Now we can look in depth into parsing the data you need, lets look at how CliMate handles arguments</p>
             </div>
             <!-- ! Targets - Target Reference -->
             <div class="tutorial-subsection" id="target-reference">
@@ -737,177 +745,174 @@ class ClassName(<span class="mc">object</span>):
             <!-- ! Arguments - Parsing Arguments -->
             <div class="tutorial-subsection" id="parsing-arguments">
                 <h3 class="section-header">Parsing Arguments</h3>
-                <p>As we have shown in the previous section arguments are defined similarly to commands inside the <span class="dc">"arguments"</span> key. The big difference between this and commands is that is supports a datatype. The "type" key defines what the parsed argument is converted to when it is entered. There are various different datatype to choose from and they all tie into the use of the CliMate menu functions. So lets add some more commands and add their arguments to our application. We want convenience functions for adding commands and arguments to existing command in our cli file. Lets start with the former:</p>
-                <p>The <span class="dc">"new-command"</span> call will take 3 arguments. the first will be the path to the cli file we want to modify, the second will be the amount of arguments that we want to add to our new command. The third and final argument will be a choice of what target type template we want to add, discussed earlier in the documentation. The <span class="dc">"cli-path"</span> will be of type <span class="sc">"str"</span> meaning it is string. The second <span class="dc">"arg-amount"</span> will be of type <span class="sc">"int"</span>. These are very standard types so far, but for final we use the type <span class="sc">"choices"</span>. This allows us to define mappings for the command line interface that will also show more user friendly choices for the menu interface. Below is the code we use for this command, and take care to study how each of the arguments have been defined.</p>
-            </div>
-            <div class="code-progression">
-                <div class="code-buttons"></div>
-                <div class="code-file-name">
-                    <span class="mdi mdi-code-json"></span>
-                    <p>cli.json</p>
-                </div>
-                <div class="before-code">
-                    <pre><code class="json">
-{
-    "general": {},
-    "commands": {
-        "new-app": {...}
+                <p>As we have shown in the previous section arguments are defined similarly to commands inside the <span class="dc">"arguments"</span> key. The big difference between this and commands is that it supports a datatype. The "type" key defines what the parsed argument is converted to when it is entered. There are various different data types to choose from and they all tie into the use of the CliMate menu functions. So lets add some more commands and add their arguments to our application. We want convenience functions for adding commands and arguments to existing commands in our Cli file. Lets start with the former:</p>
+                <p>The <span class="dc">"new-command"</span> call will take 3 arguments. the first will be the path to the cli file we want to modify, the second will be the amount of arguments that we want to add to our new command. The third and final argument will be a choice of what target type template we want to add, discussed earlier in the documentation. The <span class="dc">"cli-path"</span> will be of type <span class="sc">"str"</span> meaning it is string. The second <span class="dc">"arg-amount"</span> will be of type <span class="sc">"int"</span>. These are very standard types so far, but for final we use the type <span class="sc">"choices"</span>. This allows us to define mappings for the command line interface that will also show more user friendly choices for the menu interface. Below is the code we use for this command, and take care to study how each of the arguments have been defined:</p>
+                <div class="code-progression">
+                    <div class="code-buttons"></div>
+                    <div class="code-file-name">
+                        <span class="mdi mdi-code-json"></span>
+                        <p>cli.json</p>
+                    </div>
+                    <div class="before-code">
+                        <pre><code class="json">
+    {
+        "general": {},
+        "commands": {
+            "new-app": {...}
+        }
     }
-}
-                            </code></pre>
-                </div>
-                <div class="after-code">
-                    <pre><code class="json">
-{
-    "general": {},
-    "commands": {
-        "new-app": {...},
-        "new-command": {
-            "name": "New Command For Cli File",
-            "description": "Add New Command To The Cli File",
-            "target": {
-                "type": "function",
-                "module-name": "core.actions",
-                "function-name": "new_command"
-            },
-            "arguments": {
-                "cli_path": {
-                    "name": "Cli Path",
-                    "description": "Path To Cli File",
-                    "type": "str",
-                    "default": "cli.json"
+                                </code></pre>
+                    </div>
+                    <div class="after-code">
+                        <pre><code class="json">
+    {
+        "general": {},
+        "commands": {
+            "new-app": {...},
+            "new-command": {
+                "name": "New Command For Cli File",
+                "description": "Add New Command To The Cli File",
+                "target": {
+                    "type": "function",
+                    "module-name": "core.actions",
+                    "function-name": "new_command"
                 },
-                "arg-amount": {
-                    "name": "Argument Amounts",
-                    "description": "A set number of arguments",
-                    "type": "int",
-                    "default": <span class="pc">1</span>
-                },
-                "target-type": {
-                    "name": "Target Type",
-                    "description": "Choice Of Command Targets",
-                    "type": "choices",
-                    "choices": {
-                        "--class": "Class Target Type",
-                        "--method": "Method Target Type",
-                        "--function": "Function Target Type"
+                "arguments": {
+                    "cli-path": {
+                        "name": "Cli Path",
+                        "description": "Path To Cli File",
+                        "type": "str",
+                        "default": "cli.json"
+                    },
+                    "arg-amount": {
+                        "name": "Argument Amounts",
+                        "description": "A set number of arguments",
+                        "type": "int",
+                        "default": <span class="pc">1</span>
+                    },
+                    "target-type": {
+                        "name": "Target Type",
+                        "description": "Choice Of Command Targets",
+                        "type": "choices",
+                        "choices": {
+                            "--class": "Class Target Type",
+                            "--method": "Method Target Type",
+                            "--function": "Function Target Type"
+                        }
                     }
                 }
             }
         }
     }
-}
-                            </code></pre>
-                </div>
-                <div class="snippet-code">
-                    <pre><code class="json">
-<span class="dc">"new-command"</span>: {
-    "name": "New Command For Cli File",
-    "description": "Add New Command To The Cli File",
-    "target": {
-        "type": "function",
-        "module-name": "core.actions",
-        "function-name": "new_command"
-    },
-    "arguments": {
-        "cli_path": {
-        "name": "Cli Path",
-        "description": "Path To Cli File",
-        "type": "str",
-        "default": "cli.json"
-    },
-    "arg-amount": {
-        "name": "Argument Amounts",
-        "description": "A set number of arguments",
-        "type": "int",
-        "default": <span class="pc">1</span>
-    },
-    "target-type": {
-        "name": "Target Type",
-        "description": "Choice Of Command Targets",
-        "type": "choices",
-        "choices": {
-            "--class": "Class Target Type",
-            "--method": "Method Target Type",
-            "--function": "Function Target Type"
+                                </code></pre>
+                    </div>
+                    <div class="snippet-code">
+                        <pre><code class="json">
+    <span class="dc">"new-command"</span>: {
+        "name": "New Command For Cli File",
+        "description": "Add New Command To The Cli File",
+        "target": {
+            "type": "function",
+            "module-name": "core.actions",
+            "function-name": "new_command"
+        },
+        "arguments": {
+            "cli-path": {
+            "name": "Cli Path",
+            "description": "Path To Cli File",
+            "type": "str",
+            "default": "cli.json"
+        },
+        "arg-amount": {
+            "name": "Argument Amounts",
+            "description": "A set number of arguments",
+            "type": "int",
+            "default": <span class="pc">1</span>
+        },
+        "target-type": {
+            "name": "Target Type",
+            "description": "Choice Of Command Targets",
+            "type": "choices",
+            "choices": {
+                "--class": "Class Target Type",
+                "--method": "Method Target Type",
+                "--function": "Function Target Type"
+            }
         }
     }
-}
-                        </code></pre>
+                            </code></pre>
+                    </div>
                 </div>
-            </div>
-            <p>We should also write the python code for this command to work in the "actions.py" file. Below is the code
-                for adding a new command to the cli file.</p>
-            <div class="code-progression">
-                <div class="code-buttons"></div>
-                <div class="code-file-name">
-                    <span class="mdi mdi-language-python"></span>
-                    <p>actions.py</p>
+                <p>We should also write the python code for this command to work in the "actions.py" file. Below is the code for adding a new command to the Cli file.</p>
+                <div class="code-progression">
+                    <div class="code-buttons"></div>
+                    <div class="code-file-name">
+                        <span class="mdi mdi-language-python"></span>
+                        <p>actions.py</p>
+                    </div>
+                    <div class="before-code">
+                        <pre><code class=python>
+    from climate import utilities
+    from climate import data
+
+    def new_application(cli_dir):...
+                            </code></pre>
+                    </div>
+                    <div class="after-code">
+                        <pre><code class="python">
+    from climate import utilities
+    from climate import data
+
+    def new_application(cli_dir):...
+
+    def new_command(cli_path, arg_amount, target_type):
+        utilities.<span class="fc">check_cli_path</span>(cli_path):
+        command_contents = data.<span class="pc">COMMAND_CONTENT</span>.<span class="fc">copy</span>()
+        target = targets[target_type] if target_type is not None else {}
+        command_contents["target"] = target
+
+        if arg_amount != 0:
+        arguments = {}
+        for i in range(arg_amount):
+            arguments[f"new-arguments-{i}"] = data.<span class="pc">ARGUMENT_CONTENT</span>.<span class="fc">copy</span>()
+            command_contents["arguments"] = arguments
+
+        cli_present = utilities.<span class="fc">read_json</span>(cli_path)
+        cli_commands = cli_present["commands"]
+        command_amount = <span class="mc">len</span>(cli_commands.<span class="fc">keys</span>())
+        cli_commands[f"new-command-{command_amount + 1}"] = command_contents
+        cli_present["commands"] = cli_commands
+        utilities.<span class="fc">write_json</span>(cli_path, cli_present)
+        print(f"New command added to Cli File {cli_path}")
+
+                            </code></pre>
+                    </div>
+                    <div class="snippet-code">
+                        <pre><code class="python">
+    def new_command(cli_path, arg_amount, target_type):
+        utilities.<span class="fc">check_cli_path</span>(cli_path):
+        command_contents = data.<span class="pc">COMMAND_CONTENT</span>.<span class="fc">copy</span>()
+        target = targets[target_type] if target_type is not None else {}
+        command_contents["target"] = target
+
+        if arg_amount != 0:
+        arguments = {}
+        for i in range(arg_amount):
+            arguments[f"new-arguments-{i}"] = data.<span class="pc">ARGUMENT_CONTENT</span>.<span class="fc">copy</span>()
+            command_contents["arguments"] = arguments
+
+        cli_present = utilities.<span class="fc">read_json</span>(cli_path)
+        cli_commands = cli_present["commands"]
+        command_amount = <span class="mc">len</span>(cli_commands.<span class="fc">keys</span>())
+        cli_commands[f"new-command-{command_amount + 1}"] = command_contents
+        cli_present["commands"] = cli_commands
+        utilities.<span class="fc">write_json</span>(cli_path, cli_present)
+        print(f"New command added to Cli File {cli_path}")
+
+                            </code></pre>
+                    </div>
                 </div>
-                <div class="before-code">
-                    <pre><code class=python>
-from climate import utilities
-from . import data
-
-def new_application(cli_dir):...
-                        </code></pre>
-                </div>
-                <div class="after-code">
-                    <pre><code class="python">
-from climate import utilities
-from . import data
-
-def new_application(cli_dir):...
-
-def new_command(cli_path, arg_amount, target_type):
-    utilities.<span class="fc">check_cli_path</span>(cli_path):
-    command_contents = data.<span class="pc">COMMAND_CONTENT</span>.<span class="fc">copy</span>()
-    target = targets[target_type] if target_type is not None else {}
-    command_contents["target"] = target
-
-    if arg_amount != 0:
-    arguments = {}
-    for i in range(arg_amount):
-        arguments[f"new-arguments-{i}"] = data.<span class="pc">ARGUMENT_CONTENT</span>.<span class="fc">copy</span>()
-        command_contents["arguments"] = arguments
-
-    cli_present = utilities.<span class="fc">read_json</span>(cli_path)
-    cli_commands = cli_present["commands"]
-    command_amount = <span class="mc">len</span>(cli_commands.<span class="fc">keys</span>())
-    cli_commands[f"new-command-{command_amount + 1}"] = command_contents
-    cli_present["commands"] = cli_commands
-    utilities.<span class="fc">write_json</span>(cli_path, cli_present)
-    print(f"New command added to Cli File {cli_path}")
-
-                        </code></pre>
-                </div>
-                <div class="snippet-code">
-                    <pre><code class="python">
-def new_command(cli_path, arg_amount, target_type):
-    utilities.<span class="fc">check_cli_path</span>(cli_path):
-    command_contents = data.<span class="pc">COMMAND_CONTENT</span>.<span class="fc">copy</span>()
-    target = targets[target_type] if target_type is not None else {}
-    command_contents["target"] = target
-
-    if arg_amount != 0:
-    arguments = {}
-    for i in range(arg_amount):
-        arguments[f"new-arguments-{i}"] = data.<span class="pc">ARGUMENT_CONTENT</span>.<span class="fc">copy</span>()
-        command_contents["arguments"] = arguments
-
-    cli_present = utilities.<span class="fc">read_json</span>(cli_path)
-    cli_commands = cli_present["commands"]
-    command_amount = <span class="mc">len</span>(cli_commands.<span class="fc">keys</span>())
-    cli_commands[f"new-command-{command_amount + 1}"] = command_contents
-    cli_present["commands"] = cli_commands
-    utilities.<span class="fc">write_json</span>(cli_path, cli_present)
-    print(f"New command added to Cli File {cli_path}")
-
-                        </code></pre>
-                </div>
-
-                <p>Now lets test our new command. Let's run the code and made a new command in the cli file we created
-                    previously with 2 command and a class target. We use this command:</p>
+                <p>Now lets test our new command. Let's run the code and make a new command in the "cli-test.json" we created previously with 2 commands and a class target. We use the command:</p>
                 <div class="cross-platform-code">
                     <div class="platforms">
                         <button type="button"></button>
@@ -918,9 +923,7 @@ def new_command(cli_path, arg_amount, target_type):
                         <p class="output">python3 cli.py new-command cli-test.json 2 -class</p>
                     </div>
                 </div>
-                <p>This will execute the python code an add new modification to the cli file. Now lets explore the
-                    alternative route, since we have defined the arguments, CliMate knows what we are looking for if we
-                    also what to use the menu. Open the menu by calling the file with no command or arguments.</p>
+                <p>This will execute the python code and add a new modification to the cli file. Now lets explore the alternative route, since we have defined the arguments, CliMate knows what we are looking for if we also what to use the menu. Open the menu by calling the file with no command or arguments.</p>
                 <div class="cross-platform-code">
                     <div class="platforms">
                         <button type="button"></button>
@@ -931,19 +934,12 @@ def new_command(cli_path, arg_amount, target_type):
                         <p class="output">python3 cli.py</p>
                     </div>
                 </div>
-                <p>Then navigate and select the <span class="dc">"new-command"</span> command that we had just added (It
-                    will come up as <span class="sc">New Command For Cli File</span> in the menu). As you can see you
-                    are prompted for each argument and the datatypes are adjusted behind the scenes with validation
-                    included for your user inputs. No compromises with either method of using the command line
-                    application all facilitated by the cli file</p>
+                <p>Then navigate and select the <span class="dc">"new-command"</span> command that we had just added (It will come up as <span class="sc">New Command For Cli File</span> in the menu). As you can see you are prompted for each argument and the data types are adjusted behind the scenes with validation included for your user inputs. No compromises with either method of using the command line application all facilitated by the Cli file.</p>
             </div>
             <!-- ! Arguments - Datatypes Reference -->
             <div class="tutorial-subsection" id="types-reference">
-                <h3 class="section-header">Datatypes Reference</h3>
-                <p>The standard datatypes such as integers, floats and strings are accounted for her but there are a fer
-                    more that are worth mentionaing their structures and unique key. A lot of these dattypes are out of
-                    the scope for what was required to bring CliMate to lif. So this section will go over all datatypes
-                    separate from this.</p>
+                <h3 class="section-header">Data types Reference</h3>
+                <p>The standard data types such as integers, floats and strings are accounted for here but there are a few more that are worth mentioning. Some of these data types are out of the scope for what was required to bring CliMate to life. So this section will go over all data types separate from this.</p>
                 <div class="tutorial-accordion">
                     <div class="accordion-header">
                         <div class="accordion-title">
@@ -1053,20 +1049,8 @@ def new_command(cli_path, arg_amount, target_type):
             <!-- ! Arguments - General Arguments -->
             <div class="tutorial-subsection" id="general-arguments">
                 <h3 class="section-header">General Arguments</h3>
-                <p>Lets get back to making our CliMate clone, lets add the next command: <span
-                        class="dc">"new-argument"</span>. This command will add a set number of arguments to a chosen
-                    command in the cli file. So we also have three arguments, the first again being the path to the cli
-                    file, the second being the name of the command we want to add and finally the number of arguments we
-                    want to add to the existing command.</p>
-                <p>As you might have noticed already two of the three arguments that we are planning to add were already
-                    declared in the "new-command" arguments. Repeating this again and again for any commands that would
-                    need it (In the case of CliMate this would be a lot) would be an inefficient use of out time. So
-                    instead lets clean up our argument declaration. We look towards the <span
-                        class="dc">"general"</span> field in our cli file to achieve this, we add an <span
-                        class="dc">"arguments"</span> key to this which is a JSON object. This is where we can define
-                    general arguments, which can be re-used in any command throughout the cli file. Lets make the <span
-                        class="dc">"cli-path"</span> argument a general one, lets add its information to the arguments
-                    object.</p>
+                <p>Lets get back to making our CliMate clone, lets add the next command: <span class="dc">"new-argument"</span>. This command will add a set number of arguments to a chosen command in the cli file. So we also have three arguments, the first again being the path to the cli file, the second being the name of the command we want to add and finally the number of arguments we want to add to the existing command.</p>
+                <p>As you might have noticed already two of the three arguments that we are planning to add were already declared in the "new-command" arguments. Repeating this again and again for any commands that would need it (In the case of CliMate this would be a lot) would be an inefficient use of our time. So instead lets clean up our argument declaration. We look towards the <span class="dc">"general"</span> field in our Cli file to achieve this, we add an <span class="dc">"arguments"</span> key to this which is a JSON object. This is where we can define general arguments, which can be re-used in any command throughout the cli file. Lets make the <span class="dc">"cli-path"</span> argument a general one, lets add its information to the arguments object.</p>
                 <div class="code-progression">
                     <div class="code-buttons"></div>
                     <div class="code-file-name">
@@ -1129,10 +1113,7 @@ def new_command(cli_path, arg_amount, target_type):
                             </code></pre>
                     </div>
                 </div>
-                <p>Now to map general arguments to arguments in commands instead of the command name being pointed to
-                    JSON object we point it to astirng of the name of the general arugment instead. So for the <span
-                        class="dc">"new-command"</span> we remove the object from the <span class="dc">"cli-path"</span>
-                    argument and add another <span class="sc">"cli-path</span> string instead:</p>
+                <p>Now to map general arguments to arguments in commands instead of the command name being pointed to JSON object we point it to a stirng of the name of the general argument instead. So for the <span class="dc">"new-command"</span> we remove the object from the <span class="dc">"cli-path"</span> argument and add another <span class="sc">"cli-path</span> string instead:</p>
                 <div class="code-progression">
                     <div class="code-buttons"></div>
                     <div class="code-file-name">
@@ -1292,7 +1273,7 @@ def new_command(cli_path, arg_amount, target_type):
                             </code></pre>
                     </div>
                 </div>
-                <p>To finish up we can add the python logic for the new command to our cli.py file:</p>
+                <p>To finish up we can add the python logic for the new command to our actions.py file:</p>
                 <div class="code-progression">
                     <div class="code-buttons"></div>
                     <div class="code-file-name"><span class="mdi mdi-language-python"></span>
@@ -1301,7 +1282,7 @@ def new_command(cli_path, arg_amount, target_type):
                     <div class="before-code">
                         <pre><code class="python">
 from climate import utilities
-from . import data
+from climate import data
 
 def new_application(cli_dir):...
 
@@ -1311,7 +1292,7 @@ def new_command(cli_path, arg_amount, target_type):...
                     <div class="after-code">
                         <pre><code class="python">
 from climate import utilities
-from . import data
+from climate import data
 
 def new_application(cli_dir):...
 
@@ -1380,7 +1361,7 @@ def new_argument(cli_path, command_name, arg_amount):
                             </code></pre>
                     </div>
                 </div>
-                <p>You can test the new command anyway you like, by using the normal input or the menu but this should be a good primer into creating argument for your commands. We have now gone through much of what the workflow for creating a CliMate application consists of. Most of what we have gone through so far has most of its uses in conventional command line usage. Now lets look more into what is unconventional. CliMate's menus.</p>
+                <p>You can test the new command anyway you like, by using the normal input or the menu but this should be a good primer into creating arguments for your commands. We have now gone through much of what the workflow for creating a CliMate application consists of. Most of what we have gone through so far has most of its uses in conventional command line usage. Now lets look more into what is unconventional: CliMate's menus.</p>
                 <div class="tutorial-accordion">
                     <div class="accordion-header">
                         <div class="accordion-title">
@@ -1389,7 +1370,7 @@ def new_argument(cli_path, command_name, arg_amount):
                         <div class="accordion-indicator"></div>
                     </div>
                     <div class="accordion-contents">
-                        <p>General Arguments also allow you to use argument inheritance. Lets say for some reason we want one of our next command we required the <span class="dc">"arg-amount"</span> however we wanted it to have a different default value:</p>
+                        <p>General Arguments also allow you to use argument inheritance. Lets say for some reason in one of our next commands we require the <span class="dc">"arg-amount"</span> argument, however we wanted it to have a different default value:</p>
                         <pre><code class="json">
 {
     "general": {...},
@@ -1410,7 +1391,7 @@ def new_argument(cli_path, command_name, arg_amount):
     }
 }
                         </code></pre>
-                        <p>We can use this to attach this to map the general <span class="dc">"arg-amount"</span> argument and change its key. This method can also be used to add new keys to your commands. You may have wondered why the mapping system works the way it does. Where we usually find ourselves defining the same name for argument that it is <span class="dc">"cli-path"</span>:<span class="sc">"cli-path"</span>, this is just to keep the command the same.</p>
+                        <p>We can use this to attach this to map the general <span class="dc">"arg-amount"</span> argument and change its key. This method can also be used to add new keys to your commands. You may have wondered why the mapping system works the way it does. Where we usually find ourselves defining the same name for argument like <span class="dc">"cli-path"</span>:<span class="sc">"cli-path"</span>, this is just to keep the command the same.</p>
                     </div>
                 </div>
             </div>
@@ -1420,8 +1401,8 @@ def new_argument(cli_path, command_name, arg_amount):
             <h2 class="section-header">Menus</h2>
             <div class="tutorial-subsection" id="extra-options">
                 <h3 class="section-header">Extra Options</h3>
-                <p>The menu option for CliMate application are an integral part of the how the package works. They can be disabled for more traditional command line experience but I would implore you to keep it enabled as more options of using your application can hardly ever be a bad thin. Many keys are tied directly and indirectly to this system and to explore this, we will be adding two more command to our application, but first we will quickly refine one our previous command to work better with the menus.</p>
-                <p>The <span class="dc">"new-app"</span> command gives the option to add a <span class="dc">"target"</span> template automatically to a new command. If this option is omitted when using the standard command line a <span class="pc">None</span> is passed to this argument in the functions. So you can add the case where someone doesn't know what target they want to add upon initially creating the command. This option is not present in the menu at this time, so for a better user experience we will add this. Luckily for us CLiMate makes this easy for us to achieve. We go back to <span class="dc">"new-command"</span> and add a <span class="dc">"fallback"</span> key to its <span class="dc">"target-type"</span> argument. This key will allow us to add a fourth extra choice to this argument in the menu that will return <span class="pc">None</span> when a user chooses it. The key points to the text that we want the choice to possess, let make out text <span class="sc">"Add Target Later"</span>. The code block below will reflect this small change to our application</p>
+                <p>The menu option for CliMate applications are an integral part of how the package works. They can be disabled for more traditional command line experience but I would implore you to keep it enabled as more options of using your application can hardly ever be a bad thing. Many keys are tied directly and indirectly to this system and to explore this, we will be adding two more commands to our application. Before we do this, we will quickly refine one of our previous commands to work better with the menus.</p>
+                <p>The <span class="dc">"new-app"</span> command gives the option to add a <span class="dc">"target"</span> template automatically to a new command. If this option is omitted when using the standard command line a <span class="pc">None</span> is passed to this argument in the functions. So you can add the case where someone doesn't know what target they want to add upon initially creating the command. This option is not present in the menu at this time, so for a better user experience we will add this. Luckily for us CLiMate makes this easy for us to achieve. We go back to <span class="dc">"new-command"</span> and add a <span class="dc">"fallback"</span> key to its <span class="dc">"target-type"</span> argument. This key will allow us to add a fourth extra choice to this argument in the menu that will return <span class="pc">None</span> when a user chooses it. The key points to the text that we want the choice to possess, let make our text <span class="sc">"Add Target Later"</span>. The code block below will reflect this small change to our application</p>
                 <div class="code-progression">
                     <div class="code-buttons"></div>
                     <div class="code-file-name">
@@ -1507,7 +1488,7 @@ def new_argument(cli_path, command_name, arg_amount):
             <!-- ! Menus - Structured Menus -->
             <div class="tutorial-subsection" id="adding-structure">
                 <h3 class="section-header">Adding Structure</h3>
-                <p>We are able to add command now lets add the functionality to remove one. This command will only need two arguments, the path to the cli json file and the name of the command that we want to remove from said file. We have already defined both of these arguments in previous command, lets change <span class="dc">"command-name"</span> argument to a general-argument and then we can easily write this new command for the removal, the code is below.</p>
+                <p>We are able to add commands now, lets add the functionality to remove one. This command will only need two arguments, the path to the Cli file and the name of the command that we want to remove from said file. We have already defined both of these arguments in previous commands, lets change <span class="dc">"command-name"</span> argument to a general-argument and then we can easily write this new command for the removal, the code is below.</p>
                 <div class="banner-separator">
                     <p>1. Adding the General <span class="dc">"command-name"</span> Argument</p>
                 </div>
@@ -1557,18 +1538,18 @@ def new_argument(cli_path, command_name, arg_amount):
 }
                                 </code></pre>
                             </div>
-                        </div>
-                        <div class="banner-separator">
-                            <p>2. Modifying The <span class="dc">"new-argument"</span> Command</p>
-                        </div>
-                        <div class="code-progression">
-                            <div class="code-buttons"></div>
-                            <div class="code-file-name">
-                                <span class="mdi mdi-code-json"></span>
-                                <p>cli.json</p>
-                            </div>
-                            <div class="before-code">
-                                <pre><code class="json">
+                </div>
+                <div class="banner-separator">
+                    <p>2. Modifying The <span class="dc">"new-argument"</span> Command</p>
+                </div>
+                <div class="code-progression">
+                    <div class="code-buttons"></div>
+                    <div class="code-file-name">
+                        <span class="mdi mdi-code-json"></span>
+                        <p>cli.json</p>
+                    </div>
+                    <div class="before-code">
+                        <pre><code class="json">
 {
     "general": {...},
     "commands": {
@@ -1590,10 +1571,10 @@ def new_argument(cli_path, command_name, arg_amount):
         }
     }
 }
-                                </code></pre>
-                            </div>
-                            <div class="after-code">
-                                <pre><code class="json">
+                    </code></pre>
+                </div>
+                <div class="after-code">
+                    <pre><code class="json">
 {
     "general": {...},
     "commands":  {
@@ -1618,18 +1599,18 @@ def new_argument(cli_path, command_name, arg_amount):
 <span class="dc">"command-name"</span>: "command-name"
                                 </code></pre>
                             </div>
-                        </div>
-                        <div class="banner-separator">
-                            <p>3. Adding the <span class="dc">"remove-command"</span></p>
-                        </div>
-                        <div class="code-progression">
-                            <div class="code-buttons"></div>
-                            <div class="code-file-name">
-                                <span class="mdi mdi-code-json"></span>
-                                <p>cli.json</p>
-                            </div>
-                            <div class="before-code">
-                                <pre><code class="json">
+                </div>
+                <div class="banner-separator">
+                    <p>3. Adding the <span class="dc">"remove-command"</span></p>
+                </div>
+                <div class="code-progression">
+                    <div class="code-buttons"></div>
+                    <div class="code-file-name">
+                        <span class="mdi mdi-code-json"></span>
+                        <p>cli.json</p>
+                    </div>
+                    <div class="before-code">
+                        <pre><code class="json">
 {
     "general": {...},
     "commands": {
@@ -1638,10 +1619,10 @@ def new_argument(cli_path, command_name, arg_amount):
         "new-argument": {...}
     }
 }
-                                </code></pre>
-                            </div>
-                            <div class="after-code">
-                                <pre><code class="json">
+                    </code></pre>
+                </div>
+                <div class="after-code">
+                    <pre><code class="json">
 {
     "general": {...},
     "commands": {
@@ -1663,10 +1644,10 @@ def new_argument(cli_path, command_name, arg_amount):
         }
     }
 }
-                                </code></pre>
-                            </div>
-                            <div class="snippet-code">
-                                <pre><code class="json">
+                    </code></pre>
+                </div>
+                <div class="snippet-code">
+                    <pre><code class="json">
 <span class="dc">"remove-command"</span>: {
     "name": "Remove Command",
     "description": "Remove An Existing Command",
@@ -1680,38 +1661,24 @@ def new_argument(cli_path, command_name, arg_amount):
         "command-name": "command-name"
     }
 }
-                                </code></pre>
-                            </div>
-                        </div>
-                        <p>Now we add the python code that we want to execute when the command is called. All this code does is modify the dictionary of the Cli File and remove the command matching the provided <span class="dc">"command-name"</span>.</p>
-                        <div class="code-progression">
-                            <div class="code-buttons"></div>
-                            <div class="code-file-name">
-                                <span class="mdi mdi-language-python"></span>
-                                <p>actions.py</p>
-                            </div>
-                            <div class="before-code">
-                                <pre><code class="python">
-from climate import utilities
-from . import data
-
-def new_application(cli_dir):...
-
-def new_command(cli_path, arg_amount, target_type):...
-
-def new_argument(cli_path, command_name, arg_amount):...
-                                </code></pre>
-                            </div>
-                            <div class="after-code">
-                                <pre><code class="python">
-from climate import utilities
-from . import data
-
-def new_application(cli_dir):...
-
-def new_command(cli_path, arg_amount, target_type):...
-
-def new_argument(cli_path, command_name, arg_amount):...
+                        </code></pre>
+                    </div>
+                </div>
+                <p>Now we add the python code that we want to execute when the command is called. All this code does is modify the dictionary of the Cli File and remove the command matching the provided as the <span class="dc">"command-name"</span> argument.</p>
+                <div class="code-progression">
+                    <div class="code-buttons"></div>
+                    <div class="code-file-name">
+                        <span class="mdi mdi-language-python"></span>
+                        <p>actions.py</p>
+                    </div>
+                    <div class="before-code">
+                        <pre><code class="python">
+# ...
+                    </code></pre>
+                </div>
+                <div class="after-code">
+                    <pre><code class="python">
+# ...
 
 def remove_command(cli_path, command_name):
     utilities.<span class="fc">check_cli_path</span>(cli_path)
@@ -1745,16 +1712,16 @@ def remove_command(cli_path, command_name):
     print(f"Command '{command_name}' removed from Cli File {cli_path}")
                                 </code></pre>
                             </div>
-                        </div>
-                        <p>You can now test this new command and remove on of the command we created in the cli-test.json file. Moving on lets add the second command <span class="dc">"remove-command"</span> we will use the first two arguments plus a new one called <span class="dc">"argument-name"</span> this will give the name of the argument we want to remove. The code for this is below as well as the accompanying python code. You already know the drill by now.</p>
-                        <div class="code-progression">
-                            <div class="code-buttons"></div>
-                            <div class="code-file-name">
-                                <span class="mdi mdi-code-json"></span>
-                                <p>cli.json</p>
-                            </div>
-                            <div class="before-code">
-                                <pre><code class="json">
+                </div>
+                <p>You can now test this new command and remove one of the commands we created in the cli-test.json file. Moving on, lets add the second command <span class="dc">"remove-command"</span> we will use the first two arguments plus a new one called <span class="dc">"argument-name"</span> this will give the name of the argument we want to remove. The code for this is below as well as the accompanying python code. You already know the drill by now.</p>
+                <div class="code-progression">
+                    <div class="code-buttons"></div>
+                    <div class="code-file-name">
+                        <span class="mdi mdi-code-json"></span>
+                        <p>cli.json</p>
+                    </div>
+                    <div class="before-code">
+                        <pre><code class="json">
 {
     "general": {...},
     "commands": {
@@ -1819,20 +1786,20 @@ def remove_command(cli_path, command_name):
 }
                                 </code></pre>
                             </div>
-                        </div>
-                        <div class="code-progression">
-                        <div class="code-buttons"></div>
-                        <div class="code-file-name">
-                            <span class="mdi mdi-language-python"></span>
-                            <p>actions.py</p>
-                        </div>
-                        <div class="before-code">
-                            <pre><code class="python">
+                </div>
+                <div class="code-progression">
+                <div class="code-buttons"></div>
+                <div class="code-file-name">
+                    <span class="mdi mdi-language-python"></span>
+                    <p>actions.py</p>
+                </div>
+                <div class="before-code">
+                    <pre><code class="python">
 # ...
-                            </code></pre>
-                        </div>
-                        <div class="after-code">
-                            <pre><code class="python">
+                    </code></pre>
+                </div>
+                <div class="after-code">
+                    <pre><code class="python">
 # ...
 
 def remove_argument(cli_path, command_name, argument_name):
@@ -1873,17 +1840,17 @@ def remove_argument(cli_path, command_name, argument_name):
     print(f"Argument '{argument_name}' remove from command {command_name}")
                             </code></pre>
                         </div>
-                    </div>
-                    <p>We have now finished the creation of our basic version of CliMate, with the general command that you might find yourself using a lot in the future. If we were going to add more commands overtime the menu will pile ip with a lot of different command and although they are presented in the order they are written in the cli file this could be overwhelming. For this we can introduce a menu field to your application. This allows us to group and organise command in the menu. It also allows us to change the names of each command as we create this new menu system. We can start this by adding a <span class="dc">"menu"</span> field to our <span class="dc">"general"</span> field in the Cli File or by utilising the convenience command:</p>
-                    <div class="terminal-block">
-                        <p><span class="pc">clm</span> add-menu cli.json</p>
-                    </div>
-                    <p>This adds an empty menu field to the Cli File, we can now structure the commands how we desire. The menu field holds json objects that can be used to group the commands. Any key that leads to a JSON object in the file is now a separate section of the menu that can be navigated both up and down between. Any key that leads to a string, will result in CliMate resolving the corresponding command. Below shows a structure I thought would be satisfactory for our current application.</p>
-                    <div class="code-progression">
-                    <div class="code-buttons"></div>
-                    <div class="code-file-name"></div>
-                    <div class="before-code">
-                    <pre><code class="json">
+                </div>
+                <p>We have now finished the creation of our basic version of CliMate. If we were going to add more commands overtime the menu will pile up with a lot of different commands and although they are presented in the order they are written in the Cli file this could be overwhelming. For this we can introduce a menu field to your application. This allows us to group and organise commands in the menu. It also allows us to change the names of each command as we create this new menu system. We can start this by adding a <span class="dc">"menu"</span> field to our <span class="dc">"general"</span> field in the Cli File or by utilising the convenience command:</p>
+                <div class="terminal-block">
+                    <p><span class="pc">clm</span> add-menu cli.json</p>
+                </div>
+                <p>This adds an empty menu field to the Cli File, we can now structure the commands how we desire. The menu field holds JSON objects that can be used to group the commands. Any key that leads to a JSON object in the file is now a separate section of the menu that can be navigated both up and down between. Any key that leads to a string, will result in CliMate resolving the corresponding command. Below shows a structure I thought would be satisfactory for our current application.</p>
+                <div class="code-progression">
+                <div class="code-buttons"></div>
+                <div class="code-file-name"></div>
+                <div class="before-code">
+                <pre><code class="json">
 {
     "general": {
         "arguments": {...}
@@ -1936,7 +1903,7 @@ def remove_argument(cli_path, command_name, argument_name):
             <div class="tutorial-subsection" id="advanced">
                 <h3 class="section-header">Advanced</h3>
                 <p>The astute among you may have noticed that there are links between some of the command arguments on offer. For example the <span class="dc">"command-name"</span> is based on what cli file is loaded and the <span class="dc">"argument-name"</span> is based on whatever command was chosen from the command name. For conventionally inputting commands this is just a very simple coincidence but for the menu this introduces some interesting opportunities. As each arguments' data is loaded upon the users' choice between being prompted for each argument. We can use a <span class="dc">"map"</span> key in these arguments to utilise the data previously loaded from the previous argument. So instead of the user having to enter the command they want to remove or add an argument to manually, they are presented with a list of the commands present in the cli file.</p>
-                <p>The <span class="dc">"map"</span> key contains a string of comma separated commands to return the data from a previous command extract the data from this command. Lets add the "map" to the general argument <span class="dc">"command-name"</span> and we can explain it further.</p>
+                <p>The <span class="dc">"map"</span> key contains a string of comma separated commands to return the data from a previous argument and extract the data from this argument. Lets add the "map" to the general argument <span class="dc">"command-name"</span> and we can explain it further.</p>
                 <div class="code-progression">
                     <div class="code-buttons"></div>
                     <div class="code-file-name">
@@ -1972,7 +1939,7 @@ def remove_argument(cli_path, command_name, argument_name):
             "command-name": {
                 "name": "Command Names",
                 "description": "Choice of Command from Cli File",
-                "type": "str",
+                "type": "choices",
                 "map": "read {cli-path}, get keys {commands}"
             },
         },
@@ -1984,11 +1951,13 @@ def remove_argument(cli_path, command_name, argument_name):
                 </div>
                 <div class="snippet-code">
                     <pre><code class="json">
+<span class="dc">"type"</span>: "choices"
+
 <span class="dc">"map"</span>: "read {cli-path}, get keys {commands}"
                     </code></pre>
                 </div>
             </div>
-            <p>Each command object is enclosed in curly brackets and can either be argument names or keys that you want to access in the dictionary data. What CliMate will think it is depends on the function before the curly braces. <span class="sc">"read"</span> and <span class="sc">"get"</span> will be shown here with a reference to the others at the end of this section. We can also add the "map" for the <span class="dc">"argument-name"</span> this is a slightly more complex ordeal but we will explain it thoroughly.</p>
+            <p>Each command object is enclosed in curly brackets and can either be argument names or keys that you want to access in the dictionary data. What CliMate will think it is depends on the function before the curly braces. <span class="sc">"read"</span> and <span class="sc">"get"</span> are shown in action here. We can also add the "map" for the <span class="dc">"argument-name"</span> this is a slightly more complex ordeal but we will explain it thoroughly.</p>
             <div class="code-progression">
                 <div class="code-buttons"></div>
                 <div class="code-file-name">
@@ -2041,7 +2010,7 @@ def remove_argument(cli_path, command_name, argument_name):
                 "argument-name": {
                     "name": "Argument Name",
                     "description": "Name Of Desired Argument",
-                    "type": "str",
+                    "type": "choices",
                     "map": "read {cli-path}, get keys {commands|command-name|arguments}"
                 }
             }
@@ -2052,11 +2021,13 @@ def remove_argument(cli_path, command_name, argument_name):
                 </div>
                 <div class="snippet-code">
                     <pre><code class="json">
+<span class="dc">"type"</span>: "choices"
+
 <span class="dc">"map"</span>: "read {cli-path}, get keys {commands|command-name|arguments}"
                     </code></pre>
                 </div>
             </div>
-            <p>The mapping is similar to the previous, except when we return the dictionary given by <span class="dc">"cli-path"</span> and then we have to navigate deeper into the hierarchy of the dictionary. To achieve this we pass keys separated by a | inside the curly brackets. CliMate will navigate the tree and substitute values for any argument keys it find. For example, in this case the key we chose previously for the <span class="dc">"command-name"</span> is substituted into this navigation and its arguments are returned for the user to choose from. You can test the "remove-argument" command on your cli-test.json file and see how it works. This is much easier than having to input these manually so don't forget that this is an option if you find any intrinsic links between arguments in your commands.</p>
+            <p>The mapping is similar to the previous, except when we return the dictionary given by <span class="dc">"cli-path"</span> and then we have to navigate deeper into the hierarchy of the dictionary. To achieve this we pass keys separated by a | inside the curly brackets. CliMate will navigate the tree and substitute values for any argument keys it finds. For example, in this case the key we chose previously for the <span class="dc">"command-name"</span> is substituted into this navigation and its arguments are returned for the user to choose from. You can test the "remove-argument" command on your cli-test.json file and see how it works. This is much easier than having to input these manually so don't forget that this is an option if you find any intrinsic links between arguments in your commands.</p>
             </div>
             <!-- ! Menu - Mapping Reference -->
             <div class="tutorial-subsection" id="mapping-reference">
@@ -2069,7 +2040,10 @@ def remove_argument(cli_path, command_name, argument_name):
                         </div>
                         <div class="accordion-indicator"></div>
                     </div>
-                    <div class="accordion-contents"></div>
+                    <div class="accordion-contents">
+                        <p>This command takes an argument that corresponds to a file path. It will attempt to read the data from the file object.
+                        It will return a dictionary if the file contains the JSON extension and a list for anything else.</p>
+                    </div>
                 </div>
                 <div class="tutorial-accordion">
                     <div class="accordion-header">
@@ -2078,26 +2052,20 @@ def remove_argument(cli_path, command_name, argument_name):
                         </div>
                         <div class="accordion-indicator"></div>
                     </div>
-                    <div class="accordion-contents"></div>
-                </div>
-                <div class="tutorial-accordion">
-                    <div class="accordion-header">
-                        <div class="accordion-title">
-                            <p><span class="sc">"return_value {}"</span></p>
-                        </div>
-                        <div class="accordion-indicator"></div>
+                    <div class="accordion-contents">
+                        <p>This command can take two arguments inside the placeholder ({}) depending on what modifier you choose. The "keys"
+                        modifier is used for navigating returned dictionaries and the line will return a line for the file in question.</p>
                     </div>
-                    <div class="accordion-contents"></div>
                 </div>
             </div>
         </div>
         <div class="tutorial-section" id="customisation">
             <h2 class="section-header">Customisation</h2>
-            <p>Customise the feel of your CliMate application through application-specific settings</p>
+            <p>Customise the feel of your CliMate application through application-specific settings.</p>
             <!-- ! Customisation - Setting Settings -->
             <div class="tutorial-subsection" id="climate-settings">
                 <h3 class="section-header">CliMate Settings</h3>
-                <p>CliMate applications can be customised at runtime by passing a settings dictionary object to the CliMate constructor. This dictionary should contain keys to the CliMate settings listed below and their modified values. To illustrate this lets quickly change a couple of settings in your application below is two methods of editing the cli file to modify your application settings. It is down to personal preference which one you use as they both achieve the same result.</p>
+                <p>CliMate applications can be customised at runtime by passing a settings dictionary object to the CliMate constructor. This dictionary should contain keys to the CliMate settings listed below and their modified values. To illustrate this lets quickly change a couple of settings in your application. Below is two methods of editing the cli file to modify your application settings. It is down to personal preference which one you use as they both achieve the same result.</p>
                 <div class="banner-separator">
                     <p>Using The CliMate Class Constructor</p>
                 </div>
@@ -2193,12 +2161,12 @@ climate.<span class="fc">set_settings</span>(cli_settings)
                         <p class="output">python3 cli.py</p>
                     </div>
                 </div>
-                <p>You can see that CliMate is displayed at the top of the menu. Now navigate to the help function and instead of saying show commands, show the documentation instead. This will now open a webpage to the very website you have been using for this tutorial, neat right?</p>
+                <p>You can see that CliMate is displayed at the top of the menu. Now navigate to the help function and instead of saying show commands, show the documentation instead. This will now open a webpage to the very website you have been using for this documentation, neat right?</p>
             </div>
             <!-- ! Customisation - Settings Reference -->
             <div class="tutorial-subsection" id="settings-reference">
                 <h3 class="section-header">Settings Reference</h3>
-                <!-- TODO add settings as reference -->
+                <p>Currently, these are all the settings that you can change in CliMate. These should be able to cover any of your current needs for the package.</p>
                 <div class="tutorial-accordion">
                     <div class="accordion-header">
                         <div class="accordion-title">
@@ -2206,7 +2174,10 @@ climate.<span class="fc">set_settings</span>(cli_settings)
                         </div>
                         <div class="accordion-indicator"></div>
                     </div>
-                    <div class="accordion-contents"></div>
+                    <div class="accordion-contents">
+                        <p class="dc">Boolean Type</p>
+                        <p>Determines whether CliMate applications has a menu. This is set to <span class="pc">True</span> by default.</p>
+                    </div>
                 </div>
                 <div class="tutorial-accordion">
                     <div class="accordion-header">
@@ -2215,7 +2186,10 @@ climate.<span class="fc">set_settings</span>(cli_settings)
                         </div>
                         <div class="accordion-indicator"></div>
                     </div>
-                    <div class="accordion-contents"></div>
+                    <div class="accordion-contents">
+                        <p class="dc">String Type</p>
+                        <p>Sets path to application documentation, either a url or file path.</p>
+                    </div>
                 </div>
                 <div class="tutorial-accordion">
                     <div class="accordion-header">
@@ -2224,7 +2198,10 @@ climate.<span class="fc">set_settings</span>(cli_settings)
                         </div>
                         <div class="accordion-indicator"></div>
                     </div>
-                    <div class="accordion-contents"></div>
+                    <div class="accordion-contents">
+                        <p class="dc">String Type</p>
+                        <p>Sets desired application name, to be displayed in main menu.</p>
+                    </div>
                 </div>
                 <div class="tutorial-accordion">
                     <div class="accordion-header">
@@ -2233,7 +2210,10 @@ climate.<span class="fc">set_settings</span>(cli_settings)
                         </div>
                         <div class="accordion-indicator"></div>
                     </div>
-                    <div class="accordion-contents"></div>
+                    <div class="accordion-contents">
+                        <p class="dc">Boolean Type</p>
+                        <p>Determines whether "Help" option is added to standard menu (When no menu is present in cli.json file). Will have no affect if <span class="sc">"use_menu"</span> settings is set to <span class="pc">False</span>. Set to <span class="pc">True</span> by default.</p>
+                    </div>
                 </div>
                 <div class="tutorial-accordion">
                     <div class="accordion-header">
@@ -2242,7 +2222,10 @@ climate.<span class="fc">set_settings</span>(cli_settings)
                         </div>
                         <div class="accordion-indicator"></div>
                     </div>
-                    <div class="accordion-contents"></div>
+                    <div class="accordion-contents">
+                        <p class="dc">Boolean Type</p>
+                        <p>Determines whether "Exit" option is added to standard menu (When no menu is present in cli.json file). Will have no affect if <span class="sc">"use_menu</span> settings is set to <span class="pc">False</span>. Set to <span class="pc">True</span> by default.</p>
+                    </div>
                 </div>
                 <div class="tutorial-accordion">
                     <div class="accordion-header">
@@ -2251,7 +2234,10 @@ climate.<span class="fc">set_settings</span>(cli_settings)
                         </div>
                         <div class="accordion-indicator"></div>
                     </div>
-                    <div class="accordion-contents"></div>
+                    <div class="accordion-contents">
+                        <p class="dc">Boolean Type</p>
+                        <p>Determines if instead of passing arguments through list unpacking <span class="fc">function</span>(*arguments), dictionary unpacking <span class="fc">function</span>(**arguments) is used. Set to <span class="pc">False</span> by Default.</p>
+                    </div>
                 </div>
                 <div class="tutorial-accordion">
                     <div class="accordion-header">
@@ -2260,7 +2246,10 @@ climate.<span class="fc">set_settings</span>(cli_settings)
                         </div>
                         <div class="accordion-indicator"></div>
                     </div>
-                    <div class="accordion-contents"></div>
+                    <div class="accordion-contents">
+                        <p class="dc">String Type</p>
+                        <p>Sets message that is display on help sub menu.</p>
+                    </div>
                 </div>
                 <div class="tutorial-accordion">
                     <div class="accordion-header">
@@ -2269,7 +2258,10 @@ climate.<span class="fc">set_settings</span>(cli_settings)
                         </div>
                         <div class="accordion-indicator"></div>
                     </div>
-                    <div class="accordion-contents"></div>
+                    <div class="accordion-contents">
+                        <p class="dc">Boolean Type</p>
+                        <p>Sets whether the application will exit after completing command or it will loop back to where the user was in the menu hierarchy. This setting will only take affect if <span class="dc">"menu"</span> field is present in cli as well as the <span class="sc">"use_menu"</span> settings being set to <span class="pc">True</span>. </p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -2279,7 +2271,7 @@ climate.<span class="fc">set_settings</span>(cli_settings)
             <!-- ! Geneal Development - Packages -->
             <div class="tutorial-subsection" id="packages">
                 <h3 class="section-header">Writing Packages</h3>
-                <p>When creation your own projects you might find yourself using the setuptools library to add <span class="dc"><i>entry_points</i></span> for your scripts that utilise CliMate. if this is the case you will want to add the path command to your CliMate application so the help function can display it. To do this you can add the <span class="dc">"calls"</span> key to <span class="dc">"general"</span> field. This accepts an array containing the path commands as strings. Below shows what this would look like in your CliMate clone application with the calls that are used for the CliMate package.</p>
+                <p>When creating your own projects you might find yourself using the setuptools library to add <span class="dc"><i>entry_points</i></span> for your scripts that utilise CliMate. if this is the case you will want to add the path command to your CliMate application so the help function can display it. To do this you can add the <span class="dc">"calls"</span> key to <span class="dc">"general"</span> field. This accepts an array containing the path commands as strings. Below shows what this would look like in your CliMate clone application with the calls that are used for the CliMate package itself.</p>
                 <div class="code-progression">
                     <div class="code-buttons"></div>
                     <div class="code-file-name">
@@ -2315,7 +2307,7 @@ climate.<span class="fc">set_settings</span>(cli_settings)
                         </code></pre>
                     </div>
                 </div>
-                <p>You can test these changes by calling the help command below for our application. You will see the change reflected in the usage section of the help printing.</p>
+                <p>You can test these changes by calling the help command below for our application. You will see the change reflected in the usage section of the help function print.</p>
                 <div class="cross-platform-code">
                     <div class="platforms">
                         <button type="button"></button>
@@ -2345,7 +2337,7 @@ climate.<span class="fc">set_settings</span>(cli_settings)
                 <pre><code class="python">
 from climate import prompt
                 </code></pre>
-                <p>A list containing standard PyInquirer questions or just one question can be passed to this function for you're menu navigation. A basic snippet is shown below for this but for more information on how to use this library to its fullest potential check their Github <a href="https://github.com/CITGuru/PyInquirer">here</a>, they did some amazing work.</p>
+                <p>A list containing standard PyInquirer questions or just one question can be passed to this function for you're menu navigation. Basic snippets are shown below for this but for more information on how to use this library to its fullest potential check their Github <a href="https://github.com/CITGuru/PyInquirer">here</a>, they did some amazing work.</p>
                 <div class="banner-separator"><p>One Question Prompts</p></div>
                 <pre><code class="python">
 from climate import prompt
@@ -2385,7 +2377,7 @@ print("Hello <span class="pc">{}</span> <span class="pc">{}</span>".<span class=
             <!-- ! General Development - Commands Reference -->
             <div class="tutorial-subsection" id="commands-reference">
                 <h3 class="section-header">Commands Reference</h3>
-                <p>Writing your cli application should be fast and as easy as possible. From creating our CliMate clone you have seen some of the commands on offer to make this process so, but there are more. Since we have finished the general workflow and processes when writing CliMate application, it is time to introduce you to all the convenience commands you can use for making your job and in turn life easier.</p>
+                <p>Writing your Cli application should be fast and as easy as possible. From creating our CliMate clone you have seen some of the commands on offer to make this process so, but there are more. Since we have finished the general workflow and processes when writing CliMate application, it is time to introduce you to all the convenience commands you can use for making your job and in turn life easier.</p>
                 <div class="tutorial-accordion">
                     <div class="accordion-header">
                         <div class="accordion-title">
@@ -2393,7 +2385,12 @@ print("Hello <span class="pc">{}</span> <span class="pc">{}</span>".<span class=
                         </div>
                         <div class="accordion-indicator"></div>
                     </div>
-                    <div class="accordion-contents"></div>
+                    <div class="accordion-contents">
+                        <p class="sc">Start the Command Line Application, Creating Cli File.</p><br>
+                        <p>Arguments<p>
+                        <p><span class="pc">cli-dir</span> (str) (default: ""): Directory Path Where Cli File Will Be Located.</p>
+                        <p><span class="pc">path-commands</span> (bool) (default: false): Determines If Your Application Is Called From a A String In Path.</p>
+                    </div>
                 </div>
                 <div class="tutorial-accordion">
                     <div class="accordion-header">
@@ -2402,7 +2399,13 @@ print("Hello <span class="pc">{}</span> <span class="pc">{}</span>".<span class=
                         </div>
                         <div class="accordion-indicator"></div>
                     </div>
-                    <div class="accordion-contents"></div>
+                    <div class="accordion-contents">
+                        <p class="sc">Add A New Command To A Specified Cli File.</p><br>
+                        <p>Arguments</p>
+                        <p><span class="pc">cli-path</span> (str) (default: "cli.json"): Path To The Cli File.</p>
+                        <p><span class="pc">arg-amount</span> (int) (default: 1): Specified Amount Of Arguments.</p>
+                        <p><span class="pc">target-type</span> (choices): Choice Of Targets | <span class="dc">--class</span>  <span class="dc">--method</span> <span class="dc">--function</span></p>
+                    </div>
                 </div>
                 <div class="tutorial-accordion">
                     <div class="accordion-header">
@@ -2411,7 +2414,13 @@ print("Hello <span class="pc">{}</span> <span class="pc">{}</span>".<span class=
                         </div>
                         <div class="accordion-indicator"></div>
                     </div>
-                    <div class="accordion-contents"></div>
+                    <div class="accordion-contents">
+                        <span class="sc">Add A New Argument To An Existing Command.</span><br>
+                        <p>Arguments</p>
+                        <p><span class="pc">cli-path</span> (str) (default: "cli.json"): Path To The Cli File.</p>
+                        <p><span class="pc">command-name</span> (str): Choice of command from cli.json file.</p>
+                        <p><span class="pc">arg-amount</span> (int) (default: 1): Specified Amount Of Arguments.</p>
+                    </div>
                 </div>
                 <div class="tutorial-accordion">
                     <div class="accordion-header">
@@ -2420,7 +2429,12 @@ print("Hello <span class="pc">{}</span> <span class="pc">{}</span>".<span class=
                         </div>
                         <div class="accordion-indicator"></div>
                     </div>
-                    <div class="accordion-contents"></div>
+                    <div class="accordion-contents">
+                        <span class="sc">Add New Argument To General Field In Cli File.</span><br>
+                        <p>Arguments</p>
+                        <p><span class="pc">cli-path</span> (str) (default: "cli.json"): Path To The Cli File.</p>
+                        <p><span class="pc">arg-amount</span> (int) (default: 1): Specified Amount Of Arguments.</p>
+                    </div>
                 </div>
                 <div class="tutorial-accordion">
                     <div class="accordion-header">
@@ -2429,7 +2443,11 @@ print("Hello <span class="pc">{}</span> <span class="pc">{}</span>".<span class=
                         </div>
                         <div class="accordion-indicator"></div>
                     </div>
-                    <div class="accordion-contents"></div>
+                    <div class="accordion-contents">
+                        <span class="sc">Add Menu Field To Cli File To Change Menu. Layout</span><br>
+                        <p>Arguments</p>
+                        <p><span class="pc">cli-path</span> (str) (default: "cli.json"): Path To The Cli File.</p>
+                    </div>
                 </div>
                 <div class="tutorial-accordion">
                     <div class="accordion-header">
@@ -2438,7 +2456,12 @@ print("Hello <span class="pc">{}</span> <span class="pc">{}</span>".<span class=
                         </div>
                         <div class="accordion-indicator"></div>
                     </div>
-                    <div class="accordion-contents"></div>
+                    <div class="accordion-contents">
+                        <span class="sc">Remove An Existing Command From Cli File.</span><br>
+                        <p>Arguments</p>
+                        <p><span class="pc">cli-path</span> (str) (default: "cli.json"): Path To The Cli File.</p>
+                        <p><span class="pc">command-name</span> (str): Choice of command from cli.json file.</p>
+                    </div>
                 </div>
                 <div class="tutorial-accordion">
                     <div class="accordion-header">
@@ -2447,7 +2470,13 @@ print("Hello <span class="pc">{}</span> <span class="pc">{}</span>".<span class=
                         </div>
                         <div class="accordion-indicator"></div>
                     </div>
-                    <div class="accordion-contents"></div>
+                    <div class="accordion-contents">
+                        <span class="sc">Remove Argument From Existing Command.</span><br>
+                        <p>Arguments</p>
+                        <p><span class="pc">cli-path</span> (str) (default: "cli.json"): Path To The Cli File.</p>
+                        <p><span class="pc">command-name</span> (choices): Choice of command from cli.json file.</p>
+                        <p><span class="pc">argument-name</span> (choices): Name (key) of desired argument.</p>
+                    </div>
                 </div>
                 <div class="tutorial-accordion">
                     <div class="accordion-header">
@@ -2456,73 +2485,124 @@ print("Hello <span class="pc">{}</span> <span class="pc">{}</span>".<span class=
                         </div>
                         <div class="accordion-indicator"></div>
                     </div>
-                    <div class="accordion-contents"></div>
+                    <div class="accordion-contents">
+                        <span class="sc">Add path commands to application by scanning setup file.</span><br>
+                        <p>Arguments</p>
+                        <p><span class="pc">cli-path</span> (str) (default: "cli.json"): Path To The Cli File.</p>
+                        <p><span class="pc">setup-path</span> (str) (default: "cli.json"): Path to setup.py file for python modules.</p>
+
+                    </div>
                 </div>
             </div>
+            <!-- ! General Development - Utilities Reference -->
             <div class="tutorial-subsection" id="utilities-reference">
                 <h3 class="section-header">Utilities Reference</h3>
+                <p>These python function may prove useful when you're creating your CliMate application so they are listed here for your use using the import:</p>
+                <pre><code class="python">
+from climate import utilities
+                </code></pre>
                 <div class="tutorial-accordion">
                     <div class="accordion-header">
                         <div class="accordion-title">
-                            <p>read_json(path)</p>
+                            <p>read_json(<span class="pc">path</span>)</p>
                         </div>
                         <div class="accordion-indicator"></div>
                     </div>
-                    <div class="accordion-contents"></div>
+                    <div class="accordion-contents">
+                        <p class="sc">Read JSON data from file with custom exception handling.</p><br>
+                        <p>Parameters</p>
+                        <p><span class="pc">path</span> (str): Path To JSON File.</p><br>
+                        <p>Returns</p>
+                        <p>json_data (dict): Dictionary of data loaded from JSON File.</p>
+                    </div>
                 </div>
                 <div class="tutorial-accordion">
                     <div class="accordion-header">
                         <div class="accordion-title">
-                            <p>write_json(path, contents)</p>
+                            <p>write_json(<span class="pc">path</span>, <span class="pc">contents</span>, <span class="pc">indent_amount</span> = <span class="pc">4</span>)</p>
                         </div>
                         <div class="accordion-indicator"></div>
                     </div>
-                    <div class="accordion-contents"></div>
+                    <div class="accordion-contents">
+                        <p class="sc">Write JSON data from dictionary to file object.</p><br>
+                        <p>Parameters</p>
+                        <p><span class="pc">path</span> (str): Path To JSON file.</p>
+                        <p><span class="pc">contents</span> (dict): Dictionary content to be written to the file.</p>
+                        <p><span class="pc">indent_amount</span> (str) (default = 4): The amount to indent in the JSON file.</p>
+
+                    </div>
                 </div>
                 <div class="tutorial-accordion">
                     <div class="accordion-header">
                         <div class="accordion-title">
-                            <p>read_data(path, modifier)</p>
+                            <p>read_data(<span class="pc">path</span>, <span class="pc">modifier</span> = <span class="sc">"string"</span>)</p>
                         </div>
                         <div class="accordion-indicator"></div>
                     </div>
-                    <div class="accordion-contents"></div>
+                    <div class="accordion-contents">
+                        <p class="sc">Read data from a file object.</p><br>
+                        <p>Parameters</p>
+                        <p><span class="pc">path</span> (str): Path To File You Want To Read</p>
+                        <p><span class="pc">modifier</span> (str) (default = "string"): Determines whether a file's contents is loaded into a "string" or "list" formats.</p><br>
+                        <p>Returns</p>
+                        <p>data (str, list): Data from file object as either a string or list.</p>
+                    </div>
                 </div>
                 <div class="tutorial-accordion">
                     <div class="accordion-header">
                         <div class="accordion-title">
-                            <p>write_data(path, contents)</p>
+                            <p>write_data(<span class="pc">path</span>, <span class="pc">contents</span>)</p>
                         </div>
                         <div class="accordion-indicator"></div>
                     </div>
-                    <div class="accordion-contents"></div>
+                    <div class="accordion-contents">
+                        <p class="sc">Write data to a file object.</p><br>
+                        <p>Parameters</p>
+                        <p><span class="pc">path</span> (str): Path to file object.</p>
+                        <p><span class="pc">contents</span> (str, list, tuple): Content to be written to the file.</p>
+                    </div>
                 </div>
                 <div class="tutorial-accordion">
                     <div class="accordion-header">
                         <div class="accordion-title">
-                            <p>get_entry(path, contents)</p>
+                            <p>get_entry()</p>
                         </div>
                         <div class="accordion-indicator"></div>
                     </div>
-                    <div class="accordion-contents"></div>
+                    <div class="accordion-contents">
+                        <p class="sc">Fetch the name of the file entry point.</p><br>
+                        <p>Returns</p>
+                        <p>base_entry (str): Name of the entry file.</p>
+                    </div>
                 </div>
                 <div class="tutorial-accordion">
                     <div class="accordion-header">
                         <div class="accordion-title">
-                            <p>check_cli_dir(cli_dir)</p>
+                            <p>check_cli_dir(<span class="pc">cli_dir</span>)</p>
                         </div>
                         <div class="accordion-indicator"></div>
                     </div>
-                    <div class="accordion-contents"></div>
+                    <div class="accordion-contents">
+                        <p class="sc">Check A Specified Cli Dir Is Present</p><br>
+                        <p>Parameters</p>
+                        <p><span class="pc">cli_dir</span> (str): Path To Cli Dir</p>
+                    </div>
                 </div>
                 <div class="tutorial-accordion">
                     <div class="accordion-header">
                         <div class="accordion-title">
-                            <p>join_path(path1, path2)</p>
+                            <p>join_path(<span class="pc">path1</span>, <span class="pc">path2</span>)</p>
                         </div>
                         <div class="accordion-indicator"></div>
                     </div>
-                    <div class="accordion-contents"></div>
+                    <div class="accordion-contents">
+                        <p class="sc">Join Two File Paths (Wrapper For OS Library)</p><br>
+                        <p>Parameters</p>
+                        <p><span class="pc">path1</span> (str): First Section of path</p>
+                        <p><span class="pc">path2</span> (str) Second Section of path</p><br>
+                        <p>Returns</p>
+                        <p>joined_path (str): Joined path</p>
+                    </div>
                 </div>
             </div>
         </div>

@@ -12,15 +12,15 @@ class Settings(object):
     app_name: str
         Sets desired application name, to be displayed in main menu.
     menu_help: bool
-        Determines whether 'Help' option is added to standard menu (When no menu is present in cli.json file). Will have no effect if 'use_menu' settings is set to False. True by default.
+        Determines whether 'Help' option is added to standard menu (When no menu is present in cli.json file). Will have no affect if 'use_menu' settings is set to False. True by default.
     menu_exit: bool
-        Determines whether 'Exit' option is added to standard menu (When no menu is present in cli.json file). Will have no effect is 'use_menu' settings is set to False. True by default.
+        Determines whether 'Exit' option is added to standard menu (When no menu is present in cli.json file). Will have no affect is 'use_menu' settings is set to False. True by default.
     pass_by_dict: bool
         Determines if instead of passing arguments through list unpacking (*arguments), dictionary unpacking (**arguments) is used. False by Default.
     help_menu_message: str
         Sets message that is displayed on the help sub menu.
     exit_upon_command: bool
-        Sets whether the application will exit after completing command or it will loop back to where the user was in the menu hierarchy. This settings only take effect if 'menu' field is present in cli as well as the 'use_menu' setting being set to True.
+        Sets whether the application will exit after completing command or it will loop back to where the user was in the menu hierarchy. This setting only takes affect if 'menu' field is present in cli as well as the 'use_menu' setting being set to True.
     """
     settings = {
         "use_menu": True,

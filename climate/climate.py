@@ -6,7 +6,6 @@ import sys
 from climate.lib import actions
 from climate.lib import utilities
 from climate.core import Menu, Help, Parsing,Settings
-from climate.core.exceptions import ClimateArgumentError
 
 MODULEPATH = str(os.path.abspath(os.path.dirname(__file__)))
 

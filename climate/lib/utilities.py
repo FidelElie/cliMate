@@ -65,8 +65,26 @@ def write_json(path, contents, indent_amount = 4):
 
 def write_data(path, contents):
     # TODO add extra logic to this
+    """Write data to a file object
+
+    Parameters
+    ----------
+    path: str
+        Path to file object.
+    contents: str, list, tuple
+        Content to be written to the file.
+    """
     with open(path, "w") as data_file:
         data_file.write(contents)
+
+    try:
+        with open(path, "w") as data_file:
+            if isinstance(contents, str):
+                data_file.write(contents)
+            elif isinstance(contents, (tuple, list)):
+                data_file.write("\n".join(contents))
+    except FileNotFoundError:
+        raise FileNotFoundError(f"File Object Could Not Be Found at path {path}")
 
 def read_json(path):
     """Read JSON data from file with corresponding custom exceptions.
@@ -106,12 +124,22 @@ def read_data(path, modifier = "string"):
         Path to file you want to be read.
     modifier: str
         Modifiers 'list' or 'string' for how the file should be read.
+
+    Returns
+    -------
+    data: str
+        Data from file object as either a string or list.
     """
-    with open(path, "r") as _file:
-        if modifier == "list":
-            data = _file.readlines()
-        else:
-            data = _file.read()
+    if not os.path.isfile(path):
+        raise FileNotFoundError(f"")
+    try:
+        with open(path, "r") as _file:
+            if modifier == "list":
+                data = _file.readlines()
+            else:
+                data = _file.read()
+    except FileNotFoundError:
+        raise FileNotFoundError(f"File To Be Loaded Could Not Be Found")
 
     return data
 
@@ -129,12 +157,34 @@ def get_entry():
     return base_entry
 
 def check_cli_dir(cli_dir):
+    """Check If A Specified Cli Dir is Present
+
+    Parameters
+    ----------
+    cli_dir: str
+        Path To Cli Dir
+    """
     if cli_dir is not "":
         if not os.path.isdir(cli_dir):
             os.makedirs(cli_dir)
 
 def join_path(path1, path2):
-    return os.path.join(path1, path2)
+    """ Join Two File Paths (Wrapper For Os Library)
+
+    Parameters
+    ----------
+    path1: str
+        First section of path
+    path2: str
+        Second section of path
+
+    Returns
+    -------
+    joined_path: str
+        Joined path
+    """
+    joined_path = os.path.join(path1, path2)
+    return joined_path
 
 
 

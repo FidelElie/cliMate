@@ -39,10 +39,10 @@ class Menu(object):
         self.settings = settings
 
     def open_main_menu(self):
-        if "menu" not in self.cli_data:
+        if "menu" not in self.cli_data["general"]:
             self.standard_navigation()
         else:
-            self.locations = self.cli_data["menu"]
+            self.locations = self.cli_data["general"]["menu"]
             self.menued_navigation()
 
     def standard_navigation(self):

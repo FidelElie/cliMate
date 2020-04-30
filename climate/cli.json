@@ -26,7 +26,7 @@
             "arg-amount": {
                 "name": "Argument Amounts",
                 "type": "int",
-                "description": "Number of arguments to add",
+                "description": "Specified Amount Of Aruguments",
                 "default": 1
             }
         }
@@ -44,7 +44,7 @@
                 "cli-dir": "cli-dir",
                 "path-commands": {
                     "name": "Call Application Through Path Command",
-                    "description": "Determines If Your Application Is Called Form A String In Path.",
+                    "description": "Determines If Your Application Is Called Form A String In Path",
                     "type": "bool",
                     "default": false
                 }
@@ -103,7 +103,7 @@
         },
         "remove-command": {
             "name": "Remove Command",
-            "description": "Remove An Existing Command",
+            "description": "Remove An Existing Command From Cli File",
             "target": {
                 "type": "function",
                 "module-name": "climate.lib.actions",

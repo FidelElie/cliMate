@@ -74,8 +74,9 @@ class Parsing(object):
         settings: dict
             Climate settings passed to function.
         """
+        revised_arguments = {}
         for arg in arguments:
-            arguments[arg.replace("-", "_")] = arguments.pop(arg)
+            revised_arguments[arg.replace("-", "_")] = arguments[arg]
 
         if "module-name" in target:
             if target["module-name"] in sys.modules:
@@ -102,10 +103,10 @@ class Parsing(object):
 
         if arguments:
             if not settings["pass_by_dict"]:
-                list_arguments = [arguments[key] for key in arguments]
+                list_arguments = [revised_arguments[key] for key in revised_arguments]
                 _object(*list_arguments)
             else:
-                _object(**arguments)
+                _object(**revised_arguments)
         else:
             _object()
 

@@ -23,6 +23,8 @@ def new_application(cli_dir: str, path_commands: bool):
     json_path = os.path.join(cli_dir, "cli.json")
     python_path = os.path.join(cli_dir, "cli.py")
 
+    cli_contents = data.CLI_CONTENT.copy()
+
     if path_commands:
         path_command = {"calls": []}
         cli_contents["general"].update(path_command)
@@ -53,7 +55,7 @@ def new_command(cli_path: str, arg_amount: int, target_type: str):
     command_contents = data.COMMAND_CONTENT.copy()
 
     if target_type is not None:
-        target = TARGETS[target_type]
+        target = data.TARGETS[target_type]
     else:
         target = {}
 

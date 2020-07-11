@@ -5,7 +5,7 @@ def readme():
         return f.read()
 
 setuptools.setup(name='py-CliMate',
-      version='0.1.0',
+      version='0.1.1',
       description='Creating Cli Application With An Edge',
       long_description=readme(),
       classifiers=[
